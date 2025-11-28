@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dutch Dash - Stories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c7c7cc;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a1a1aa;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100 to-blue-50 text-slate-800">
+
+    <div id="app-container"
+        class="w-full max-w-md md:max-w-4xl bg-white/80 backdrop-blur-xl md:rounded-[2.5rem] shadow-2xl overflow-hidden h-full md:h-[85vh] flex flex-col relative border border-white/50 ring-1 ring-black/5">
+
+        <!-- Header -->
+        <div
+            class="bg-white/90 backdrop-blur-md p-4 md:p-6 text-slate-800 flex justify-between items-center border-b border-slate-100 z-10 shrink-0">
+            <div class="flex items-center">
+                <a href="index.html"
+                    class="mr-4 text-slate-500 hover:text-indigo-600 transition p-2 rounded-full hover:bg-slate-100">
+                    <i class="fas fa-home text-lg"></i>
+                </a>
+                <button id="back-button" onclick="showList()"
+                    class="hidden mr-4 text-slate-500 hover:text-indigo-600 transition p-2 rounded-full hover:bg-slate-100">
+                    <i class="fas fa-chevron-left text-lg"></i>
+                </button>
+                <h1 id="header-title" class="font-extrabold text-xl tracking-tight text-slate-800 flex items-center">
+                    <i class="fas fa-book-open mr-2 text-indigo-600"></i>Stories
+                </h1>
+            </div>
+        </div>
+
+        <!-- Progress Bar (Visual only for now) -->
+        <div class="w-full bg-gray-200 h-1 shrink-0">
+            <div class="bg-indigo-500 h-1 w-0 transition-all duration-300 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+        </div>
+
+        <div class="flex-1 overflow-hidden relative">
+
+            <!-- Story List -->
+            <div id="story-list" class="absolute inset-0 p-6 md:p-10 overflow-y-auto custom-scrollbar">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800">Choose a Story</h2>
+                    <p class="text-gray-500 text-sm">Practice your listening and reading skills</p>
+                </div>
+
+                <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-4">
+                    <!-- Stories will be injected here -->
+                    <div class="col-span-full text-center text-slate-400 py-10">
+                        <i class="fas fa-circle-notch fa-spin mr-2"></i> Loading stories...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Detail -->
+            <div id="story-detail" class="absolute inset-0 flex flex-col overflow-hidden bg-white hidden">
+                <div class="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-10">
+                    <div class="max-w-3xl mx-auto">
+
+                        <!-- Hero Image & Audio -->
+                        <div class="flex flex-col md:flex-row gap-6 mb-8 items-center">
+                            <div class="w-full md:w-1/3 shrink-0">
+                                <div
+                                    class="aspect-square rounded-2xl overflow-hidden shadow-lg border-4 border-white bg-slate-100">
+                                    <img id="detail-image" src="" class="w-full h-full object-cover" alt="Story Image">
+                                </div>
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <h2 id="detail-title" class="text-3xl font-extrabold text-slate-800 mb-4 leading-tight">
+                                </h2>
+
+                                <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
+                                    <audio id="audio-player" controls class="w-full accent-indigo-600">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text Content -->
+                        <div id="detail-text"
+                            class="prose prose-lg prose-slate max-w-none text-slate-600 leading-relaxed">
+                            <!-- Text goes here -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Configuration
+        const stories = [
+            {
+                id: 1,
+                title: "De Verkeerde Koffer",
+                body: `De man staat midden in de kamer. Het is nacht. De stad buiten is stil en donker.
+Hij kijkt naar het bed. Daar ligt het ding. Het is zwart. Het is groot. Het is een koffer.
+Hij weet het zeker: dit is niet zijn koffer. Het lijkt erop, ja. Zelfde kleur. Zelfde maat. Maar het gevoel is fout. Deze is zwaar. Te zwaar.
+Zijn handen zijn koud. Hij is moe van de reis, maar hij kan niet slapen. Hij moet het weten. Hij loopt naar het bed. Hij luistert. Hoort hij iets in de gang? Nee. Alleen de wind tegen het raam.
+Hij legt zijn hand op het slot. Het is open. Langzaam doet hij de koffer open.
+Er liggen geen kleren in. Geen boeken. Er ligt alleen geld. Een grote hoop oud geld. En boven op het geld ligt één foto.
+De man pakt de foto. Zijn bloed wordt koud. Op de foto staat een man. De man staat in een kleine kamer. Hij staat naast een bed. Hij opent een zwarte koffer. Hij kijkt goed naar het gezicht op de foto. Het is zijn eigen gezicht. Hij kijkt naar de kleren op de foto. Het zijn de kleren die hij nu draagt.
+De foto is niet van gisteren. De foto is van dit moment.
+Zijn hart slaat hard in zijn keel. Boem. Boem. Iemand is hier. Iemand kijkt naar hem. Nu. Hij kijkt snel naar de hoek van de kamer. Niets. Hij kijkt naar de kast. Dicht.
+Dan hoort hij een geluid. Stappen. Op de gang. Stap. Stap. Stap. De stappen zijn zwaar en langzaam. Ze stoppen precies voor zijn deur.
+De man stopt met ademen. Hij wacht. Onder de deur door schuift een wit stuk papier. Hij pakt het van de grond. Zijn vingers trillen. Er staat één woord op, met rode letters geschreven: Bedankt.
+Dan draait het slot van zijn deur. Langzaam. De deur gaat open.`,
+                image: "stories/1.webp",
+                audio: "stories/1.wav"
+            },
+            {
+                id: 2,
+                title: "Geen Slot",
+                body: `Het is drie uur in de nacht. De stad is stil. Het is koud.
+Erik loopt door de straat. Hij komt van zijn werk. Hij is moe. Zijn hoofd is vol, maar zijn leven is leeg. Hij wil naar bed.
+Hij ziet een bank bij het park. Er ligt iets op de bank. Het is klein en zwart. Erik stopt. Hij kijkt om zich heen. De straat is donker. Niemand te zien. Geen auto, geen mens, geen hond.
+Hij pakt het ding. Het is een telefoon.
+Het glas is warm. Iemand was hier net. Iemand heeft hier gezeten.
+Erik raakt het scherm aan. Het licht is fel aan zijn ogen. Hij wacht op een code. Of een gezicht. Maar nee. Geen slot. Het ding is open. Vreemd. Iedereen heeft geheimen. Iedereen heeft een slot. Deze persoon niet.
+Hij ziet een foto op de achtergrond. Een vrouw. Ze lacht. Ze lijkt gelukkig.
+Ineens: geluid.
+De telefoon belt.
+Het geluid is hard in de stille nacht. Erik schrikt. Hij kijkt naar het scherm. Geen naam. Geen nummer. Alleen het licht.
+Hij moet het laten liggen. Hij moet weglopen. Dat is de veilige keuze. Maar Erik is nieuwsgierig. Zijn leven is saai. Dit is een kans.
+Hij drukt op de knop. Hij brengt het ding naar zijn oor.
+"Hallo?" zegt Erik zacht.
+Het is stil aan de andere kant. Erik hoort alleen adem. Zwaar ademen.
+Dan spreekt een stem. Een man. De stem klinkt heel dichtbij.
+"Heb je hem?" vraagt de stem.
+Erik zegt niets. Zijn hart slaat snel.
+"Luister goed," zegt de stem. De stem is koud, zoals de nacht. "De politie zoekt die telefoon. Maar wij zien jou. Draai je niet om."
+Erik stopt met ademen. Hij voelt kou in zijn rug.
+"Loop naar de hoek," zegt de stem. "Stap in de zwarte auto. En hang niet op."
+Erik kijkt naar de hoek van de straat. De lichten van een auto gaan aan.`,
+                image: "stories/2.webp",
+                audio: "stories/2.wav"
+            },
+            {
+                id: 3,
+                title: "De Stille Gast",
+                body: `Het is zaterdag. Drie uur in de nacht. Mijn auto is warm, maar buiten is het koud. Het water valt hard op de straat.
+Ik wil naar huis. Ik wil slapen. Maar ik heb het geld nodig. Mijn dochter moet naar school. De prijs is hoog. Dus ik blijf rijden.
+Ik zie een man staan. Op de hoek van de straat. Hij draagt een zwart pak. Hij steekt zijn hand op. Ik stop.
+De man opent de deur en gaat achter mij zitten. "Goedenavond," zeg ik. "Waar gaan we heen?"
+Stilte.
+Ik wacht. Ik kijk even naar achter. De man kijkt recht vooruit. Hij zegt niets. Geen woord. "Meneer? Ik heb een adres nodig."
+Hij beweegt langzaam. Hij wijst met zijn vinger naar voren. Ik start de auto. We rijden.
+De stad is leeg. Alleen wij. Het geluid van de auto klinkt hard. De sfeer in de auto is vreemd. Zwaar. Ik krijg een koud gevoel. Ik kijk weer naar de man. Hij zit heel stil. Hij lijkt wel een beeld. Hij ademt niet, lijkt het. Is hij ziek? Is hij gek?
+Hij wijst naar links. Ik ga naar links. Dan wijst hij naar rechts. We rijden weg uit het centrum. Richting het bos. Hier is geen licht. Het is donker.
+"We zijn te ver," zeg ik. Mijn stem is zacht. "Ik ga terug." De man draait zijn hoofd. Voor de eerste keer kijkt hij mij aan. Zijn ogen zijn groot en donker. Hij pakt iets uit zijn zak. Een envelop. Hij legt de envelop naast mij. Dan opent hij de deur. De auto rijdt nog een beetje. Hij stapt uit. Hij loopt het bos in. Hij verdwijnt in de nacht.
+Mijn hart slaat snel in mijn lichaam. Ik ben alleen. Ik pak de envelop. Hij zit vol met geld. Veel geld. En één foto.
+Ik kijk naar de foto. Ik word koud. Op de foto staat een meisje. Mijn dochter. In haar bed. Ze slaapt. Ik draai de foto om. Er staat een tijd op de achterkant. 03:00 uur.
+Ik kijk naar de tijd in de auto. Het is nu 03:15 uur. Ik pak mijn telefoon. Ik bel mijn huis. Niemand neemt op.`,
+                image: "stories/3.webp",
+                audio: "stories/3.wav"
+            },
+            {
+                id: 4,
+                title: "Het Verkeerde Bericht",
+                body: `Het is 03:00 uur in de nacht. De stad is donker. Het huis is stil. Mark zit op de bank. Hij kan niet slapen. Zijn vrouw ligt boven in bed. Ze droomt, maar Mark denkt alleen maar na. Hij heeft zorgen over zijn werk.
+In de keuken ligt een mobiel op tafel. Het is niet de telefoon van Mark. Het is een oud ding. Het toestel is zwart. Ineens maakt het geluid. Eén keer. Kort.
+Mark staat op. Hij loopt naar de tafel. Het licht van het scherm is felblauw in de donkere kamer. Het licht doet pijn aan zijn ogen. Hij kijkt naar de tekst. Het bericht komt van een onbekend nummer.
+De tekst is simpel: "Het is klaar. Het probleem is weg."
+Mark fronst. Hij begrijpt het niet. Een fout nummer? Hij wil terug naar de bank gaan. Maar dan komt er direct een tweede bericht. Mark wacht. Hij voelt een vreemde angst in zijn buik. Hij kijkt weer.
+Dit keer is het een foto.
+Mark houdt zijn adem in. Op de foto ziet hij een bos. Het is nacht op de foto, maar hij ziet het duidelijk. Er is een diep gat in de grond. In het gat ligt een man. De man beweegt niet. Er is bloed op zijn gezicht. Mark kijkt goed. Zijn hart slaat over. Hij kent de man.
+Het is de directeur van zijn bedrijf.
+Mark trilt. Hij laat de mobiel bijna vallen. Dit is geen spel. Dit is echt. De directeur is dood.
+Dan komt het derde bericht: "Maak het geld over. Nu. Of ik bel de politie."
+Mark staat stil. Hij hoort een geluid bij de voordeur. Iemand draait aan het slot. De deur gaat langzaam open. Koude lucht komt de gang in.
+Het is Simon, de broer van Mark. Simon woont hier niet. Hij heeft geen sleutel. Maar de deur is open. Simon staat in de gang. Zijn jas is vies. Er zit aarde op zijn schoenen. Hij ziet er moe uit.
+Simon kijkt naar de keuken. Hij ziet Mark. Dan ziet hij het blauwe licht in de hand van Mark.
+Simon stopt. Zijn gezicht wordt wit. Hij doet de deur zachtjes dicht. Hij lacht niet.
+"Mark," zegt Simon zacht. "Dat is mijn telefoon. Ik was hem kwijt."
+Mark kijkt naar de foto van de dode man. Hij kijkt naar de aarde op de schoenen van zijn broer.
+"Geef hier," zegt Simon. Hij doet een stap naar voren. Hij steekt zijn hand uit.
+Mark beweegt niet.`,
+                image: "stories/4.webp",
+                audio: "stories/4.wav"
+            },
+            {
+                id: 5,
+                title: "De Brief uit het Verleden",
+                body: `Het is zondagavond. Het is donker en stil in huis. Mark zit op de bank. Op de grond ligt een brief.
+De brief is oud. Hij is niet wit, maar geel. Mark pakt het ding. Zijn vingers zijn koud. Hij kijkt naar de tekst op de achterkant.
+14 november 1990.
+Mark beweegt niet. 1990 is lang geleden. Zijn vader schreef deze brief. Mark kent de naam. Maar zijn vader is dood. Hij is al tien jaar dood.
+Dit kan niet.
+Mark opent de brief. Zijn handen zijn niet stil. Hij haalt het bericht eruit. Hij leest de woorden.
+“Lieve Mark. Sorry. Ga weg. Nu. Drink de wijn niet.”
+Mark leest het nog een keer. “Drink de wijn niet.”
+Hij voelt angst in zijn hart.
+Op de tafel staat een kop. De kop is vol. De wijn is rood. Donkerrood. Zoals bloed.
+Mark hoort een geluid. Iemand loopt in de gang. Het is zijn vrouw. Ze komt de kamer binnen. Ze lacht. Ze ziet er lief uit.
+“Heb je de brief gevonden?” vraagt ze.
+Mark kijkt naar haar. Hij zegt niets. Hij kijkt naar de kop op de tafel.
+“Ik schreef de brief,” zegt ze zacht. “In 1990. Ik wist dat je hem vandaag zou vinden.”
+Ze loopt naar de tafel. Ze wijst naar de kop.
+“Drink,” zegt ze. “Het is tijd.”
+Mark kijkt naar de deur. De deur is dicht. Het is te laat.
+Hij pakt de kop.`,
+                image: "stories/5.webp",
+                audio: "stories/5.wav"
+            }
+        ];
+
+        const els = {
+            list: document.getElementById('story-list'),
+            detail: document.getElementById('story-detail'),
+            grid: document.getElementById('stories-grid'),
+            backBtn: document.getElementById('back-button'),
+            headerTitle: document.getElementById('header-title'),
+            detailImage: document.getElementById('detail-image'),
+            detailTitle: document.getElementById('detail-title'),
+            detailText: document.getElementById('detail-text'),
+            audioPlayer: document.getElementById('audio-player')
+        };
+
+        function init() {
+            renderList();
+        }
+
+        function renderList() {
+            els.grid.innerHTML = '';
+            stories.forEach(story => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-1 group fade-in";
+                card.onclick = () => openStory(story);
+
+                card.innerHTML = `
+                    <div class="h-40 overflow-hidden bg-slate-100 relative">
+                        <img src="${story.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/400x300?text=No+Image'">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                        <div class="absolute bottom-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-indigo-600 shadow-sm">
+                            <i class="fas fa-headphones mr-1"></i> Listen
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg text-slate-800 mb-1 group-hover:text-indigo-600 transition-colors line-clamp-1">${story.title}</h3>
+                        <p class="text-sm text-slate-400 line-clamp-2">${story.body.substring(0, 100)}...</p>
+                    </div>
+                `;
+                els.grid.appendChild(card);
+            });
+        }
+
+        function openStory(story) {
+            // Populate Detail
+            els.detailImage.src = story.image;
+            els.detailTitle.textContent = story.title;
+
+            // Format text: simple paragraphs
+            els.detailText.innerHTML = story.body.split('\n').filter(line => line.trim() !== '').map(line => `<p class="mb-4">${line}</p>`).join('');
+
+            els.audioPlayer.src = story.audio;
+            els.audioPlayer.load();
+
+            // Switch View
+            els.list.classList.add('hidden');
+            els.detail.classList.remove('hidden');
+            els.backBtn.classList.remove('hidden');
+
+            // Update Header
+            els.headerTitle.innerHTML = `<span class="truncate max-w-[200px]">${story.title}</span>`;
+        }
+
+        function showList() {
+            els.detail.classList.add('hidden');
+            els.list.classList.remove('hidden');
+            els.backBtn.classList.add('hidden');
+
+            // Stop audio
+            els.audioPlayer.pause();
+
+            // Reset Header
+            els.headerTitle.innerHTML = `<i class="fas fa-book-open mr-2 text-indigo-600"></i>Stories`;
+        }
+
+        // Initialize
+        init();
+
+    </script>
+</body>
+
+</html>

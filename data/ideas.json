@@ -1,0 +1,502 @@
+[
+  {
+    "category": "Everyday Mystery",
+    "title": "The Wrong Suitcase",
+    "description": "A traveler takes the wrong bag at the airport and finds something strange inside."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Unlocked Phone",
+    "description": "Someone finds a phone on a park bench. It rings. Do they answer?"
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Silent Passenger",
+    "description": "A taxi driver picks up a customer who refuses to say a single word."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Wrong Text Message",
+    "description": "Receiving a text meant for someone else that reveals a secret."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Letter from 1990",
+    "description": "A letter arrives in the mail today, but it was sent 30 years ago."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Empty House",
+    "description": "A character returns home to find their furniture has been rearranged, but nothing was stolen."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Midnight Gardener",
+    "description": "You notice your neighbor digging a hole in their garden at 3 AM during a storm."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Extra Key",
+    "description": "You find a key on your keychain that you don't recognize, and it doesn't fit any of your locks."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Forgotten Car",
+    "description": "A luxury car has been parked on your street for six months without moving. Today, the trunk is open."
+  },
+  {
+    "category": "Everyday Mystery",
+    "title": "The Noise Upstairs",
+    "description": "You live on the top floor of an apartment building, but you hear footsteps on the roof every night."
+  },
+  {
+    "category": "Social Dynamics & Relationships",
+    "title": "The Dinner Bill",
+    "description": "A group of friends argues over how to split a complicated restaurant bill."
+  },
+  {
+    "category": "Social Dynamics & Relationships",
+    "title": "The Lie",
+    "description": "A small lie that spirals out of control during a dinner party."
+  },
+  {
+    "category": "Social Dynamics & Relationships",
+    "title": "The Boss",
+    "description": "A strict boss suddenly acts very kind. The employees are suspicious."
+  },
+  {
+    "category": "Social Dynamics & Relationships",
+    "title": "The Wedding Guest",
+    "description": "A stranger arrives at a small wedding. Both the bride and groom think the other person invited them."
+  },
+  {
+    "category": "Social Dynamics & Relationships",
+    "title": "The Reunion",
+    "description": "At a high school reunion, everyone remembers a specific student who never actually existed."
+  },
+  {
+    "category": "Social Dynamics & Relationships",
+    "title": "The Perfect Couple",
+    "description": "You have dinner with the 'perfect couple', but under the table, you see one of them holding a knife."
+  },
+  {
+    "category": "Dilemmas & Moral Choices",
+    "title": "The Lottery Ticket",
+    "description": "Two friends buy a ticket together, but one holds onto it. It wins."
+  },
+  {
+    "category": "Dilemmas & Moral Choices",
+    "title": "The Good Deed",
+    "description": "You return a lost wallet with all the cash inside, but the owner accuses you of stealing a credit card."
+  },
+  {
+    "category": "Dilemmas & Moral Choices",
+    "title": "The Promotion",
+    "description": "You get a massive promotion, but you have to fire your best friend to take the role."
+  },
+  {
+    "category": "Dilemmas & Moral Choices",
+    "title": "The Witness",
+    "description": "You see a hit-and-run accident. The driver who drove away is your spouse."
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "The Hitchhiker",
+    "description": "Picking up a stranger on the highway."
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "The Last Train",
+    "description": "You fall asleep on the train and wake up at the final station. The station is abandoned and the doors won't open."
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "The Airbnb Host",
+    "description": "You rent a room, but the host knows intimate details about your life that you never told them."
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "The Detour",
+    "description": "A GPS detour takes you through a small village where everyone stops and stares at your car."
+  },
+  {
+    "category": "Light Psychology",
+    "title": "The Minimalist",
+    "description": "A story about a man who sold everything to live with only 50 items."
+  },
+  {
+    "category": "Light Psychology",
+    "title": "The Imposter",
+    "description": "A successful surgeon suddenly forgets how to hold a scalpel in the middle of an operation."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Lost Password",
+    "description": "A friend gives you an old hard drive with 100 Bitcoin, but they forgot the password."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Ghost Match",
+    "description": "A dating app matches you with someone who went missing 5 years ago."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Group Chat",
+    "description": "You accidentally send a complaining message about your boss to the company group chat."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Influencer",
+    "description": "A famous influencer's life looks perfect online, but a fan sees the sad reality through a window."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Smart Home",
+    "description": "A smart home system locks the doors and refuses to let the owner leave until they eat their vegetables."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Photobomb",
+    "description": "You take a selfie alone in your apartment. In the background of the photo, someone is standing behind you."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Deepfake",
+    "description": "You receive a video call from your mother asking for money, but your mother is sitting right next to you."
+  },
+  {
+    "category": "Digital & Tech Thriller",
+    "title": "The Search History",
+    "description": "You buy a used laptop and find a search history that describes a planned murder."
+  },
+  {
+    "category": "Social Tension & Secrets",
+    "title": "The Elevator",
+    "description": "Getting stuck in an elevator for 4 hours with your ex-partner."
+  },
+  {
+    "category": "Social Tension & Secrets",
+    "title": "The Whisper",
+    "description": "At a loud party, someone whispers a secret in your ear. You turn around, but no one is there."
+  },
+  {
+    "category": "Social Tension & Secrets",
+    "title": "The Open Mic",
+    "description": "A comedian starts telling a story about a crime on stage. You realize he is describing something you did."
+  },
+  {
+    "category": "High Stakes Mystery",
+    "title": "The Package",
+    "description": "A drone delivers a package to your balcony. It contains a timer counting down."
+  },
+  {
+    "category": "High Stakes Mystery",
+    "title": "The GPS",
+    "description": "Your GPS leads you to an empty field and says 'You have arrived.' Then the car locks."
+  },
+  {
+    "category": "High Stakes Mystery",
+    "title": "The Cafe Plot",
+    "description": "You overhear two men at a cafe planning a crime. They look at you."
+  },
+  {
+    "category": "High Stakes Mystery",
+    "title": "The 3 PM Signal",
+    "description": "Every day at exactly 3:00 PM, a black car honks outside your house, but no one is inside."
+  },
+  {
+    "category": "High Stakes Mystery",
+    "title": "The Statue Man",
+    "description": "A man sitting on a park bench hasn't moved for 24 hours. People start to worry."
+  },
+  {
+    "category": "High Stakes Mystery",
+    "title": "The Briefcase",
+    "description": "A man leaves a briefcase on the subway. You run to give it back, but he looks terrified and runs away."
+  },
+  {
+    "category": "Twisted Dilemmas",
+    "title": "The Inheritance",
+    "description": "You inherit a mansion, but you only keep it if you spend one night in the basement."
+  },
+  {
+    "category": "Twisted Dilemmas",
+    "title": "The Free Warning",
+    "description": "A stranger pays for your coffee and leaves a note that says: 'Don't go home tonight.'"
+  },
+  {
+    "category": "Twisted Dilemmas",
+    "title": "The Prediction",
+    "description": "You find a diary in a used bookstore that describes your day tomorrow."
+  },
+  {
+    "category": "Twisted Dilemmas",
+    "title": "The Swap",
+    "description": "A billionaire offers you 10 million dollars for 5 years of your life. You wake up 5 years older instantly."
+  },
+  {
+    "category": "Modern Lifestyle Experiments",
+    "title": "The Yes Man",
+    "description": "A character decides to say 'Yes' to every request for 24 hours."
+  },
+  {
+    "category": "Modern Lifestyle Experiments",
+    "title": "Van Life",
+    "description": "A couple sells their house to live in a van, but the reality is much dirtier than Instagram."
+  },
+  {
+    "category": "Modern Lifestyle Experiments",
+    "title": "The Digital Detox",
+    "description": "A group of friends goes to a cabin without phones. They realize they have nothing to say to each other."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Shadow Friend",
+    "description": "A lonely man meets a new friend who does all the illegal things the man secretly wants to do."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Shared Dream",
+    "description": "A character discovers that everyone in their small town had the exact same dream last night."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Forgotten Room",
+    "description": "A woman discovers a door in her childhood home that her parents swear does not exist."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Mask",
+    "description": "A polite man realizes he cannot take his 'work smile' off his face. It is stuck."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "Synchronicity",
+    "description": "A specific number appears everywhere (clock, bus, receipt) until the character follows it."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Narrator",
+    "description": "A man hears a voice narrating his life, but the narrator starts lying to him."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Invisible Man",
+    "description": "After losing his job and status, a man realizes people literally cannot see him anymore."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Projection",
+    "description": "A woman hates her new colleague intensely, until she realizes the colleague is an exact copy of herself."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Recurring Stranger",
+    "description": "A figure from your recurring nightmare suddenly walks into your office in real life."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Loop",
+    "description": "A character repeats the same argument with their partner every day until they find the 'root' word."
+  },
+  {
+    "category": "Psychoanalytic Thriller",
+    "title": "The Child",
+    "description": "A successful CEO meets a child in the park who knows secrets only the CEO knew at age 5."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Glass Wall",
+    "description": "A man can see the life he wants, but an invisible wall blocks him. He realizes he built the wall himself."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Critic's Theater",
+    "description": "A musician performs on stage, but the only people in the audience are the negative voices in his head."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Waiting Room",
+    "description": "A room full of people waiting for 'the perfect moment' to start their lives. One man decides to leave."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Heavy Backpack",
+    "description": "A hiker carries a backpack that gets heavier every time he holds a grudge. He must empty it to survive the mountain."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Unfinished Symphony",
+    "description": "An artist enters a museum filled with beautiful but unfinished works. He realizes perfectionism is a graveyard."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Lucky Coin",
+    "description": "A man finds a coin he thinks gives him luck. He becomes successful, then loses the coin. Does the success stop?"
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Script",
+    "description": "A man finds a physical script of his life in his mailbox. He is shocked to see he is just a background character, so he starts improvising."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Two Wolves",
+    "description": "A literal interpretation where a man is followed by two dogs—one angry, one calm. They grow or shrink based on his thoughts."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Future Self",
+    "description": "You meet yourself from 10 years in the future. They look at you with disappointment. You have 10 minutes to ask why."
+  },
+  {
+    "category": "Mindset & Psychology",
+    "title": "The Second Arrow",
+    "description": "A samurai teaches a student that the first arrow (pain) is inevitable, but the student keeps stabbing himself with the second arrow (suffering)."
+  },
+  {
+    "category": "Corporate Thriller",
+    "title": "The Empty Office",
+    "description": "You arrive at work on Monday, but your office is completely empty. Everyone else is working as normal."
+  },
+  {
+    "category": "Corporate Thriller",
+    "title": "The NDA",
+    "description": "You are offered a job with a salary of 1 million a year. The only rule: you can never tell anyone what you do."
+  },
+  {
+    "category": "Corporate Thriller",
+    "title": "The Night Shift",
+    "description": "A security guard watches the monitors of an empty building. One night, a monitor shows a party happening in the basement."
+  },
+  {
+    "category": "Corporate Thriller",
+    "title": "The Ghost Employee",
+    "description": "Payroll keeps sending checks to an employee named 'John Doe', but nobody in the office has ever seen him."
+  },
+  {
+    "category": "Corporate Thriller",
+    "title": "The Glass Ceiling",
+    "description": "A woman discovers that the floor above her office, where the executives work, doesn't actually exist on the building plans."
+  },
+  {
+    "category": "Domestic Noir",
+    "title": "The Hidden Camera",
+    "description": "You find a hidden camera in your living room. It's connected to your own laptop."
+  },
+  {
+    "category": "Domestic Noir",
+    "title": "The Neighbor's Dog",
+    "description": "The neighbor's dog barks at everyone except the mailman. One day, the mailman enters the house and doesn't come out."
+  },
+  {
+    "category": "Domestic Noir",
+    "title": "The Attic",
+    "description": "You hear a phone vibrating in your attic. You don't own a phone that vibrates."
+  },
+  {
+    "category": "Domestic Noir",
+    "title": "The Grocery List",
+    "description": "You find a grocery list in your pocket written in your handwriting, but for items you are allergic to."
+  },
+  {
+    "category": "Urban Legend",
+    "title": "The Last Bus",
+    "description": "You take the night bus. It drives past your stop, leaves the city, and keeps driving into the darkness."
+  },
+  {
+    "category": "Urban Legend",
+    "title": "Apartment 404",
+    "description": "The elevator has a button for the 4th floor, but the building only has 3 floors. One day, you press it."
+  },
+  {
+    "category": "Urban Legend",
+    "title": "The Smiling Woman",
+    "description": "A woman on the street smiles at you. You walk 5 blocks, turn a corner, and she is there smiling again."
+  },
+  {
+    "category": "Urban Legend",
+    "title": "The Payphone",
+    "description": "An old payphone on a deserted street rings. A voice says, 'They know what you did.'"
+  },
+  {
+    "category": "Surreal & Abstract",
+    "title": "The Infinite Library",
+    "description": "You enter a library where every book contains a different version of your life."
+  },
+  {
+    "category": "Surreal & Abstract",
+    "title": "The Color Blue",
+    "description": "One morning, the color blue disappears from the world. No one notices except you."
+  },
+  {
+    "category": "Surreal & Abstract",
+    "title": "The Stop Watch",
+    "description": "You buy a stopwatch. When you press pause, the entire world freezes, except for you."
+  },
+  {
+    "category": "Surreal & Abstract",
+    "title": "The Mirror",
+    "description": "You look in the mirror, but your reflection blinks one second later than you do."
+  },
+  {
+    "category": "Identity & Memory",
+    "title": "The Stranger in the Photo",
+    "description": "You look at your childhood family photos and see a stranger standing in the background of every single picture."
+  },
+  {
+    "category": "Identity & Memory",
+    "title": "The Forgotten Language",
+    "description": "You wake up speaking a language you never learned, but you can't speak your native tongue anymore."
+  },
+  {
+    "category": "Identity & Memory",
+    "title": "The Diary Entry",
+    "description": "You find a diary entry from yesterday written in your handwriting. You have no memory of writing it."
+  },
+  {
+    "category": "Identity & Memory",
+    "title": "The Name Tag",
+    "description": "You arrive at a conference. Everyone is wearing a name tag with your name on it."
+  },
+  {
+    "category": "Identity & Memory",
+    "title": "The False Memory",
+    "description": "You and your sibling have the exact same vivid childhood memory, but it could only have happened to one of you."
+  },
+  {
+    "category": "Modern Anxiety",
+    "title": "The Unsubscribed",
+    "description": "You try to unsubscribe from a spam email. The computer screen replies: 'You can never leave.'"
+  },
+  {
+    "category": "Modern Anxiety",
+    "title": "The Rating",
+    "description": "You discover a hidden app on your phone that shows your 'social rating' score. It is dropping fast."
+  },
+  {
+    "category": "Modern Anxiety",
+    "title": "The Notification",
+    "description": "Your phone buzzes with a notification: 'Run.' You look up and see everyone else looking at their phones in terror."
+  },
+  {
+    "category": "Modern Anxiety",
+    "title": "The Battery",
+    "description": "Your phone battery has been at 1% for three days. It won't die, but strange apps keep installing themselves."
+  },
+  {
+    "category": "Crime & Justice",
+    "title": "The Alibi",
+    "description": "Police ask for your alibi for last night. You were home alone, but a stranger comes forward and says they were with you."
+  },
+  {
+    "category": "Crime & Justice",
+    "title": "The Jury",
+    "description": "You are on a jury. The defendant looks exactly like you."
+  },
+  {
+    "category": "Crime & Justice",
+    "title": "The Confession",
+    "description": "A priest hears a confession of a murder that hasn't happened yet. He sees the victim walking outside."
+  }
+]
