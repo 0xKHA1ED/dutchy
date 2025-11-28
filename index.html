@@ -8,33 +8,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap');
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b; /* Zinc 950 */
+        }
+
+        .font-serif {
+            font-family: 'Crimson Pro', serif;
         }
 
         .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+            width: 4px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
+            background: transparent;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #c7c7cc;
+            background: #3f3f46; /* Zinc 700 */
             border-radius: 4px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #a1a1aa;
+            background: #52525b; /* Zinc 600 */
         }
 
         .fade-in {
-            animation: fadeIn 0.3s ease-out forwards;
+            animation: fadeIn 0.4s ease-out forwards;
         }
 
         @keyframes fadeIn {
@@ -51,107 +54,126 @@
 
         .word {
             cursor: pointer;
-            border-radius: 3px;
-            transition: background-color 0.2s;
-            padding: 2px 0;
+            border-radius: 2px;
+            transition: all 0.2s;
+            padding: 1px 0;
+            position: relative;
         }
 
+        /* "New" words - Subtle highlight/underline style */
         .word-new {
-            background-color: #fef08a; /* Yellow-200 */
-            color: #854d0e; /* Yellow-800 */
+            color: #fbbf24; /* Amber 400 */
+            border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
         }
 
         .word-new:hover {
-            background-color: #fde047; /* Yellow-300 */
+            background-color: rgba(251, 191, 36, 0.1);
+            color: #fcd34d; /* Amber 300 */
         }
 
+        /* "Known" words - Text color blends in */
         .word-known {
-            background-color: transparent;
-            color: inherit;
+            color: #d4d4d8; /* Zinc 300 */
         }
 
         .word-known:hover {
-            background-color: #e2e8f0; /* Slate-200 */
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Floating particles effect for background */
+        .bg-particles {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
     </style>
 </head>
 
 <body
-    class="h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100 to-blue-50 text-slate-800">
+    class="h-screen flex flex-col items-center justify-center overflow-hidden bg-zinc-950 text-zinc-100 bg-particles">
 
     <div id="app-container"
-        class="w-full max-w-md md:max-w-4xl bg-white/80 backdrop-blur-xl md:rounded-[2.5rem] shadow-2xl overflow-hidden h-full md:h-[85vh] flex flex-col relative border border-white/50 ring-1 ring-black/5">
+        class="w-full max-w-md md:max-w-4xl bg-zinc-900/90 backdrop-blur-2xl md:rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden h-full md:h-[85vh] flex flex-col relative border border-white/5 ring-1 ring-black">
 
         <!-- Header -->
         <div
-            class="bg-white/90 backdrop-blur-md p-4 md:p-6 text-slate-800 flex justify-between items-center border-b border-slate-100 z-10 shrink-0">
-            <div class="flex items-center">
+            class="bg-zinc-900/80 backdrop-blur-md p-5 md:p-6 text-zinc-100 flex justify-between items-center border-b border-white/5 z-10 shrink-0">
+            <div class="flex items-center gap-3">
                 <button id="back-button" onclick="showList()"
-                    class="hidden mr-4 text-slate-500 hover:text-indigo-600 transition p-2 rounded-full hover:bg-slate-100">
-                    <i class="fas fa-chevron-left text-lg"></i>
+                    class="hidden text-zinc-400 hover:text-white transition p-2 -ml-2 rounded-full hover:bg-white/5">
+                    <i class="fas fa-arrow-left text-lg"></i>
                 </button>
-                <h1 id="header-title" class="font-extrabold text-xl tracking-tight text-slate-800 flex items-center">
-                    <i class="fas fa-book-open mr-2 text-indigo-600"></i>Stories
+                <h1 id="header-title" class="font-bold text-xl tracking-tight text-white flex items-center">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-500">Dutch Dash</span>
                 </h1>
             </div>
             <!-- Stats Counter -->
-            <div id="stats-display" class="flex items-center bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-full text-sm font-bold shadow-sm border border-indigo-100">
-                <i class="fas fa-trophy mr-2 text-yellow-500"></i>
+            <div id="stats-display" class="flex items-center bg-zinc-800/50 text-zinc-300 px-3 py-1.5 rounded-full text-xs font-medium border border-white/5 hover:bg-zinc-800 transition-colors">
+                <i class="fas fa-book-open mr-2 text-amber-500/80"></i>
                 <span id="known-count">0</span>
             </div>
         </div>
 
-        <!-- Progress Bar (Visual only for now) -->
-        <div class="w-full bg-gray-200 h-1 shrink-0">
-            <div class="bg-indigo-500 h-1 w-0 transition-all duration-300 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+        <!-- Progress Bar (Visual) -->
+        <div class="w-full bg-zinc-800 h-[2px] shrink-0">
+            <div class="bg-amber-500 h-full w-0 shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-300"></div>
         </div>
 
         <div class="flex-1 overflow-hidden relative">
 
             <!-- Story List -->
-            <div id="story-list" class="absolute inset-0 p-6 md:p-10 overflow-y-auto custom-scrollbar">
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl font-bold text-gray-800">Choose a Story</h2>
-                    <p class="text-gray-500 text-sm">Practice your listening and reading skills</p>
+            <div id="story-list" class="absolute inset-0 p-6 md:p-8 overflow-y-auto custom-scrollbar">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-white mb-2">Library</h2>
+                    <p class="text-zinc-500 text-sm">Select a story to begin reading</p>
                 </div>
 
-                <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-4">
+                <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-10">
                     <!-- Stories will be injected here -->
-                    <div class="col-span-full text-center text-slate-400 py-10">
-                        <i class="fas fa-circle-notch fa-spin mr-2"></i> Loading stories...
+                    <div class="col-span-full text-center text-zinc-500 py-20">
+                        <i class="fas fa-circle-notch fa-spin mr-2"></i> Loading noir stories...
                     </div>
                 </div>
             </div>
 
             <!-- Story Detail -->
-            <div id="story-detail" class="absolute inset-0 flex flex-col overflow-hidden bg-white hidden">
-                <div class="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-10 pb-32"> <!-- Added padding-bottom for popover space -->
-                    <div class="max-w-3xl mx-auto">
+            <div id="story-detail" class="absolute inset-0 flex flex-col overflow-hidden bg-zinc-900 hidden">
+                <div class="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-12 pb-40">
+                    <div class="max-w-2xl mx-auto">
 
                         <!-- Hero Image & Audio -->
-                        <div class="flex flex-col md:flex-row gap-6 mb-8 items-center">
-                            <div class="w-full md:w-1/3 shrink-0">
-                                <div
-                                    class="aspect-square rounded-2xl overflow-hidden shadow-lg border-4 border-white bg-slate-100">
-                                    <img id="detail-image" src="" class="w-full h-full object-cover" alt="Story Image">
+                        <div class="flex flex-col gap-6 mb-10">
+                            <!-- Image Container -->
+                            <div class="w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-zinc-800 relative group">
+                                <img id="detail-image" src="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" alt="Story Image">
+                                <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent"></div>
+
+                                <!-- Title Overlay -->
+                                <div class="absolute bottom-0 left-0 p-6 w-full">
+                                    <h2 id="detail-title" class="text-3xl md:text-4xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-lg"></h2>
                                 </div>
                             </div>
-                            <div class="w-full md:w-2/3">
-                                <h2 id="detail-title" class="text-3xl font-extrabold text-slate-800 mb-4 leading-tight">
-                                </h2>
 
-                                <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
-                                    <audio id="audio-player" controls class="w-full accent-indigo-600">
-                                        Your browser does not support the audio element.
-                                    </audio>
+                            <!-- Audio Player -->
+                            <div class="bg-zinc-800/50 rounded-lg p-3 border border-white/5 flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
+                                    <i class="fas fa-headphones"></i>
                                 </div>
+                                <audio id="audio-player" controls class="w-full h-8 accent-amber-500 opacity-80 hover:opacity-100 transition-opacity filter invert-[.9]">
+                                    Your browser does not support the audio element.
+                                </audio>
                             </div>
                         </div>
 
                         <!-- Text Content -->
                         <div id="detail-text"
-                            class="prose prose-lg prose-slate max-w-none text-slate-600 leading-relaxed">
+                            class="font-serif text-xl md:text-2xl leading-loose text-zinc-300 tracking-wide selection:bg-amber-500/30 selection:text-amber-100">
                             <!-- Text goes here -->
+                        </div>
+
+                        <!-- Spacer for end of content -->
+                        <div class="h-20 flex items-center justify-center text-zinc-600 mt-10">
+                            <i class="fas fa-asterisk text-xs"></i>
                         </div>
 
                     </div>
@@ -161,22 +183,22 @@
         </div>
 
         <!-- Definition Card (Popover) -->
-        <div id="definition-card" class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl p-6 rounded-t-3xl shadow-[0_-5px_30px_rgba(0,0,0,0.15)] transform translate-y-full transition-transform duration-300 z-20 border-t border-white/50 ring-1 ring-black/5">
-            <div class="max-w-md mx-auto">
-                <div class="flex justify-between items-start mb-4">
+        <div id="definition-card" class="absolute bottom-0 left-0 right-0 bg-zinc-800/95 backdrop-blur-2xl p-6 md:p-8 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transform translate-y-full transition-transform duration-300 z-20 border-t border-white/10">
+            <div class="max-w-xl mx-auto">
+                <div class="flex justify-between items-start mb-6">
                     <div>
-                        <h3 id="def-word" class="text-3xl font-extrabold text-slate-800 tracking-tight"></h3>
-                        <p id="def-meaning" class="text-lg text-slate-600 mt-1 font-medium"></p>
+                        <h3 id="def-word" class="text-3xl font-serif font-bold text-white tracking-wide"></h3>
+                        <p id="def-meaning" class="text-lg text-amber-400 mt-1 font-medium"></p>
                     </div>
-                    <button id="close-card" class="text-slate-400 hover:text-slate-600 p-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors">
+                    <button id="close-card" class="text-zinc-400 hover:text-white p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors">
                         <i class="fas fa-times text-lg"></i>
                     </button>
                 </div>
-                <div class="flex gap-3 mt-6">
-                    <button id="btn-toggle-known" class="flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border-2 shadow-sm active:scale-95">
+                <div class="flex gap-4">
+                    <button id="btn-toggle-known" class="flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border active:scale-95 shadow-lg">
                         <!-- Content set by JS -->
                     </button>
-                    <a id="btn-external" href="#" target="_blank" class="px-5 py-3 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800 font-bold transition-all duration-200 border border-slate-200 flex items-center justify-center active:scale-95" title="Look up externally">
+                    <a id="btn-external" href="#" target="_blank" class="px-5 py-3 rounded-xl bg-zinc-700/50 text-zinc-300 hover:bg-zinc-700 hover:text-white font-semibold transition-all duration-200 border border-white/5 flex items-center justify-center active:scale-95 hover:border-white/20" title="Look up externally">
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -245,10 +267,11 @@
                         knownInStory++;
                     }
                 });
-                el.textContent = `${knownInStory} / ${currentStoryUniqueWords.size}`;
+                const percentage = Math.round((knownInStory / currentStoryUniqueWords.size) * 100) || 0;
+                el.textContent = `${percentage}% Known`;
             } else {
                 // Global stats
-                el.textContent = knownWordsManager.words.size;
+                el.textContent = `${knownWordsManager.words.size} Words`;
             }
         }
 
@@ -290,6 +313,7 @@
                 const isKnown = knownWordsManager.toggleWord(currentSelectedWord);
                 updateWordUI(currentSelectedWord, isKnown);
                 updateCardButtonState(isKnown);
+                updateStats();
             }
         });
 
@@ -308,11 +332,11 @@
             const meaning = dictionary.get(lowerWord);
             if (meaning) {
                 els.defMeaning.textContent = meaning;
-                els.defMeaning.classList.remove('text-slate-400', 'italic');
-                els.defMeaning.classList.add('text-slate-600');
+                els.defMeaning.classList.remove('text-zinc-500', 'italic');
+                els.defMeaning.classList.add('text-amber-400');
             } else {
-                els.defMeaning.innerHTML = `Translation not found. <a href="${googleTranslateUrl}" target="_blank" class="text-indigo-600 underline">Translate with Google</a>`;
-                els.defMeaning.classList.add('text-slate-400', 'italic');
+                els.defMeaning.innerHTML = `Translation not found. <a href="${googleTranslateUrl}" target="_blank" class="text-amber-500 underline hover:text-amber-400">Translate</a>`;
+                els.defMeaning.classList.add('text-zinc-500', 'italic');
             }
 
             // Button State
@@ -331,10 +355,10 @@
         function updateCardButtonState(isKnown) {
             if (isKnown) {
                 els.btnToggleKnown.innerHTML = '<i class="fas fa-check"></i> Known';
-                els.btnToggleKnown.className = "flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border-2 shadow-sm active:scale-95 bg-green-100 text-green-700 border-green-200 hover:bg-green-200";
+                els.btnToggleKnown.className = "flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]";
             } else {
-                els.btnToggleKnown.innerHTML = '<i class="fas fa-plus"></i> New';
-                els.btnToggleKnown.className = "flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border-2 shadow-sm active:scale-95 bg-yellow-100 text-yellow-700 border-yellow-200 hover:bg-yellow-200";
+                els.btnToggleKnown.innerHTML = '<i class="fas fa-plus"></i> Add to Known';
+                els.btnToggleKnown.className = "flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border border-amber-500/30 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]";
             }
         }
 
@@ -400,23 +424,25 @@
             els.grid.innerHTML = '';
             stories.forEach(story => {
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-1 group fade-in";
+                card.className = "bg-zinc-800/50 rounded-xl border border-white/5 overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:border-amber-500/30 group fade-in";
                 card.onclick = () => openStory(story);
 
                 // Use dummy image if not provided
-                const imageUrl = story.image || 'https://placehold.co/400x300?text=No+Image';
+                const imageUrl = story.image || 'https://placehold.co/400x300/18181b/a1a1aa?text=No+Image';
 
                 card.innerHTML = `
-                    <div class="h-40 overflow-hidden bg-slate-100 relative">
-                        <img src="${imageUrl}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/400x300?text=No+Image'">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
-                        <div class="absolute bottom-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-indigo-600 shadow-sm">
-                            <i class="fas fa-headphones mr-1"></i> Listen
+                    <div class="h-44 overflow-hidden bg-zinc-800 relative">
+                        <img src="${imageUrl}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.src='https://placehold.co/400x300/18181b/a1a1aa?text=No+Image'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                             <span class="text-xs font-bold text-white/90 bg-black/40 backdrop-blur px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
+                                <i class="fas fa-book mr-1 text-amber-500"></i> Read
+                             </span>
                         </div>
                     </div>
                     <div class="p-5">
-                        <h3 class="font-bold text-lg text-slate-800 mb-1 group-hover:text-indigo-600 transition-colors line-clamp-1">${story.title}</h3>
-                        <p class="text-sm text-slate-400 line-clamp-2">${story.body.substring(0, 100)}...</p>
+                        <h3 class="font-bold text-lg text-zinc-100 mb-2 group-hover:text-amber-400 transition-colors line-clamp-1">${story.title}</h3>
+                        <p class="text-sm text-zinc-400 line-clamp-2 leading-relaxed">${story.body.substring(0, 100)}...</p>
                     </div>
                 `;
                 els.grid.appendChild(card);
@@ -425,7 +451,7 @@
 
         function openStory(story) {
             // Populate Detail
-            els.detailImage.src = story.image || 'https://placehold.co/600x600?text=Story';
+            els.detailImage.src = story.image || 'https://placehold.co/600x600/18181b/a1a1aa?text=Story';
             els.detailTitle.textContent = story.title;
 
             // Calculate story stats
@@ -453,8 +479,8 @@
             els.detail.classList.remove('hidden');
             els.backBtn.classList.remove('hidden');
 
-            // Update Header
-            els.headerTitle.innerHTML = `<span class="truncate max-w-[200px]">${story.title}</span>`;
+            // Update Header to show just the title
+            els.headerTitle.innerHTML = `<span class="truncate max-w-[200px] text-zinc-300 text-base">${story.title}</span>`;
         }
 
         function formatStoryText(text) {
@@ -462,7 +488,6 @@
 
             return paragraphs.map(paragraph => {
                 // Split by word boundaries, keeping the delimiters (words vs non-words)
-                // Dutch alphabet includes accented characters
                 const tokens = paragraph.split(/([a-zA-Z\u00C0-\u017F]+)/);
 
                 const html = tokens.map(token => {
@@ -477,7 +502,7 @@
                     }
                 }).join('');
 
-                return `<p class="mb-4 text-lg leading-loose">${html}</p>`;
+                return `<p class="mb-6">${html}</p>`;
             }).join('');
         }
 
@@ -493,7 +518,10 @@
             els.audioPlayer.pause();
 
             // Reset Header
-            els.headerTitle.innerHTML = `<i class="fas fa-book-open mr-2 text-indigo-600"></i>Stories`;
+            els.headerTitle.innerHTML = `<span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-500">Dutch Dash</span>`;
+
+            // Close card if open
+            closeDefinitionCard();
         }
 
         // Initialize
