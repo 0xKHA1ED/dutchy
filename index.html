@@ -48,6 +48,31 @@
                 transform: translateY(0);
             }
         }
+
+        .word {
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+            padding: 2px 0;
+        }
+
+        .word-new {
+            background-color: #fef08a; /* Yellow-200 */
+            color: #854d0e; /* Yellow-800 */
+        }
+
+        .word-new:hover {
+            background-color: #fde047; /* Yellow-300 */
+        }
+
+        .word-known {
+            background-color: transparent;
+            color: inherit;
+        }
+
+        .word-known:hover {
+            background-color: #e2e8f0; /* Slate-200 */
+        }
     </style>
 </head>
 
@@ -136,6 +161,47 @@
         // State
         let stories = [];
 
+        class KnownWordsManager {
+            constructor() {
+                this.storageKey = 'dutch_dash_known_words';
+                this.words = new Set(JSON.parse(localStorage.getItem(this.storageKey) || '[]'));
+            }
+
+            isKnown(word) {
+                return this.words.has(word.toLowerCase());
+            }
+
+            addWord(word) {
+                this.words.add(word.toLowerCase());
+                this.save();
+            }
+
+            removeWord(word) {
+                this.words.delete(word.toLowerCase());
+                this.save();
+            }
+
+            toggleWord(word) {
+                const lower = word.toLowerCase();
+                let isKnown;
+                if (this.words.has(lower)) {
+                    this.words.delete(lower);
+                    isKnown = false;
+                } else {
+                    this.words.add(lower);
+                    isKnown = true;
+                }
+                this.save();
+                return isKnown;
+            }
+
+            save() {
+                localStorage.setItem(this.storageKey, JSON.stringify([...this.words]));
+            }
+        }
+
+        const knownWordsManager = new KnownWordsManager();
+
         const els = {
             list: document.getElementById('story-list'),
             detail: document.getElementById('story-detail'),
@@ -147,6 +213,29 @@
             detailText: document.getElementById('detail-text'),
             audioPlayer: document.getElementById('audio-player')
         };
+
+        // Event Delegation for Word Clicks
+        els.detailText.addEventListener('click', (e) => {
+            if (e.target.classList.contains('word')) {
+                const word = e.target.dataset.word;
+                const isKnown = knownWordsManager.toggleWord(word);
+
+                // Update all instances of this word in the text
+                const allWords = els.detailText.querySelectorAll(`.word`);
+                const lowerWord = word.toLowerCase();
+                allWords.forEach(span => {
+                    if (span.dataset.word.toLowerCase() === lowerWord) {
+                        if (isKnown) {
+                            span.classList.remove('word-new');
+                            span.classList.add('word-known');
+                        } else {
+                            span.classList.remove('word-known');
+                            span.classList.add('word-new');
+                        }
+                    }
+                });
+            }
+        });
 
         async function init() {
             try {
@@ -194,8 +283,8 @@
             els.detailImage.src = story.image || 'https://placehold.co/600x600?text=Story';
             els.detailTitle.textContent = story.title;
 
-            // Format text: simple paragraphs
-            els.detailText.innerHTML = story.body.split('\n').filter(line => line.trim() !== '').map(line => `<p class="mb-4">${line}</p>`).join('');
+            // Format text: tokenize and highlight
+            els.detailText.innerHTML = formatStoryText(story.body);
 
             // Dummy audio if missing
             els.audioPlayer.src = story.audio || '#';
@@ -208,6 +297,30 @@
 
             // Update Header
             els.headerTitle.innerHTML = `<span class="truncate max-w-[200px]">${story.title}</span>`;
+        }
+
+        function formatStoryText(text) {
+            const paragraphs = text.split('\n').filter(line => line.trim() !== '');
+
+            return paragraphs.map(paragraph => {
+                // Split by word boundaries, keeping the delimiters (words vs non-words)
+                // Dutch alphabet includes accented characters
+                const tokens = paragraph.split(/([a-zA-Z\u00C0-\u017F]+)/);
+
+                const html = tokens.map(token => {
+                    if (/^[a-zA-Z\u00C0-\u017F]+$/.test(token)) {
+                        // It is a word
+                        const isKnown = knownWordsManager.isKnown(token);
+                        const className = isKnown ? 'word-known' : 'word-new';
+                        return `<span class="word ${className}" data-word="${token}">${token}</span>`;
+                    } else {
+                        // Punctuation or whitespace
+                        return token;
+                    }
+                }).join('');
+
+                return `<p class="mb-4 text-lg leading-loose">${html}</p>`;
+            }).join('');
         }
 
         function showList() {
