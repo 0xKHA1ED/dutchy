@@ -94,6 +94,11 @@
                     <i class="fas fa-book-open mr-2 text-indigo-600"></i>Stories
                 </h1>
             </div>
+            <!-- Stats Counter -->
+            <div id="stats-display" class="flex items-center bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-full text-sm font-bold shadow-sm border border-indigo-100">
+                <i class="fas fa-trophy mr-2 text-yellow-500"></i>
+                <span id="known-count">0</span>
+            </div>
         </div>
 
         <!-- Progress Bar (Visual only for now) -->
@@ -120,7 +125,7 @@
 
             <!-- Story Detail -->
             <div id="story-detail" class="absolute inset-0 flex flex-col overflow-hidden bg-white hidden">
-                <div class="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-10">
+                <div class="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-10 pb-32"> <!-- Added padding-bottom for popover space -->
                     <div class="max-w-3xl mx-auto">
 
                         <!-- Hero Image & Audio -->
@@ -155,11 +160,35 @@
 
         </div>
 
+        <!-- Definition Card (Popover) -->
+        <div id="definition-card" class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl p-6 rounded-t-3xl shadow-[0_-5px_30px_rgba(0,0,0,0.15)] transform translate-y-full transition-transform duration-300 z-20 border-t border-white/50 ring-1 ring-black/5">
+            <div class="max-w-md mx-auto">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 id="def-word" class="text-3xl font-extrabold text-slate-800 tracking-tight"></h3>
+                        <p id="def-meaning" class="text-lg text-slate-600 mt-1 font-medium"></p>
+                    </div>
+                    <button id="close-card" class="text-slate-400 hover:text-slate-600 p-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                </div>
+                <div class="flex gap-3 mt-6">
+                    <button id="btn-toggle-known" class="flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border-2 shadow-sm active:scale-95">
+                        <!-- Content set by JS -->
+                    </button>
+                    <a id="btn-external" href="#" target="_blank" class="px-5 py-3 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800 font-bold transition-all duration-200 border border-slate-200 flex items-center justify-center active:scale-95" title="Look up externally">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
         // State
         let stories = [];
+        let dictionary = new Map();
 
         class KnownWordsManager {
             constructor() {
@@ -197,10 +226,19 @@
 
             save() {
                 localStorage.setItem(this.storageKey, JSON.stringify([...this.words]));
+                updateStats();
             }
         }
 
         const knownWordsManager = new KnownWordsManager();
+
+        function updateStats() {
+            const count = knownWordsManager.words.size;
+            const el = document.getElementById('known-count');
+            if(el) {
+                el.textContent = count;
+            }
+        }
 
         const els = {
             list: document.getElementById('story-list'),
@@ -211,44 +249,138 @@
             detailImage: document.getElementById('detail-image'),
             detailTitle: document.getElementById('detail-title'),
             detailText: document.getElementById('detail-text'),
-            audioPlayer: document.getElementById('audio-player')
+            audioPlayer: document.getElementById('audio-player'),
+            // Popover elements
+            defCard: document.getElementById('definition-card'),
+            defWord: document.getElementById('def-word'),
+            defMeaning: document.getElementById('def-meaning'),
+            btnCloseCard: document.getElementById('close-card'),
+            btnToggleKnown: document.getElementById('btn-toggle-known'),
+            btnExternal: document.getElementById('btn-external')
         };
+
+        let currentSelectedWord = null;
 
         // Event Delegation for Word Clicks
         els.detailText.addEventListener('click', (e) => {
             if (e.target.classList.contains('word')) {
                 const word = e.target.dataset.word;
-                const isKnown = knownWordsManager.toggleWord(word);
-
-                // Update all instances of this word in the text
-                const allWords = els.detailText.querySelectorAll(`.word`);
-                const lowerWord = word.toLowerCase();
-                allWords.forEach(span => {
-                    if (span.dataset.word.toLowerCase() === lowerWord) {
-                        if (isKnown) {
-                            span.classList.remove('word-new');
-                            span.classList.add('word-known');
-                        } else {
-                            span.classList.remove('word-known');
-                            span.classList.add('word-new');
-                        }
-                    }
-                });
+                openDefinitionCard(word);
             }
         });
 
+        // Close card handler
+        els.btnCloseCard.addEventListener('click', closeDefinitionCard);
+
+        // Toggle known handler from card
+        els.btnToggleKnown.addEventListener('click', () => {
+            if (currentSelectedWord) {
+                const isKnown = knownWordsManager.toggleWord(currentSelectedWord);
+                updateWordUI(currentSelectedWord, isKnown);
+                updateCardButtonState(isKnown);
+            }
+        });
+
+        function openDefinitionCard(word) {
+            currentSelectedWord = word;
+            const lowerWord = word.toLowerCase();
+
+            // 1. Populate Content
+            els.defWord.textContent = word;
+
+            // Definition
+            const meaning = dictionary.get(lowerWord);
+            if (meaning) {
+                els.defMeaning.textContent = meaning;
+                els.defMeaning.classList.remove('text-slate-400', 'italic');
+                els.defMeaning.classList.add('text-slate-600');
+            } else {
+                els.defMeaning.textContent = "Translation not found";
+                els.defMeaning.classList.add('text-slate-400', 'italic');
+            }
+
+            // External Link
+            els.btnExternal.href = `https://translate.google.com/?sl=nl&tl=en&text=${encodeURIComponent(word)}&op=translate`;
+
+            // Button State
+            const isKnown = knownWordsManager.isKnown(word);
+            updateCardButtonState(isKnown);
+
+            // 2. Show Card
+            els.defCard.classList.remove('translate-y-full');
+        }
+
+        function closeDefinitionCard() {
+            els.defCard.classList.add('translate-y-full');
+            currentSelectedWord = null;
+        }
+
+        function updateCardButtonState(isKnown) {
+            if (isKnown) {
+                els.btnToggleKnown.innerHTML = '<i class="fas fa-check"></i> Known';
+                els.btnToggleKnown.className = "flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border-2 shadow-sm active:scale-95 bg-green-100 text-green-700 border-green-200 hover:bg-green-200";
+            } else {
+                els.btnToggleKnown.innerHTML = '<i class="fas fa-plus"></i> New';
+                els.btnToggleKnown.className = "flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center gap-2 border-2 shadow-sm active:scale-95 bg-yellow-100 text-yellow-700 border-yellow-200 hover:bg-yellow-200";
+            }
+        }
+
+        function updateWordUI(word, isKnown) {
+            // Update all instances of this word in the text
+            const allWords = els.detailText.querySelectorAll(`.word`);
+            const lowerWord = word.toLowerCase();
+            allWords.forEach(span => {
+                if (span.dataset.word.toLowerCase() === lowerWord) {
+                    if (isKnown) {
+                        span.classList.remove('word-new');
+                        span.classList.add('word-known');
+                    } else {
+                        span.classList.remove('word-known');
+                        span.classList.add('word-new');
+                    }
+                }
+            });
+        }
+
         async function init() {
             try {
-                const response = await fetch('data/stories.json');
-                if (!response.ok) {
-                    throw new Error('Failed to load stories');
+                // Load Stories
+                const storiesResp = await fetch('data/stories.json');
+                if (!storiesResp.ok) throw new Error('Failed to load stories');
+                stories = await storiesResp.json();
+
+                // Load Dictionary
+                try {
+                    const freqResp = await fetch('data/frequency.json');
+                    if (freqResp.ok) {
+                        const freqData = await freqResp.json();
+                        buildDictionary(freqData);
+                    }
+                } catch (e) {
+                    console.warn('Failed to load dictionary', e);
                 }
-                stories = await response.json();
+
                 renderList();
+                updateStats(); // Initial stats
             } catch (error) {
                 console.error(error);
                 els.grid.innerHTML = `<div class="col-span-full text-center text-red-500 py-10">Failed to load stories.<br>${error.message}</div>`;
             }
+        }
+
+        function buildDictionary(data) {
+             for (const category in data) {
+                if (Array.isArray(data[category])) {
+                    data[category].forEach(item => {
+                        const dutchWords = item.dutch.split(',').map(s => s.trim().toLowerCase());
+                        dutchWords.forEach(w => {
+                            if (!dictionary.has(w)) {
+                                dictionary.set(w, item.english);
+                            }
+                        });
+                    });
+                }
+             }
         }
 
         function renderList() {
