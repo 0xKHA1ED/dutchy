@@ -189,6 +189,7 @@
         // State
         let stories = [];
         let dictionary = new Map();
+        let currentStoryUniqueWords = null;
 
         class KnownWordsManager {
             constructor() {
@@ -233,10 +234,21 @@
         const knownWordsManager = new KnownWordsManager();
 
         function updateStats() {
-            const count = knownWordsManager.words.size;
             const el = document.getElementById('known-count');
-            if(el) {
-                el.textContent = count;
+            if(!el) return;
+
+            if (currentStoryUniqueWords) {
+                // Story stats
+                let knownInStory = 0;
+                currentStoryUniqueWords.forEach(word => {
+                    if (knownWordsManager.isKnown(word)) {
+                        knownInStory++;
+                    }
+                });
+                el.textContent = `${knownInStory} / ${currentStoryUniqueWords.size}`;
+            } else {
+                // Global stats
+                el.textContent = knownWordsManager.words.size;
             }
         }
 
@@ -288,6 +300,10 @@
             // 1. Populate Content
             els.defWord.textContent = word;
 
+            // External Link URL
+            const googleTranslateUrl = `https://translate.google.com/?sl=nl&tl=en&text=${encodeURIComponent(word)}&op=translate`;
+            els.btnExternal.href = googleTranslateUrl;
+
             // Definition
             const meaning = dictionary.get(lowerWord);
             if (meaning) {
@@ -295,12 +311,9 @@
                 els.defMeaning.classList.remove('text-slate-400', 'italic');
                 els.defMeaning.classList.add('text-slate-600');
             } else {
-                els.defMeaning.textContent = "Translation not found";
+                els.defMeaning.innerHTML = `Translation not found. <a href="${googleTranslateUrl}" target="_blank" class="text-indigo-600 underline">Translate with Google</a>`;
                 els.defMeaning.classList.add('text-slate-400', 'italic');
             }
-
-            // External Link
-            els.btnExternal.href = `https://translate.google.com/?sl=nl&tl=en&text=${encodeURIComponent(word)}&op=translate`;
 
             // Button State
             const isKnown = knownWordsManager.isKnown(word);
@@ -415,6 +428,19 @@
             els.detailImage.src = story.image || 'https://placehold.co/600x600?text=Story';
             els.detailTitle.textContent = story.title;
 
+            // Calculate story stats
+            currentStoryUniqueWords = new Set();
+            const paragraphs = story.body.split('\n');
+            paragraphs.forEach(p => {
+                const tokens = p.split(/([a-zA-Z\u00C0-\u017F]+)/);
+                tokens.forEach(t => {
+                    if (/^[a-zA-Z\u00C0-\u017F]+$/.test(t)) {
+                        currentStoryUniqueWords.add(t.toLowerCase());
+                    }
+                });
+            });
+            updateStats();
+
             // Format text: tokenize and highlight
             els.detailText.innerHTML = formatStoryText(story.body);
 
@@ -456,6 +482,9 @@
         }
 
         function showList() {
+            currentStoryUniqueWords = null;
+            updateStats();
+
             els.detail.classList.add('hidden');
             els.list.classList.remove('hidden');
             els.backBtn.classList.add('hidden');
