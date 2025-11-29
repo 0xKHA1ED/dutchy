@@ -128,6 +128,14 @@
                     <p class="text-zinc-500 text-sm">Select a story to begin reading</p>
                 </div>
 
+                <!-- Tag Filters -->
+                <div class="mb-6">
+                    <h3 class="text-zinc-400 text-sm font-bold uppercase tracking-wider mb-3">Filter by tags</h3>
+                    <div id="tag-filters" class="flex flex-wrap gap-2">
+                        <!-- Tags injected here -->
+                    </div>
+                </div>
+
                 <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-10">
                     <!-- Stories will be injected here -->
                     <div class="col-span-full text-center text-zinc-500 py-20">
@@ -212,6 +220,7 @@
         let stories = [];
         let dictionary = new Map();
         let currentStoryUniqueWords = null;
+        let selectedTags = new Set();
 
         class KnownWordsManager {
             constructor() {
@@ -386,6 +395,23 @@
                 if (!storiesResp.ok) throw new Error('Failed to load stories');
                 stories = await storiesResp.json();
 
+                // Pre-process stories: calculate unique words for sorting
+                stories.forEach(story => {
+                    const uniqueWords = new Set();
+                    const paragraphs = story.body.split('\n');
+                    paragraphs.forEach(p => {
+                        const tokens = p.split(/([a-zA-Z\u00C0-\u017F]+)/);
+                        tokens.forEach(t => {
+                            if (/^[a-zA-Z\u00C0-\u017F]+$/.test(t)) {
+                                uniqueWords.add(t.toLowerCase());
+                            }
+                        });
+                    });
+                    story.uniqueWordSet = uniqueWords;
+                });
+
+                renderTags();
+
                 // Load Dictionary
                 try {
                     const freqResp = await fetch('data/frequency.json');
@@ -420,33 +446,107 @@
              }
         }
 
+        function renderTags() {
+            const tagContainer = document.getElementById('tag-filters');
+            if (!tagContainer) return;
+
+            const allTags = new Set();
+            stories.forEach(story => {
+                if (story.tags) {
+                    story.tags.forEach(tag => allTags.add(tag));
+                }
+            });
+
+            const sortedTags = Array.from(allTags).sort();
+
+            tagContainer.innerHTML = '';
+            sortedTags.forEach(tag => {
+                const btn = document.createElement('button');
+                btn.className = `px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${selectedTags.has(tag)
+                    ? 'bg-amber-500 text-black border-amber-500'
+                    : 'bg-zinc-800 text-zinc-400 border-zinc-700 hover:border-zinc-500 hover:text-white'}`;
+                btn.textContent = tag;
+                btn.onclick = () => {
+                    if (selectedTags.has(tag)) {
+                        selectedTags.delete(tag);
+                    } else {
+                        selectedTags.add(tag);
+                    }
+                    renderTags();
+                    renderList();
+                };
+                tagContainer.appendChild(btn);
+            });
+        }
+
         function renderList() {
             els.grid.innerHTML = '';
-            stories.forEach(story => {
+
+            // Calculate stats and sort
+            const storiesWithStats = stories.map(story => {
+                let knownCount = 0;
+                if (story.uniqueWordSet) {
+                    story.uniqueWordSet.forEach(word => {
+                        if (knownWordsManager.isKnown(word)) {
+                            knownCount++;
+                        }
+                    });
+                }
+                const total = story.uniqueWordSet ? story.uniqueWordSet.size : 1;
+                const percentage = (knownCount / total) * 100;
+                return { ...story, knownPercentage: percentage };
+            });
+
+            // Sort: Highest known percentage first
+            storiesWithStats.sort((a, b) => b.knownPercentage - a.knownPercentage);
+
+            // Filter
+            const filteredStories = storiesWithStats.filter(story => {
+                if (selectedTags.size === 0) return true;
+                if (!story.tags) return false;
+                // OR logic: show if story has AT LEAST ONE selected tag
+                return story.tags.some(tag => selectedTags.has(tag));
+            });
+
+            filteredStories.forEach(story => {
                 const card = document.createElement('div');
-                card.className = "bg-zinc-800/50 rounded-xl border border-white/5 overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:border-amber-500/30 group fade-in";
+                card.className = "bg-zinc-800/50 rounded-xl border border-white/5 overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:border-amber-500/30 group fade-in flex flex-col";
                 card.onclick = () => openStory(story);
 
                 // Use dummy image if not provided
                 const imageUrl = story.image || 'https://placehold.co/400x300/18181b/a1a1aa?text=No+Image';
 
+                // Format tags for display
+                const tagHtml = story.tags ? story.tags.slice(0, 3).map(tag =>
+                    `<span class="text-[10px] uppercase font-bold tracking-wider bg-black/50 px-2 py-1 rounded text-zinc-300 border border-white/10">${tag}</span>`
+                ).join('') : '';
+
                 card.innerHTML = `
-                    <div class="h-44 overflow-hidden bg-zinc-800 relative">
+                    <div class="h-44 overflow-hidden bg-zinc-800 relative shrink-0">
                         <img src="${imageUrl}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.src='https://placehold.co/400x300/18181b/a1a1aa?text=No+Image'">
                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent"></div>
+                        <div class="absolute top-3 right-3 flex flex-col items-end gap-2">
+                             <div class="bg-black/60 backdrop-blur px-2 py-1 rounded border border-white/10 text-xs font-bold ${story.knownPercentage === 100 ? 'text-emerald-400 border-emerald-500/30' : 'text-amber-400 border-amber-500/30'}">
+                                ${Math.round(story.knownPercentage)}% Known
+                             </div>
+                        </div>
                         <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
-                             <span class="text-xs font-bold text-white/90 bg-black/40 backdrop-blur px-2 py-1 rounded border border-white/10 uppercase tracking-wider">
-                                <i class="fas fa-book mr-1 text-amber-500"></i> Read
-                             </span>
+                             <div class="flex flex-wrap gap-1">
+                                ${tagHtml}
+                             </div>
                         </div>
                     </div>
-                    <div class="p-5">
+                    <div class="p-5 flex-1 flex flex-col">
                         <h3 class="font-bold text-lg text-zinc-100 mb-2 group-hover:text-amber-400 transition-colors line-clamp-1">${story.title}</h3>
-                        <p class="text-sm text-zinc-400 line-clamp-2 leading-relaxed">${story.body.substring(0, 100)}...</p>
+                        <p class="text-sm text-zinc-400 line-clamp-3 leading-relaxed">${story.body.substring(0, 120)}...</p>
                     </div>
                 `;
                 els.grid.appendChild(card);
             });
+
+            if (filteredStories.length === 0) {
+                els.grid.innerHTML = `<div class="col-span-full text-center text-zinc-500 py-20">No stories found with these tags.</div>`;
+            }
         }
 
         function openStory(story) {
@@ -509,6 +609,7 @@
         function showList() {
             currentStoryUniqueWords = null;
             updateStats();
+            renderList(); // Re-render to update sort order
 
             els.detail.classList.add('hidden');
             els.list.classList.remove('hidden');

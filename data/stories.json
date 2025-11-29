@@ -6,7 +6,12 @@
         "image_prompt": "A dimly lit hotel room with a suitcase open on the bed filled with money and a photo, noir style.",
         "image": "https://placehold.co/600x400?text=De+Verkeerde+Koffer",
         "audio": "stories/1.wav",
-        "original_idea": "The Wrong Suitcase"
+        "original_idea": "The Wrong Suitcase",
+        "tags": [
+            "Noir",
+            "Crime",
+            "Mystery"
+        ]
     },
     {
         "id": 2,
@@ -15,7 +20,12 @@
         "image_prompt": "A lonely park bench at night under a streetlamp with a glowing phone ringing, mysterious atmosphere.",
         "image": "https://placehold.co/600x400?text=Geen+Slot",
         "audio": "stories/2.wav",
-        "original_idea": "The Unlocked Phone"
+        "original_idea": "The Unlocked Phone",
+        "tags": [
+            "Noir",
+            "Mystery",
+            "Crime"
+        ]
     },
     {
         "id": 3,
@@ -24,7 +34,12 @@
         "image_prompt": "Interior of a taxi at night, rain on the window, a mysterious silhouette in the back seat.",
         "image": "https://placehold.co/600x400?text=De+Stille+Gast",
         "audio": "stories/3.wav",
-        "original_idea": "The Silent Passenger"
+        "original_idea": "The Silent Passenger",
+        "tags": [
+            "Noir",
+            "Mystery",
+            "Thriller"
+        ]
     },
     {
         "id": 4,
@@ -33,7 +48,11 @@
         "image_prompt": "A man looking at a glowing phone in a dark kitchen, while another man with dirty shoes stands in the doorway.",
         "image": "https://placehold.co/600x400?text=Het+Verkeerde+Bericht",
         "audio": "stories/4.wav",
-        "original_idea": "The Wrong Text Message"
+        "original_idea": "The Wrong Text Message",
+        "tags": [
+            "Crime",
+            "Thriller"
+        ]
     },
     {
         "id": 5,
@@ -42,7 +61,11 @@
         "image_prompt": "Close up of an old yellowed letter on a table next to a cup of dark red liquid.",
         "image": "https://placehold.co/600x400?text=De+Brief+uit+het+Verleden",
         "audio": "stories/5.wav",
-        "original_idea": "The Letter from 1990"
+        "original_idea": "The Letter from 1990",
+        "tags": [
+            "Mystery",
+            "Thriller"
+        ]
     },
     {
         "id": 6,
@@ -51,7 +74,11 @@
         "image_prompt": "A living room with furniture strangely arranged, shadows, and a note on the table.",
         "image": "https://placehold.co/600x400?text=Het+Lege+Huis",
         "audio": "stories/6.wav",
-        "original_idea": "The Empty House"
+        "original_idea": "The Empty House",
+        "tags": [
+            "Horror",
+            "Psychological"
+        ]
     },
     {
         "id": 7,
@@ -60,7 +87,11 @@
         "image_prompt": "View through a rainy window of a neighbor digging a hole in the garden at night.",
         "image": "https://placehold.co/600x400?text=De+Tuinman+in+de+Nacht",
         "audio": "stories/7.wav",
-        "original_idea": "The Midnight Gardener"
+        "original_idea": "The Midnight Gardener",
+        "tags": [
+            "Horror",
+            "Thriller"
+        ]
     },
     {
         "id": 8,
@@ -69,7 +100,11 @@
         "image_prompt": "Close up of a hand holding a keychain with one old, rusty, mysterious key.",
         "image": "https://placehold.co/600x400?text=De+Extra+Sleutel",
         "audio": "stories/8.wav",
-        "original_idea": "The Extra Key"
+        "original_idea": "The Extra Key",
+        "tags": [
+            "Mystery",
+            "Supernatural"
+        ]
     },
     {
         "id": 9,
@@ -78,7 +113,11 @@
         "image_prompt": "An abandoned luxury car on a street with the trunk slightly open, ominous mood.",
         "image": "https://placehold.co/600x400?text=De+Vergeten+Auto",
         "audio": "stories/9.wav",
-        "original_idea": "The Forgotten Car"
+        "original_idea": "The Forgotten Car",
+        "tags": [
+            "Crime",
+            "Horror"
+        ]
     },
     {
         "id": 10,
@@ -87,7 +126,11 @@
         "image_prompt": "Looking up at a ceiling, hearing footsteps, shadows, claustrophobic angle.",
         "image": "https://placehold.co/600x400?text=Geluid+Boven",
         "audio": "stories/10.wav",
-        "original_idea": "The Noise Upstairs"
+        "original_idea": "The Noise Upstairs",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 11,
@@ -96,7 +139,11 @@
         "image_prompt": "A restaurant bill on a table listing secrets instead of food items, noir style.",
         "image": "https://placehold.co/600x400?text=De+Rekening",
         "audio": "",
-        "original_idea": "The Dinner Bill"
+        "original_idea": "The Dinner Bill",
+        "tags": [
+            "Noir",
+            "Crime"
+        ]
     },
     {
         "id": 12,
@@ -105,7 +152,11 @@
         "image_prompt": "A tense conversation at a party, a woman looking nervous while a couple stares at her.",
         "image": "https://placehold.co/600x400?text=Het+Verhaal",
         "audio": "",
-        "original_idea": "The Lie"
+        "original_idea": "The Lie",
+        "tags": [
+            "Psychological",
+            "Drama"
+        ]
     },
     {
         "id": 13,
@@ -114,7 +165,11 @@
         "image_prompt": "A smiling boss locking the office door while employees look terrified.",
         "image": "https://placehold.co/600x400?text=De+Baas",
         "audio": "",
-        "original_idea": "The Boss"
+        "original_idea": "The Boss",
+        "tags": [
+            "Horror",
+            "Workplace"
+        ]
     },
     {
         "id": 14,
@@ -123,7 +178,11 @@
         "image_prompt": "A groom talking to an older mystery guest in the shadows of a wedding reception.",
         "image": "https://placehold.co/600x400?text=De+Gast",
         "audio": "",
-        "original_idea": "The Wedding Guest"
+        "original_idea": "The Wedding Guest",
+        "tags": [
+            "Mystery",
+            "Supernatural"
+        ]
     },
     {
         "id": 15,
@@ -132,7 +191,11 @@
         "image_prompt": "A group of people looking at an old school photo, pointing at an empty spot.",
         "image": "https://placehold.co/600x400?text=De+Foto",
         "audio": "",
-        "original_idea": "The Reunion"
+        "original_idea": "The Reunion",
+        "tags": [
+            "Mystery",
+            "Supernatural"
+        ]
     },
     {
         "id": 16,
@@ -141,7 +204,11 @@
         "image_prompt": "A dinner scene with a smiling couple holding hands above the table, while under the table a hand holds a knife against a leg.",
         "image": "https://placehold.co/600x400?text=Het+Paar",
         "audio": "",
-        "original_idea": "The Perfect Couple"
+        "original_idea": "The Perfect Couple",
+        "tags": [
+            "Thriller",
+            "Psychological"
+        ]
     },
     {
         "id": 17,
@@ -150,7 +217,11 @@
         "image_prompt": "A man frantically packing a suitcase seen through a window gap, while another man bangs on the glass.",
         "image": "https://placehold.co/600x400?text=Het+Lot",
         "audio": "",
-        "original_idea": "The Lottery Ticket"
+        "original_idea": "The Lottery Ticket",
+        "tags": [
+            "Crime",
+            "Drama"
+        ]
     },
     {
         "id": 18,
@@ -159,7 +230,11 @@
         "image_prompt": "A scary man grabbing the arm of a person holding a wallet in a doorway.",
         "image": "https://placehold.co/600x400?text=De+Hulp",
         "audio": "",
-        "original_idea": "The Good Deed"
+        "original_idea": "The Good Deed",
+        "tags": [
+            "Crime",
+            "Drama"
+        ]
     },
     {
         "id": 19,
@@ -168,7 +243,11 @@
         "image_prompt": "A view through an office window of a man firing his crying friend, while looking at a boss who nods approvingly.",
         "image": "https://placehold.co/600x400?text=De+Baan",
         "audio": "",
-        "original_idea": "The Promotion"
+        "original_idea": "The Promotion",
+        "tags": [
+            "Psychological",
+            "Workplace"
+        ]
     },
     {
         "id": 20,
@@ -177,7 +256,11 @@
         "image_prompt": "A damaged red car parked in a driveway at night, with rain and blue police lights reflecting on it.",
         "image": "https://placehold.co/600x400?text=De+Slag",
         "audio": "",
-        "original_idea": "The Witness"
+        "original_idea": "The Witness",
+        "tags": [
+            "Crime",
+            "Drama"
+        ]
     },
     {
         "id": 21,
@@ -186,7 +269,11 @@
         "image_prompt": "Interior of a car at night, rain on the windshield, driver looking at an empty wet passenger seat.",
         "image": "https://placehold.co/600x400?text=De+Man+langs+de+Weg",
         "audio": "",
-        "original_idea": "The Hitchhiker"
+        "original_idea": "The Hitchhiker",
+        "tags": [
+            "Supernatural",
+            "Horror"
+        ]
     },
     {
         "id": 22,
@@ -195,7 +282,11 @@
         "image_prompt": "Inside a dark train car looking out at an abandoned station platform with a faceless conductor.",
         "image": "https://placehold.co/600x400?text=De+Laatste+Trein",
         "audio": "",
-        "original_idea": "The Last Train"
+        "original_idea": "The Last Train",
+        "tags": [
+            "Supernatural",
+            "Horror"
+        ]
     },
     {
         "id": 23,
@@ -204,7 +295,11 @@
         "image_prompt": "A creepy landlord showing a photo to a guest in a small bedroom.",
         "image": "https://placehold.co/600x400?text=De+Kamer",
         "audio": "",
-        "original_idea": "The Airbnb Host"
+        "original_idea": "The Airbnb Host",
+        "tags": [
+            "Thriller",
+            "Psychological"
+        ]
     },
     {
         "id": 24,
@@ -213,7 +308,11 @@
         "image_prompt": "A car surrounded by strange villagers in a grey, foggy town.",
         "image": "https://placehold.co/600x400?text=De+Weg",
         "audio": "",
-        "original_idea": "The Detour"
+        "original_idea": "The Detour",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 25,
@@ -222,7 +321,11 @@
         "image_prompt": "An empty white room with one chair, a man holding a knife looking at his visitor.",
         "image": "https://placehold.co/600x400?text=De+Man+met+Weinig",
         "audio": "",
-        "original_idea": "The Minimalist"
+        "original_idea": "The Minimalist",
+        "tags": [
+            "Psychological",
+            "Horror"
+        ]
     },
     {
         "id": 26,
@@ -231,7 +334,11 @@
         "image_prompt": "A surgeon in an operating room looking at his own hand in horror, holding a scalpel.",
         "image": "https://placehold.co/600x400?text=De+Hand",
         "audio": "",
-        "original_idea": "The Imposter"
+        "original_idea": "The Imposter",
+        "tags": [
+            "Psychological",
+            "Drama"
+        ]
     },
     {
         "id": 27,
@@ -240,7 +347,11 @@
         "image_prompt": "A man staring obsessively at a computer screen with a hard drive, looking frustrated.",
         "image": "https://placehold.co/600x400?text=Het+Woord",
         "audio": "",
-        "original_idea": "The Lost Password"
+        "original_idea": "The Lost Password",
+        "tags": [
+            "Mystery",
+            "Crime"
+        ]
     },
     {
         "id": 28,
@@ -249,7 +360,11 @@
         "image_prompt": "A woman looking at a dating app profile on her phone, comparing it to a missing person news article.",
         "image": "https://placehold.co/600x400?text=De+Foto",
         "audio": "",
-        "original_idea": "The Ghost Match"
+        "original_idea": "The Ghost Match",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 29,
@@ -258,7 +373,11 @@
         "image_prompt": "An office scene where everyone looks shocked at their phones, while one employee looks terrified.",
         "image": "https://placehold.co/600x400?text=De+Groep",
         "audio": "",
-        "original_idea": "The Group Chat"
+        "original_idea": "The Group Chat",
+        "tags": [
+            "Workplace",
+            "Drama"
+        ]
     },
     {
         "id": 30,
@@ -267,7 +386,11 @@
         "image_prompt": "View through a window of a sad woman taking a selfie, while a man watches from the dark garden.",
         "image": "https://placehold.co/600x400?text=Achter+het+Glas",
         "audio": "",
-        "original_idea": "The Influencer"
+        "original_idea": "The Influencer",
+        "tags": [
+            "Psychological",
+            "Noir"
+        ]
     },
     {
         "id": 31,
@@ -276,7 +399,11 @@
         "image_prompt": "A man banging on a glass window in a dark room, with a plate of vegetables glowing on a table.",
         "image": "https://placehold.co/600x400?text=Het+Huis+Leeft",
         "audio": "",
-        "original_idea": "The Smart Home"
+        "original_idea": "The Smart Home",
+        "tags": [
+            "Sci-Fi",
+            "Horror"
+        ]
     },
     {
         "id": 32,
@@ -285,7 +412,11 @@
         "image_prompt": "A woman looking at a selfie on her phone with terror, realizing a shadow figure is behind her in the photo.",
         "image": "https://placehold.co/600x400?text=De+Foto+Achter+Je",
         "audio": "",
-        "original_idea": "The Photobomb"
+        "original_idea": "The Photobomb",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 33,
@@ -294,7 +425,11 @@
         "image_prompt": "A person holding a phone showing a crying woman, while the real woman stands happily in the background.",
         "image": "https://placehold.co/600x400?text=De+Videoproep",
         "audio": "",
-        "original_idea": "The Deepfake"
+        "original_idea": "The Deepfake",
+        "tags": [
+            "Sci-Fi",
+            "Thriller"
+        ]
     },
     {
         "id": 34,
@@ -303,7 +438,11 @@
         "image_prompt": "A laptop screen displaying ominous search history text, with a figure standing outside the window holding a key.",
         "image": "https://placehold.co/600x400?text=De+Zoektocht",
         "audio": "",
-        "original_idea": "The Search History"
+        "original_idea": "The Search History",
+        "tags": [
+            "Crime",
+            "Thriller"
+        ]
     },
     {
         "id": 35,
@@ -312,7 +451,11 @@
         "image_prompt": "Two people standing awkwardly in a dim elevator, shadows creating tension.",
         "image": "https://placehold.co/600x400?text=De+Lift",
         "audio": "",
-        "original_idea": "The Elevator"
+        "original_idea": "The Elevator",
+        "tags": [
+            "Thriller",
+            "Psychological"
+        ]
     },
     {
         "id": 36,
@@ -321,7 +464,11 @@
         "image_prompt": "A crowded party scene where everyone has stopped dancing and is staring at one person.",
         "image": "https://placehold.co/600x400?text=Het+Feest",
         "audio": "",
-        "original_idea": "The Whisper"
+        "original_idea": "The Whisper",
+        "tags": [
+            "Psychological",
+            "Paranoia"
+        ]
     },
     {
         "id": 37,
@@ -330,7 +477,11 @@
         "image_prompt": "A comedian on stage pointing at a terrified man in the audience, spotlight on the man.",
         "image": "https://placehold.co/600x400?text=De+Grap",
         "audio": "",
-        "original_idea": "The Open Mic"
+        "original_idea": "The Open Mic",
+        "tags": [
+            "Psychological",
+            "Thriller"
+        ]
     },
     {
         "id": 38,
@@ -339,7 +490,11 @@
         "image_prompt": "A cardboard box on a balcony table with a digital timer counting down, sunny day contrast.",
         "image": "https://placehold.co/600x400?text=Het+Pakket",
         "audio": "",
-        "original_idea": "The Package"
+        "original_idea": "The Package",
+        "tags": [
+            "Thriller",
+            "Suspense"
+        ]
     },
     {
         "id": 39,
@@ -348,7 +503,11 @@
         "image_prompt": "A car stuck in a muddy field at night, surrounded by distant approaching lights (torches).",
         "image": "https://placehold.co/600x400?text=De+Bestemming",
         "audio": "",
-        "original_idea": "The GPS"
+        "original_idea": "The GPS",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 40,
@@ -357,7 +516,11 @@
         "image_prompt": "View from a cafe window reflecting two men staring at the viewer, noir atmosphere.",
         "image": "https://placehold.co/600x400?text=Het+Plan",
         "audio": "",
-        "original_idea": "The Cafe Plot"
+        "original_idea": "The Cafe Plot",
+        "tags": [
+            "Noir",
+            "Crime"
+        ]
     },
     {
         "id": 41,
@@ -366,7 +529,11 @@
         "image_prompt": "A black car parked on a quiet street, driver seat empty, viewed from the sidewalk.",
         "image": "https://placehold.co/600x400?text=Het+Signaal",
         "audio": "",
-        "original_idea": "The 3 PM Signal"
+        "original_idea": "The 3 PM Signal",
+        "tags": [
+            "Mystery",
+            "Sci-Fi"
+        ]
     },
     {
         "id": 42,
@@ -375,7 +542,11 @@
         "image_prompt": "A man sitting on a park bench, looking rigid and stone-like, under grey rain.",
         "image": "https://placehold.co/600x400?text=De+Man+op+de+Bank",
         "audio": "",
-        "original_idea": "The Statue Man"
+        "original_idea": "The Statue Man",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 43,
@@ -384,7 +555,11 @@
         "image_prompt": "Inside a subway car, a leather briefcase sits open on a lap, showing a mirror inside.",
         "image": "https://placehold.co/600x400?text=De+Tas",
         "audio": "",
-        "original_idea": "The Briefcase"
+        "original_idea": "The Briefcase",
+        "tags": [
+            "Supernatural",
+            "Horror"
+        ]
     },
     {
         "id": 44,
@@ -393,7 +568,11 @@
         "image_prompt": "A dark basement room with an old bed, shadows crawling on the floor.",
         "image": "https://placehold.co/600x400?text=De+Kelder",
         "audio": "",
-        "original_idea": "The Inheritance"
+        "original_idea": "The Inheritance",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 45,
@@ -402,7 +581,11 @@
         "image_prompt": "Close up of a hand holding a coffee cup and a handwritten note saying 'Don't go home tonight'.",
         "image": "https://placehold.co/600x400?text=De+Waarschuwing",
         "audio": "",
-        "original_idea": "The Free Warning"
+        "original_idea": "The Free Warning",
+        "tags": [
+            "Mystery",
+            "Thriller"
+        ]
     },
     {
         "id": 46,
@@ -411,7 +594,11 @@
         "image_prompt": "An open diary lying on a floor, with a bus crashing through a brick wall in the background.",
         "image": "https://placehold.co/600x400?text=Het+Boek+van+Morgen",
         "audio": "",
-        "original_idea": "The Prediction"
+        "original_idea": "The Prediction",
+        "tags": [
+            "Supernatural",
+            "Mystery"
+        ]
     },
     {
         "id": 47,
@@ -420,7 +607,11 @@
         "image_prompt": "An old man looking in a mirror in a luxurious room, looking shocked at his reflection.",
         "image": "https://placehold.co/600x400?text=De+Ruil",
         "audio": "",
-        "original_idea": "The Swap"
+        "original_idea": "The Swap",
+        "tags": [
+            "Supernatural",
+            "Psychological"
+        ]
     },
     {
         "id": 48,
@@ -429,7 +620,11 @@
         "image_prompt": "A man standing in a hallway holding a kitchen knife, looking at a phone in his other hand.",
         "image": "https://placehold.co/600x400?text=De+Ja-Man",
         "audio": "",
-        "original_idea": "The Yes Man"
+        "original_idea": "The Yes Man",
+        "tags": [
+            "Thriller",
+            "Crime"
+        ]
     },
     {
         "id": 49,
@@ -438,7 +633,11 @@
         "image_prompt": "Interior of a camper van at night, looking out at a creepy face pressed against the window.",
         "image": "https://placehold.co/600x400?text=De+Van",
         "audio": "",
-        "original_idea": "Van Life"
+        "original_idea": "Van Life",
+        "tags": [
+            "Horror",
+            "Thriller"
+        ]
     },
     {
         "id": 50,
@@ -447,7 +646,11 @@
         "image_prompt": "A group of friends sitting in a cabin looking terrified at a ringing bag.",
         "image": "https://placehold.co/600x400?text=Geen+Bereik",
         "audio": "",
-        "original_idea": "The Digital Detox"
+        "original_idea": "The Digital Detox",
+        "tags": [
+            "Horror",
+            "Mystery"
+        ]
     },
     {
         "id": 51,
@@ -456,7 +659,11 @@
         "image_prompt": "A man looking at his reflection in a shop window, but the reflection is doing something different (stealing).",
         "image": "https://placehold.co/600x400?text=De+Schaduw",
         "audio": "",
-        "original_idea": "The Shadow Friend"
+        "original_idea": "The Shadow Friend",
+        "tags": [
+            "Psychological",
+            "Supernatural"
+        ]
     },
     {
         "id": 52,
@@ -465,7 +672,11 @@
         "image_prompt": "A dark street at night filled with people in pajamas looking at a giant wave in the distance, a white owl watching from a roof.",
         "image": "https://placehold.co/600x400?text=De+Droom",
         "audio": "",
-        "original_idea": "The Shared Dream"
+        "original_idea": "The Shared Dream",
+        "tags": [
+            "Supernatural",
+            "Mystery"
+        ]
     },
     {
         "id": 53,
@@ -474,7 +685,11 @@
         "image_prompt": "A mysterious small wooden door in a hallway, slightly ajar with darkness inside.",
         "image": "https://placehold.co/600x400?text=De+Deur",
         "audio": "",
-        "original_idea": "The Forgotten Room"
+        "original_idea": "The Forgotten Room",
+        "tags": [
+            "Supernatural",
+            "Horror"
+        ]
     },
     {
         "id": 54,
@@ -483,7 +698,11 @@
         "image_prompt": "A man looking in a mirror trying to pull a forced smile off his face, with a second smile visible underneath.",
         "image": "https://placehold.co/600x400?text=Het+Masker",
         "audio": "",
-        "original_idea": "The Mask"
+        "original_idea": "The Mask",
+        "tags": [
+            "Psychological",
+            "Horror"
+        ]
     },
     {
         "id": 55,
@@ -492,7 +711,11 @@
         "image_prompt": "A room full of clocks, calendars and papers all displaying the number 742.",
         "image": "https://placehold.co/600x400?text=Het+Nummer",
         "audio": "",
-        "original_idea": "Synchronicity"
+        "original_idea": "Synchronicity",
+        "tags": [
+            "Mystery",
+            "Supernatural"
+        ]
     },
     {
         "id": 56,
@@ -501,7 +724,11 @@
         "image_prompt": "A man in a kitchen holding a knife, looking terrified, with a shadow looming over him.",
         "image": "https://placehold.co/600x400?text=De+Verteller",
         "audio": "",
-        "original_idea": "The Narrator"
+        "original_idea": "The Narrator",
+        "tags": [
+            "Meta",
+            "Psychological"
+        ]
     },
     {
         "id": 57,
@@ -510,7 +737,11 @@
         "image_prompt": "A transparent man standing on a busy street, people walking through him.",
         "image": "https://placehold.co/600x400?text=De+Onzichtbare+Man",
         "audio": "",
-        "original_idea": "The Invisible Man"
+        "original_idea": "The Invisible Man",
+        "tags": [
+            "Supernatural",
+            "Drama"
+        ]
     },
     {
         "id": 58,
@@ -519,7 +750,11 @@
         "image_prompt": "Two identical women in an office, one looking solid and confident, the other transparent and fading.",
         "image": "https://placehold.co/600x400?text=De+Projectie",
         "audio": "",
-        "original_idea": "The Projection"
+        "original_idea": "The Projection",
+        "tags": [
+            "Supernatural",
+            "Psychological"
+        ]
     },
     {
         "id": 59,
@@ -528,7 +763,11 @@
         "image_prompt": "A man in a black coat and hat standing in a modern office, holding an open leather bag emitting darkness.",
         "image": "https://placehold.co/600x400?text=De+Terugkeer",
         "audio": "",
-        "original_idea": "The Recurring Stranger"
+        "original_idea": "The Recurring Stranger",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 60,
@@ -537,7 +776,11 @@
         "image_prompt": "A man frozen mid-shout in a kitchen, while a woman looks around at a world that has stopped moving.",
         "image": "https://placehold.co/600x400?text=De+Loop",
         "audio": "",
-        "original_idea": "The Loop"
+        "original_idea": "The Loop",
+        "tags": [
+            "Sci-Fi",
+            "Surreal"
+        ]
     },
     {
         "id": 61,
@@ -546,7 +789,11 @@
         "image_prompt": "A businessman on a park bench crying, looking at a small boy holding a feather.",
         "image": "https://placehold.co/600x400?text=Het+Kind",
         "audio": "",
-        "original_idea": "The Child"
+        "original_idea": "The Child",
+        "tags": [
+            "Supernatural",
+            "Drama"
+        ]
     },
     {
         "id": 62,
@@ -555,7 +802,11 @@
         "image_prompt": "A man pounding on an invisible glass wall, looking at a happy family scene on the other side.",
         "image": "https://placehold.co/600x400?text=De+Glazen+Muur",
         "audio": "",
-        "original_idea": "The Glass Wall"
+        "original_idea": "The Glass Wall",
+        "tags": [
+            "Psychological",
+            "Surreal"
+        ]
     },
     {
         "id": 63,
@@ -564,7 +815,11 @@
         "image_prompt": "A violinist standing on a stage facing thousands of empty red seats.",
         "image": "https://placehold.co/600x400?text=De+Zaal",
         "audio": "",
-        "original_idea": "The Critic's Theater"
+        "original_idea": "The Critic's Theater",
+        "tags": [
+            "Psychological",
+            "Drama"
+        ]
     },
     {
         "id": 64,
@@ -573,7 +828,11 @@
         "image_prompt": "A grey waiting room full of bored people, one person opening a door to bright sunlight.",
         "image": "https://placehold.co/600x400?text=De+Wachtkamer",
         "audio": "",
-        "original_idea": "The Waiting Room"
+        "original_idea": "The Waiting Room",
+        "tags": [
+            "Surreal",
+            "Psychological"
+        ]
     },
     {
         "id": 65,
@@ -582,7 +841,11 @@
         "image_prompt": "A hiker throwing rocks out of a backpack off a cliff, the rocks have words like 'Anger' and 'Regret' on them.",
         "image": "https://placehold.co/600x400?text=De+Rugzak",
         "audio": "",
-        "original_idea": "The Heavy Backpack"
+        "original_idea": "The Heavy Backpack",
+        "tags": [
+            "Psychological",
+            "Metaphor"
+        ]
     },
     {
         "id": 66,
@@ -591,7 +854,11 @@
         "image_prompt": "A museum gallery filled with blank or unfinished canvases, a man running towards the exit.",
         "image": "https://placehold.co/600x400?text=Het+Museum",
         "audio": "",
-        "original_idea": "The Unfinished Symphony"
+        "original_idea": "The Unfinished Symphony",
+        "tags": [
+            "Psychological",
+            "Mystery"
+        ]
     },
     {
         "id": 67,
@@ -600,7 +867,11 @@
         "image_prompt": "A hand tossing a golden coin with a smiling face into a dark river.",
         "image": "https://placehold.co/600x400?text=De+Munt",
         "audio": "",
-        "original_idea": "The Lucky Coin"
+        "original_idea": "The Lucky Coin",
+        "tags": [
+            "Supernatural",
+            "Thriller"
+        ]
     },
     {
         "id": 68,
@@ -609,7 +880,11 @@
         "image_prompt": "A script book titled 'The Life of Tom' with crossed out text and fresh ink, a shattered glass on the floor.",
         "image": "https://placehold.co/600x400?text=Het+Script",
         "audio": "",
-        "original_idea": "The Script"
+        "original_idea": "The Script",
+        "tags": [
+            "Meta",
+            "Supernatural"
+        ]
     },
     {
         "id": 69,
@@ -618,7 +893,11 @@
         "image_prompt": "A man confronting a mugger, with a spectral white dog protecting him and a spectral black dog fading away.",
         "image": "https://placehold.co/600x400?text=De+Twee+Wolven",
         "audio": "",
-        "original_idea": "The Two Wolves"
+        "original_idea": "The Two Wolves",
+        "tags": [
+            "Psychological",
+            "Metaphor"
+        ]
     },
     {
         "id": 70,
@@ -627,7 +906,11 @@
         "image_prompt": "A young man looking at his older self on a park bench, the older self is fading away.",
         "image": "https://placehold.co/600x400?text=De+Toekomst",
         "audio": "",
-        "original_idea": "The Future Self"
+        "original_idea": "The Future Self",
+        "tags": [
+            "Sci-Fi",
+            "Drama"
+        ]
     },
     {
         "id": 71,
@@ -636,7 +919,11 @@
         "image_prompt": "A warrior holding a bow, visualizing a spectral arrow striking his own chest, peaceful dojo background.",
         "image": "https://placehold.co/600x400?text=De+Tweede+Pijl",
         "audio": "",
-        "original_idea": "The Second Arrow"
+        "original_idea": "The Second Arrow",
+        "tags": [
+            "Psychological",
+            "Metaphor"
+        ]
     },
     {
         "id": 72,
@@ -645,7 +932,11 @@
         "image_prompt": "A panicked office worker standing in a completely empty concrete room holding a blank ID card.",
         "image": "https://placehold.co/600x400?text=Het+Lege+Kantoor",
         "audio": "",
-        "original_idea": "The Empty Office"
+        "original_idea": "The Empty Office",
+        "tags": [
+            "Surreal",
+            "Mystery"
+        ]
     },
     {
         "id": 73,
@@ -654,7 +945,11 @@
         "image_prompt": "A man sitting alone in a white room staring at a blank wall, while money piles up around him.",
         "image": "https://placehold.co/600x400?text=Het+Contract",
         "audio": "",
-        "original_idea": "The NDA"
+        "original_idea": "The NDA",
+        "tags": [
+            "Mystery",
+            "Thriller"
+        ]
     },
     {
         "id": 74,
@@ -663,7 +958,11 @@
         "image_prompt": "A security monitor showing a person with a pig mask taking it off to reveal the security guard's own face, in a dark surveillance room.",
         "image": "https://placehold.co/600x400?text=De+Nachtdienst",
         "audio": "",
-        "original_idea": "The Night Shift"
+        "original_idea": "The Night Shift",
+        "tags": [
+            "Horror",
+            "Surreal"
+        ]
     },
     {
         "id": 75,
@@ -672,7 +971,11 @@
         "image_prompt": "A plain office wall where a door should be, a note sliding out from under the baseboard saying 'Go away'.",
         "image": "https://placehold.co/600x400?text=De+Spookwerknemer",
         "audio": "",
-        "original_idea": "The Ghost Employee"
+        "original_idea": "The Ghost Employee",
+        "tags": [
+            "Mystery",
+            "Horror"
+        ]
     },
     {
         "id": 76,
@@ -681,7 +984,11 @@
         "image_prompt": "A man on a rainy rooftop looking up at the empty sky where voices are coming from, a burning cigar at his feet.",
         "image": "https://placehold.co/600x400?text=Het+Plafond",
         "audio": "",
-        "original_idea": "The Glass Ceiling"
+        "original_idea": "The Glass Ceiling",
+        "tags": [
+            "Surreal",
+            "Mystery"
+        ]
     },
     {
         "id": 77,
@@ -690,7 +997,11 @@
         "image_prompt": "A paranoid person holding a tiny spy camera, looking at their laptop which displays a live feed of them.",
         "image": "https://placehold.co/600x400?text=De+Camera",
         "audio": "",
-        "original_idea": "The Hidden Camera"
+        "original_idea": "The Hidden Camera",
+        "tags": [
+            "Paranoia",
+            "Thriller"
+        ]
     },
     {
         "id": 78,
@@ -699,7 +1010,11 @@
         "image_prompt": "A large black dog with yellow eyes standing in a garden, watching a neighbor drag something away.",
         "image": "https://placehold.co/600x400?text=De+Hond+van+de+Buren",
         "audio": "",
-        "original_idea": "The Neighbor's Dog"
+        "original_idea": "The Neighbor's Dog",
+        "tags": [
+            "Horror",
+            "Crime"
+        ]
     },
     {
         "id": 79,
@@ -708,7 +1023,11 @@
         "image_prompt": "A flashlight shining on an old Nokia phone hidden inside a broken wall cavity in a dusty attic.",
         "image": "https://placehold.co/600x400?text=De+Zolder",
         "audio": "",
-        "original_idea": "The Attic"
+        "original_idea": "The Attic",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 80,
@@ -717,7 +1036,11 @@
         "image_prompt": "A hand forcing peanuts into a mouth, a note on the table reading 'Epi-pen: Empty'.",
         "image": "https://placehold.co/600x400?text=Het+Lijstje",
         "audio": "",
-        "original_idea": "The Grocery List"
+        "original_idea": "The Grocery List",
+        "tags": [
+            "Horror",
+            "Psychological"
+        ]
     },
     {
         "id": 81,
@@ -726,7 +1049,11 @@
         "image_prompt": "A passenger shaking a bus driver who turns out to be a plastic mannequin, the bus speeding into a void.",
         "image": "https://placehold.co/600x400?text=De+Laatste+Bus",
         "audio": "",
-        "original_idea": "The Last Bus"
+        "original_idea": "The Last Bus",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 82,
@@ -735,7 +1062,11 @@
         "image_prompt": "A person standing in a blood-red hallway facing a single door numbered 404, the elevator behind them is gone.",
         "image": "https://placehold.co/600x400?text=Verdieping+4",
         "audio": "",
-        "original_idea": "Apartment 404"
+        "original_idea": "Apartment 404",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 83,
@@ -744,7 +1075,10 @@
         "image_prompt": "A woman in a yellow dress dancing unnaturally on a dark street under a streetlamp.",
         "image": "https://placehold.co/600x400?text=De+Lachende+Vrouw",
         "audio": "",
-        "original_idea": "The Smiling Woman"
+        "original_idea": "The Smiling Woman",
+        "tags": [
+            "Horror"
+        ]
     },
     {
         "id": 84,
@@ -753,7 +1087,11 @@
         "image_prompt": "Looking out from a dirty phone booth at night, seeing a silhouette in another distant phone booth.",
         "image": "https://placehold.co/600x400?text=De+Telefooncel",
         "audio": "",
-        "original_idea": "The Payphone"
+        "original_idea": "The Payphone",
+        "tags": [
+            "Horror",
+            "Thriller"
+        ]
     },
     {
         "id": 85,
@@ -762,7 +1100,11 @@
         "image_prompt": "A scary librarian holding a sharp pen approaching a man reading a book about his own life.",
         "image": "https://placehold.co/600x400?text=De+Bibliotheek",
         "audio": "",
-        "original_idea": "The Infinite Library"
+        "original_idea": "The Infinite Library",
+        "tags": [
+            "Supernatural",
+            "Mystery"
+        ]
     },
     {
         "id": 86,
@@ -771,7 +1113,11 @@
         "image_prompt": "A greyscale city with one person remembering the color blue, holding a grey flower.",
         "image": "https://placehold.co/600x400?text=Geen+Blauw",
         "audio": "",
-        "original_idea": "The Color Blue"
+        "original_idea": "The Color Blue",
+        "tags": [
+            "Sci-Fi",
+            "Mystery"
+        ]
     },
     {
         "id": 87,
@@ -780,7 +1126,11 @@
         "image_prompt": "A man screaming in a frozen world, birds hanging in the air, a broken stopwatch on the ground.",
         "image": "https://placehold.co/600x400?text=De+Stopwatch",
         "audio": "",
-        "original_idea": "The Stop Watch"
+        "original_idea": "The Stop Watch",
+        "tags": [
+            "Sci-Fi",
+            "Supernatural"
+        ]
     },
     {
         "id": 88,
@@ -789,7 +1139,11 @@
         "image_prompt": "A cracked bathroom mirror with a reflection that is trying to climb out of the glass.",
         "image": "https://placehold.co/600x400?text=De+Spiegel",
         "audio": "",
-        "original_idea": "The Mirror"
+        "original_idea": "The Mirror",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 89,
@@ -798,7 +1152,11 @@
         "image_prompt": "A photo album showing the same mysterious man in a grey coat lurking in the background of pictures from different decades.",
         "image": "https://placehold.co/600x400?text=De+Vreemdeling",
         "audio": "",
-        "original_idea": "The Stranger in the Photo"
+        "original_idea": "The Stranger in the Photo",
+        "tags": [
+            "Supernatural",
+            "Mystery"
+        ]
     },
     {
         "id": 90,
@@ -807,7 +1165,11 @@
         "image_prompt": "A confused man surrounded by people speaking in alien symbols, spaceships hovering in the sky on a TV screen.",
         "image": "https://placehold.co/600x400?text=De+Nieuwe+Taal",
         "audio": "",
-        "original_idea": "The Forgotten Language"
+        "original_idea": "The Forgotten Language",
+        "tags": [
+            "Sci-Fi",
+            "Horror"
+        ]
     },
     {
         "id": 91,
@@ -816,7 +1178,11 @@
         "image_prompt": "A man looking at a diary with wet ink, seeing a doppelganger sitting at his desk in the background.",
         "image": "https://placehold.co/600x400?text=Het+Dagboek",
         "audio": "",
-        "original_idea": "The Diary Entry"
+        "original_idea": "The Diary Entry",
+        "tags": [
+            "Horror",
+            "Supernatural"
+        ]
     },
     {
         "id": 92,
@@ -825,7 +1191,11 @@
         "image_prompt": "A crowd of people all wearing 'Jan Janssen' name tags, one man screaming but he has no mouth.",
         "image": "https://placehold.co/600x400?text=De+Naam",
         "audio": "",
-        "original_idea": "The Name Tag"
+        "original_idea": "The Name Tag",
+        "tags": [
+            "Surreal",
+            "Horror"
+        ]
     },
     {
         "id": 93,
@@ -834,7 +1204,11 @@
         "image_prompt": "A happy family dinner turning into a nightmare, with a shadowy memory of a cage appearing over the table.",
         "image": "https://placehold.co/600x400?text=De+Herinnering",
         "audio": "",
-        "original_idea": "The False Memory"
+        "original_idea": "The False Memory",
+        "tags": [
+            "Mystery",
+            "Psychological"
+        ]
     },
     {
         "id": 94,
@@ -843,7 +1217,11 @@
         "image_prompt": "A man throwing a chair through a window, but instead of the outside world, he sees Matrix-style computer code.",
         "image": "https://placehold.co/600x400?text=Geen+Uitgang",
         "audio": "",
-        "original_idea": "The Unsubscribed"
+        "original_idea": "The Unsubscribed",
+        "tags": [
+            "Sci-Fi",
+            "Horror"
+        ]
     },
     {
         "id": 95,
@@ -852,7 +1230,11 @@
         "image_prompt": "A futuristic street where people have glowing social credit scores floating above their heads.",
         "image": "https://placehold.co/600x400?text=De+Score",
         "audio": "",
-        "original_idea": "The Rating"
+        "original_idea": "The Rating",
+        "tags": [
+            "Sci-Fi",
+            "Dystopian"
+        ]
     },
     {
         "id": 96,
@@ -861,7 +1243,11 @@
         "image_prompt": "Panic inside a train car, everyone looking at their phones with horror, one person looking out the window.",
         "image": "https://placehold.co/600x400?text=Het+Bericht",
         "audio": "",
-        "original_idea": "The Notification"
+        "original_idea": "The Notification",
+        "tags": [
+            "Horror",
+            "Sci-Fi"
+        ]
     },
     {
         "id": 97,
@@ -870,7 +1256,11 @@
         "image_prompt": "A cracked smartphone on the pavement growing mechanical spider legs, glowing with red energy and running away.",
         "image": "https://placehold.co/600x400?text=1+Procent",
         "audio": "",
-        "original_idea": "The Battery"
+        "original_idea": "The Battery",
+        "tags": [
+            "Sci-Fi",
+            "Horror"
+        ]
     },
     {
         "id": 98,
@@ -879,7 +1269,11 @@
         "image_prompt": "A man shaking hands with a mysterious lawyer outside a police station, looking confused and worried.",
         "image": "https://placehold.co/600x400?text=Het+Alibi",
         "audio": "",
-        "original_idea": "The Alibi"
+        "original_idea": "The Alibi",
+        "tags": [
+            "Mystery",
+            "Crime"
+        ]
     },
     {
         "id": 99,
@@ -888,7 +1282,11 @@
         "image_prompt": "A courtroom scene where a jury member stares in horror at the defendant who is his exact double, while a witness points at the jury member.",
         "image": "https://placehold.co/600x400?text=De+Jury",
         "audio": "",
-        "original_idea": "The Jury"
+        "original_idea": "The Jury",
+        "tags": [
+            "Mystery",
+            "Thriller"
+        ]
     },
     {
         "id": 100,
@@ -897,6 +1295,10 @@
         "image_prompt": "A confessional booth in a church, view from the priest's side with a shadow looming behind the screen.",
         "image": "https://placehold.co/600x400?text=De+Biecht",
         "audio": "",
-        "original_idea": "The Confession"
+        "original_idea": "The Confession",
+        "tags": [
+            "Crime",
+            "Thriller"
+        ]
     }
 ]
