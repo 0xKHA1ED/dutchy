@@ -96,7 +96,7 @@
 </head>
 
 <body
-    class="h-screen flex flex-col items-center justify-center overflow-hidden bg-zinc-950 text-zinc-100 bg-particles">
+    class="h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-zinc-950 text-zinc-100 bg-particles">
 
     <div id="app-container"
         class="w-full max-w-md md:max-w-4xl bg-zinc-900/90 backdrop-blur-2xl md:rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden h-full md:h-[85vh] flex flex-col relative border border-white/5 ring-1 ring-black">
@@ -818,13 +818,26 @@
 
             // Sort: Due/Hard first, then New, then Known (Review later)
             items.sort((a, b) => {
-                const aDue = a.srs.nextReview <= now;
-                const bDue = b.srs.nextReview <= now;
+                // Determine category: 0=Due/Hard, 1=New, 2=Future
+                const getCategory = (item) => {
+                    if (item.srs.nextReview === 0) return 1; // New
+                    if (item.srs.nextReview <= now) return 0; // Due/Hard
+                    return 2; // Future
+                };
 
-                if (aDue && !bDue) return -1;
-                if (!aDue && bDue) return 1;
-                if (aDue && bDue) return a.srs.box - b.srs.box; // Lower box first
-                return a.srs.nextReview - b.srs.nextReview; // Sooner review first
+                const catA = getCategory(a);
+                const catB = getCategory(b);
+
+                if (catA !== catB) return catA - catB;
+
+                // Within category 0 (Due/Hard)
+                if (catA === 0) {
+                    // "sorted by box level" (lower box first? Hard items have box 0)
+                    if (a.srs.box !== b.srs.box) return a.srs.box - b.srs.box;
+                    return a.srs.nextReview - b.srs.nextReview;
+                }
+
+                return a.srs.nextReview - b.srs.nextReview;
             });
 
             studyQueue = items.map(i => i.text);
