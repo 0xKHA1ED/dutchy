@@ -86,6 +86,12 @@
             background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
         }
+
+        /* 3D Flip Card Styles */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
     </style>
 </head>
 
@@ -149,7 +155,7 @@
                 <div class="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-12 pb-40">
                     <div class="max-w-2xl mx-auto">
 
-                        <!-- Hero Image & Audio -->
+                        <!-- Hero Image -->
                         <div class="flex flex-col gap-6 mb-10">
                             <!-- Image Container -->
                             <div class="w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-zinc-800 relative group">
@@ -162,15 +168,11 @@
                                 </div>
                             </div>
 
-                            <!-- Audio Player -->
-                            <div class="bg-zinc-800/50 rounded-lg p-3 border border-white/5 flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
-                                    <i class="fas fa-headphones"></i>
-                                </div>
-                                <audio id="audio-player" controls class="w-full h-8 accent-amber-500 opacity-80 hover:opacity-100 transition-opacity filter invert-[.9]">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
+                            <!-- Study Button -->
+                            <button id="btn-study" class="w-full bg-zinc-800 hover:bg-zinc-700 text-amber-500 font-bold py-3 px-6 rounded-xl transition-all duration-200 border border-amber-500/20 shadow-lg flex items-center justify-center gap-2 group active:scale-95">
+                                <i class="fas fa-layer-group group-hover:scale-110 transition-transform"></i>
+                                <span>Study Sentences</span>
+                            </button>
                         </div>
 
                         <!-- Text Content -->
@@ -188,10 +190,81 @@
                 </div>
             </div>
 
+            <!-- Study View (Flashcards) -->
+            <div id="study-view" class="absolute inset-0 bg-zinc-950 z-40 flex flex-col hidden">
+                <!-- Header -->
+                <div class="p-6 flex justify-between items-center border-b border-white/10 bg-zinc-900/50 backdrop-blur-sm">
+                    <div>
+                         <h2 class="text-xl font-bold text-white">Study Mode</h2>
+                         <p id="study-progress" class="text-xs text-zinc-500 mt-1">Card 1 of 10</p>
+                    </div>
+                    <button onclick="closeStudyMode()" class="text-zinc-400 hover:text-white transition-colors p-2 rounded-full hover:bg-white/5">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <!-- Content -->
+                <div class="flex-1 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                    <div id="flashcard-container" class="w-full max-w-xl aspect-[4/3] relative perspective-1000 cursor-pointer group">
+                        <div id="flashcard-inner" class="w-full h-full relative transition-transform duration-500 transform-style-3d">
+                             <!-- Front -->
+                            <div class="absolute inset-0 bg-zinc-900 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col items-center justify-center backface-hidden shadow-2xl">
+                                <p class="text-zinc-600 text-xs uppercase tracking-wider font-bold mb-6">Dutch Sentence</p>
+                                <p id="fc-front-text" class="text-xl md:text-3xl font-serif text-center leading-relaxed text-zinc-200"></p>
+                                <p class="text-zinc-700 text-xs mt-8 flex items-center gap-2">
+                                    <i class="fas fa-hand-pointer"></i> Tap to flip
+                                </p>
+                            </div>
+                             <!-- Back -->
+                            <div class="absolute inset-0 bg-zinc-800 border border-amber-500/20 rounded-2xl p-6 md:p-10 flex flex-col items-center justify-center backface-hidden rotate-y-180 shadow-2xl">
+                                <p class="text-amber-500 text-xs uppercase tracking-wider font-bold mb-4">Word Analysis</p>
+                                <div id="fc-back-content" class="text-base text-zinc-300 text-center mb-6 overflow-y-auto max-h-[50%] w-full custom-scrollbar flex flex-wrap justify-center gap-2">
+                                    <!-- Gloss goes here -->
+                                </div>
+                                <div class="w-full h-[1px] bg-white/5 mb-6"></div>
+                                <a id="fc-translate-link" href="#" target="_blank" class="px-4 py-2 rounded-lg bg-zinc-700/50 hover:bg-zinc-700 text-zinc-300 text-sm transition-colors border border-white/5 flex items-center gap-2 mb-2" onclick="event.stopPropagation();">
+                                    <i class="fas fa-external-link-alt text-xs"></i> Google Translate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div id="fc-controls" class="w-full max-w-xl mt-8 grid grid-cols-3 gap-4 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
+                        <button onclick="handleRating('hard')" class="p-3 md:p-4 rounded-xl bg-red-500/10 text-red-500 border border-red-500/20 hover:bg-red-500/20 font-bold transition-all active:scale-95 flex flex-col items-center gap-1">
+                            <span class="text-lg"><i class="fas fa-times"></i></span>
+                            <span class="text-xs uppercase">Hard</span>
+                        </button>
+                        <button onclick="handleRating('good')" class="p-3 md:p-4 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20 hover:bg-blue-500/20 font-bold transition-all active:scale-95 flex flex-col items-center gap-1">
+                            <span class="text-lg"><i class="fas fa-check"></i></span>
+                            <span class="text-xs uppercase">Good</span>
+                        </button>
+                        <button onclick="handleRating('easy')" class="p-3 md:p-4 rounded-xl bg-green-500/10 text-green-500 border border-green-500/20 hover:bg-green-500/20 font-bold transition-all active:scale-95 flex flex-col items-center gap-1">
+                            <span class="text-lg"><i class="fas fa-star"></i></span>
+                            <span class="text-xs uppercase">Easy</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
+        <!-- Fixed Bottom Audio Player -->
+        <div id="fixed-audio-player" class="absolute bottom-0 left-0 right-0 bg-zinc-900/95 backdrop-blur-xl border-t border-white/10 p-4 transform translate-y-full transition-transform duration-300 z-30 hidden">
+            <div class="max-w-4xl mx-auto flex items-center gap-4">
+                 <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <div class="flex-1">
+                     <audio id="audio-player" controls class="w-full h-8 accent-amber-500 opacity-80 hover:opacity-100 transition-opacity filter invert-[.9]">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Definition Card (Popover) -->
-        <div id="definition-card" class="absolute bottom-0 left-0 right-0 bg-zinc-800/95 backdrop-blur-2xl p-6 md:p-8 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transform translate-y-full transition-transform duration-300 z-20 border-t border-white/10">
+        <div id="definition-card" class="absolute bottom-0 left-0 right-0 bg-zinc-800/95 backdrop-blur-2xl p-6 md:p-8 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transform translate-y-full transition-transform duration-300 z-50 border-t border-white/10">
             <div class="max-w-xl mx-auto">
                 <div class="flex justify-between items-start mb-6">
                     <div>
@@ -221,6 +294,12 @@
         let dictionary = new Map();
         let currentStoryUniqueWords = null;
         let selectedTags = new Set();
+        let currentStory = null;
+
+        // Study Mode State
+        let studyQueue = [];
+        let currentCardIndex = 0;
+        let isCardFlipped = false;
 
         class KnownWordsManager {
             constructor() {
@@ -294,6 +373,19 @@
             detailTitle: document.getElementById('detail-title'),
             detailText: document.getElementById('detail-text'),
             audioPlayer: document.getElementById('audio-player'),
+            fixedAudioContainer: document.getElementById('fixed-audio-player'),
+            btnStudy: document.getElementById('btn-study'),
+
+            // Study View
+            studyView: document.getElementById('study-view'),
+            flashcardContainer: document.getElementById('flashcard-container'),
+            flashcardInner: document.getElementById('flashcard-inner'),
+            fcFrontText: document.getElementById('fc-front-text'),
+            fcBackContent: document.getElementById('fc-back-content'),
+            fcTranslateLink: document.getElementById('fc-translate-link'),
+            fcControls: document.getElementById('fc-controls'),
+            studyProgress: document.getElementById('study-progress'),
+
             // Popover elements
             defCard: document.getElementById('definition-card'),
             defWord: document.getElementById('def-word'),
@@ -326,6 +418,14 @@
             }
         });
 
+        // Study Button Handler
+        els.btnStudy.addEventListener('click', openStudyMode);
+
+        // Flashcard Flip
+        els.flashcardContainer.addEventListener('click', () => {
+            flipCard(!isCardFlipped);
+        });
+
         function openDefinitionCard(word) {
             currentSelectedWord = word;
             const lowerWord = word.toLowerCase();
@@ -354,11 +454,17 @@
 
             // 2. Show Card
             els.defCard.classList.remove('translate-y-full');
+            // Hide Audio player to make room
+            els.fixedAudioContainer.classList.add('translate-y-full');
         }
 
         function closeDefinitionCard() {
             els.defCard.classList.add('translate-y-full');
             currentSelectedWord = null;
+            // Restore Audio player if we are in a story
+            if (!els.detail.classList.contains('hidden') && els.studyView.classList.contains('hidden')) {
+                els.fixedAudioContainer.classList.remove('translate-y-full');
+            }
         }
 
         function updateCardButtonState(isKnown) {
@@ -550,6 +656,7 @@
         }
 
         function openStory(story) {
+            currentStory = story;
             // Populate Detail
             els.detailImage.src = story.image || 'https://placehold.co/600x600/18181b/a1a1aa?text=Story';
             els.detailTitle.textContent = story.title;
@@ -579,6 +686,10 @@
             els.detail.classList.remove('hidden');
             els.backBtn.classList.remove('hidden');
 
+            // Show Audio Player
+            els.fixedAudioContainer.classList.remove('hidden');
+            setTimeout(() => els.fixedAudioContainer.classList.remove('translate-y-full'), 100);
+
             // Update Header to show just the title
             els.headerTitle.innerHTML = `<span class="truncate max-w-[200px] text-zinc-300 text-base">${story.title}</span>`;
         }
@@ -607,6 +718,7 @@
         }
 
         function showList() {
+            currentStory = null;
             currentStoryUniqueWords = null;
             updateStats();
             renderList(); // Re-render to update sort order
@@ -615,14 +727,219 @@
             els.list.classList.remove('hidden');
             els.backBtn.classList.add('hidden');
 
-            // Stop audio
+            // Stop and Hide audio
             els.audioPlayer.pause();
+            els.fixedAudioContainer.classList.add('translate-y-full');
+            setTimeout(() => els.fixedAudioContainer.classList.add('hidden'), 300);
 
             // Reset Header
             els.headerTitle.innerHTML = `<span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 to-yellow-500">Dutch Dash</span>`;
 
             // Close card if open
             closeDefinitionCard();
+        }
+
+        // --- SRS & Persistence ---
+        class SentenceSRSManager {
+            constructor() {
+                this.storageKey = 'dutch_dash_sentence_srs';
+                this.data = JSON.parse(localStorage.getItem(this.storageKey) || '{}');
+            }
+
+            get(storyId, sentence) {
+                const key = `${storyId}:${this._hash(sentence)}`;
+                return this.data[key] || { box: 0, nextReview: 0 };
+            }
+
+            update(storyId, sentence, rating) {
+                const key = `${storyId}:${this._hash(sentence)}`;
+                let item = this.data[key] || { box: 0, nextReview: 0 };
+
+                const now = Date.now();
+                const day = 24 * 60 * 60 * 1000;
+
+                if (rating === 'hard') {
+                    item.box = 0;
+                    item.nextReview = now; // Review immediately (or keep in session queue)
+                } else if (rating === 'good') {
+                    item.box = Math.min(item.box + 1, 5);
+                    // Intervals: 1, 3, 7, 14, 30 days
+                    const intervals = [0, 1, 3, 7, 14, 30];
+                    item.nextReview = now + (intervals[item.box] * day);
+                } else if (rating === 'easy') {
+                     item.box = Math.min(item.box + 2, 5);
+                     const intervals = [0, 1, 3, 7, 14, 30];
+                     item.nextReview = now + (intervals[item.box] * day);
+                }
+
+                this.data[key] = item;
+                this._save();
+                return item;
+            }
+
+            _hash(str) {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = (hash << 5) - hash + char;
+                    hash |= 0;
+                }
+                return hash;
+            }
+
+            _save() {
+                localStorage.setItem(this.storageKey, JSON.stringify(this.data));
+            }
+        }
+
+        const srsManager = new SentenceSRSManager();
+
+        // --- STUDY MODE LOGIC ---
+
+        function openStudyMode() {
+            if (!currentStory) return;
+
+            const rawSentences = currentStory.body.match(/[^\.!\?]+[\.!\?]+/g);
+            if (!rawSentences || rawSentences.length === 0) {
+                alert('No sentences found to study.');
+                return;
+            }
+
+            // Clean up and prioritize
+            let items = rawSentences
+                .map(s => s.trim())
+                .filter(s => s.length > 3)
+                .map(s => {
+                    const srs = srsManager.get(currentStory.id, s);
+                    return { text: s, srs: srs };
+                });
+
+            const now = Date.now();
+
+            // Sort: Due/Hard first, then New, then Known (Review later)
+            items.sort((a, b) => {
+                const aDue = a.srs.nextReview <= now;
+                const bDue = b.srs.nextReview <= now;
+
+                if (aDue && !bDue) return -1;
+                if (!aDue && bDue) return 1;
+                if (aDue && bDue) return a.srs.box - b.srs.box; // Lower box first
+                return a.srs.nextReview - b.srs.nextReview; // Sooner review first
+            });
+
+            studyQueue = items.map(i => i.text);
+
+            if (studyQueue.length === 0) return;
+
+            currentCardIndex = 0;
+
+            // Hide Audio (distraction)
+            els.fixedAudioContainer.classList.add('translate-y-full');
+
+            // Show View
+            els.studyView.classList.remove('hidden');
+            renderFlashcard();
+        }
+
+        function closeStudyMode() {
+            els.studyView.classList.add('hidden');
+            // Show Audio again
+            els.fixedAudioContainer.classList.remove('translate-y-full');
+        }
+
+        function renderFlashcard() {
+            // Reset Flip
+            flipCard(false);
+
+            const sentence = studyQueue[currentCardIndex];
+
+            // Front
+            els.fcFrontText.textContent = sentence;
+
+            // Back: Generate Gloss
+            els.fcBackContent.innerHTML = '';
+
+            // Tokenize sentence for gloss
+            const tokens = sentence.split(/([a-zA-Z\u00C0-\u017F]+)/);
+            tokens.forEach(token => {
+                if (/^[a-zA-Z\u00C0-\u017F]+$/.test(token)) {
+                    // It is a word
+                    const lower = token.toLowerCase();
+                    const meaning = dictionary.get(lower);
+
+                    if (meaning) {
+                        // Word with gloss
+                        const span = document.createElement('div');
+                        span.className = "flex flex-col items-center mx-1 my-1";
+                        span.innerHTML = `
+                            <span class="text-zinc-100 font-bold border-b border-white/10 pb-0.5 mb-0.5">${token}</span>
+                            <span class="text-amber-500 text-[10px] italic leading-tight max-w-[100px] truncate">${meaning.split(',')[0]}</span>
+                        `;
+                        els.fcBackContent.appendChild(span);
+                    } else {
+                        // Word without gloss
+                        const span = document.createElement('span');
+                        span.className = "text-zinc-500 mx-1 self-center";
+                        span.textContent = token;
+                        els.fcBackContent.appendChild(span);
+                    }
+                } else {
+                    // Punctuation - add reduced margin to attach closer to previous?
+                    // For simplicity in flex-wrap, we just display it.
+                    const span = document.createElement('span');
+                    span.className = "text-zinc-500 self-center";
+                    span.textContent = token;
+                    els.fcBackContent.appendChild(span);
+                }
+            });
+
+            // Google Translate Link
+            els.fcTranslateLink.href = `https://translate.google.com/?sl=nl&tl=en&text=${encodeURIComponent(sentence)}&op=translate`;
+
+            // Progress
+            els.studyProgress.textContent = `Card ${currentCardIndex + 1} of ${studyQueue.length}`;
+        }
+
+        function flipCard(flipped) {
+            isCardFlipped = flipped;
+            if (flipped) {
+                els.flashcardInner.classList.add('rotate-y-180');
+                // Show controls with delay
+                setTimeout(() => {
+                    els.fcControls.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                }, 300);
+            } else {
+                els.flashcardInner.classList.remove('rotate-y-180');
+                // Hide controls
+                els.fcControls.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }
+        }
+
+        function handleRating(rating) {
+            const currentSentence = studyQueue[currentCardIndex];
+
+            // Save to SRS
+            if (currentStory) {
+                srsManager.update(currentStory.id, currentSentence, rating);
+            }
+
+            if (rating === 'hard') {
+                // Keep in session: push to end of queue
+                studyQueue.push(currentSentence);
+                // Update total count
+                els.studyProgress.textContent = `Card ${currentCardIndex + 1} of ${studyQueue.length}`;
+            }
+
+            // Move to next
+            currentCardIndex++;
+
+            if (currentCardIndex >= studyQueue.length) {
+                // Finished
+                alert('Study session complete!');
+                closeStudyMode();
+            } else {
+                renderFlashcard();
+            }
         }
 
         // Initialize
