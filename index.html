@@ -808,7 +808,7 @@
             // Clean up and prioritize
             let items = rawSentences
                 .map(s => s.trim())
-                .filter(s => s.length > 3)
+                .filter(s => s.length >= 3)
                 .map(s => {
                     const srs = srsManager.get(currentStory.id, s);
                     return { text: s, srs: srs };
