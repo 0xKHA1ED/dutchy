@@ -193,7 +193,7 @@
             <!-- Study View (Flashcards) -->
             <div id="study-view" class="absolute inset-0 bg-zinc-950 z-40 flex flex-col hidden">
                 <!-- Header -->
-                <div class="p-6 flex justify-between items-center border-b border-white/10 bg-zinc-900/50 backdrop-blur-sm">
+                <div class="p-6 flex justify-between items-center border-b border-white/10 bg-zinc-900/50 backdrop-blur-sm shrink-0 z-10">
                     <div>
                          <h2 class="text-xl font-bold text-white">Study Mode</h2>
                          <p id="study-progress" class="text-xs text-zinc-500 mt-1">Card 1 of 10</p>
@@ -202,14 +202,15 @@
                         <i class="fas fa-times text-2xl"></i>
                     </button>
                 </div>
+
                 <!-- Content -->
-                <div class="flex-1 flex flex-col items-center justify-center p-6 relative overflow-y-auto custom-scrollbar">
-                    <div id="flashcard-container" class="w-full max-w-xl aspect-[4/3] relative perspective-1000 cursor-pointer group shrink-0">
+                <div class="flex-1 flex flex-col items-center justify-center p-6 relative overflow-hidden w-full">
+                    <div id="flashcard-container" class="w-full max-w-xl aspect-[4/3] max-h-full relative perspective-1000 cursor-pointer group shrink-1 min-h-0">
                         <div id="flashcard-inner" class="w-full h-full relative transition-transform duration-500 transform-style-3d">
                              <!-- Front -->
                             <div class="absolute inset-0 bg-zinc-900 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col items-center justify-center backface-hidden shadow-2xl">
                                 <p class="text-zinc-600 text-xs uppercase tracking-wider font-bold mb-6">Dutch Sentence</p>
-                                <p id="fc-front-text" class="text-xl md:text-3xl font-serif text-center leading-relaxed text-zinc-200"></p>
+                                <p id="fc-front-text" class="text-xl md:text-3xl font-serif text-center leading-relaxed text-zinc-200 overflow-y-auto max-h-[60%] custom-scrollbar"></p>
                                 <p class="text-zinc-700 text-xs mt-8 flex items-center gap-2">
                                     <i class="fas fa-hand-pointer"></i> Tap to flip
                                 </p>
@@ -227,9 +228,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Controls -->
-                    <div id="fc-controls" class="w-full max-w-xl mt-8 grid grid-cols-3 gap-4 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
+                <!-- Footer Controls -->
+                <div class="p-4 md:p-6 bg-zinc-900/50 backdrop-blur-sm border-t border-white/10 w-full flex justify-center shrink-0 z-10">
+                    <div id="fc-controls" class="w-full max-w-xl grid grid-cols-3 gap-4 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
                         <button onclick="handleRating('hard')" class="p-3 md:p-4 rounded-xl bg-red-500/10 text-red-500 border border-red-500/20 hover:bg-red-500/20 font-bold transition-all active:scale-95 flex flex-col items-center gap-1">
                             <span class="text-lg"><i class="fas fa-times"></i></span>
                             <span class="text-xs uppercase">Hard</span>
@@ -423,7 +426,13 @@
 
         // Flashcard Flip
         els.flashcardContainer.addEventListener('click', () => {
-            flipCard(!isCardFlipped);
+            const nextState = !isCardFlipped;
+            flipCard(nextState);
+            // Play audio when flipping back to front (Dutch)
+            if (!nextState) {
+                const sentence = studyQueue[currentCardIndex];
+                speakSentence(sentence);
+            }
         });
 
         function openDefinitionCard(word) {
