@@ -203,8 +203,8 @@
                     </button>
                 </div>
                 <!-- Content -->
-                <div class="flex-1 flex flex-col items-center justify-center p-6 relative overflow-hidden">
-                    <div id="flashcard-container" class="w-full max-w-xl aspect-[4/3] relative perspective-1000 cursor-pointer group">
+                <div class="flex-1 flex flex-col items-center justify-center p-6 relative overflow-y-auto custom-scrollbar">
+                    <div id="flashcard-container" class="w-full max-w-xl aspect-[4/3] relative perspective-1000 cursor-pointer group shrink-0">
                         <div id="flashcard-inner" class="w-full h-full relative transition-transform duration-500 transform-style-3d">
                              <!-- Front -->
                             <div class="absolute inset-0 bg-zinc-900 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col items-center justify-center backface-hidden shadow-2xl">
@@ -860,6 +860,15 @@
             els.fixedAudioContainer.classList.remove('translate-y-full');
         }
 
+        function speakSentence(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'nl-NL';
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
         function renderFlashcard() {
             // Reset Flip
             flipCard(false);
@@ -869,42 +878,53 @@
             // Front
             els.fcFrontText.textContent = sentence;
 
-            // Back: Generate Gloss
+            // Speak Sentence (Auto TTS)
+            speakSentence(sentence);
+
+            // Back: Generate Content
             els.fcBackContent.innerHTML = '';
 
-            // Tokenize sentence for gloss
-            const tokens = sentence.split(/([a-zA-Z\u00C0-\u017F]+)/);
-            tokens.forEach(token => {
-                if (/^[a-zA-Z\u00C0-\u017F]+$/.test(token)) {
-                    // It is a word
-                    const lower = token.toLowerCase();
-                    const meaning = dictionary.get(lower);
+            // Check if manual translation exists
+            if (currentStory.sentence_translations && currentStory.sentence_translations[sentence]) {
+                const translation = currentStory.sentence_translations[sentence];
+                const p = document.createElement('p');
+                p.className = "text-lg md:text-xl text-zinc-200 italic font-serif leading-relaxed";
+                p.textContent = translation;
+                els.fcBackContent.appendChild(p);
+            } else {
+                // Tokenize sentence for gloss (Word-by-word)
+                const tokens = sentence.split(/([a-zA-Z\u00C0-\u017F]+)/);
+                tokens.forEach(token => {
+                    if (/^[a-zA-Z\u00C0-\u017F]+$/.test(token)) {
+                        // It is a word
+                        const lower = token.toLowerCase();
+                        const meaning = dictionary.get(lower);
 
-                    if (meaning) {
-                        // Word with gloss
-                        const span = document.createElement('div');
-                        span.className = "flex flex-col items-center mx-1 my-1";
-                        span.innerHTML = `
-                            <span class="text-zinc-100 font-bold border-b border-white/10 pb-0.5 mb-0.5">${token}</span>
-                            <span class="text-amber-500 text-[10px] italic leading-tight max-w-[100px] truncate">${meaning.split(',')[0]}</span>
-                        `;
-                        els.fcBackContent.appendChild(span);
+                        if (meaning) {
+                            // Word with gloss
+                            const span = document.createElement('div');
+                            span.className = "flex flex-col items-center mx-1 my-1";
+                            span.innerHTML = `
+                                <span class="text-zinc-100 font-bold border-b border-white/10 pb-0.5 mb-0.5">${token}</span>
+                                <span class="text-amber-500 text-[10px] italic leading-tight max-w-[100px] truncate">${meaning.split(',')[0]}</span>
+                            `;
+                            els.fcBackContent.appendChild(span);
+                        } else {
+                            // Word without gloss
+                            const span = document.createElement('span');
+                            span.className = "text-zinc-500 mx-1 self-center";
+                            span.textContent = token;
+                            els.fcBackContent.appendChild(span);
+                        }
                     } else {
-                        // Word without gloss
+                        // Punctuation
                         const span = document.createElement('span');
-                        span.className = "text-zinc-500 mx-1 self-center";
+                        span.className = "text-zinc-500 self-center";
                         span.textContent = token;
                         els.fcBackContent.appendChild(span);
                     }
-                } else {
-                    // Punctuation - add reduced margin to attach closer to previous?
-                    // For simplicity in flex-wrap, we just display it.
-                    const span = document.createElement('span');
-                    span.className = "text-zinc-500 self-center";
-                    span.textContent = token;
-                    els.fcBackContent.appendChild(span);
-                }
-            });
+                });
+            }
 
             // Google Translate Link
             els.fcTranslateLink.href = `https://translate.google.com/?sl=nl&tl=en&text=${encodeURIComponent(sentence)}&op=translate`;
