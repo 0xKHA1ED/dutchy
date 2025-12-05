@@ -688,31 +688,71 @@
             const tagContainer = document.getElementById('tag-filters');
             if (!tagContainer) return;
 
+            // 1. Get all unique tags (to list them all)
             const allTags = new Set();
             stories.forEach(story => {
                 if (story.tags) {
                     story.tags.forEach(tag => allTags.add(tag));
                 }
             });
-
             const sortedTags = Array.from(allTags).sort();
+
+            // 2. Determine which tags are "available" given current selection
+            let availableTags = new Set();
+            if (selectedTags.size === 0) {
+                // If no tags selected, all tags are available
+                availableTags = allTags;
+            } else {
+                // Filter stories based on selectedTags (AND logic)
+                const matchingStories = stories.filter(story => {
+                    if (!story.tags) return false;
+                    return Array.from(selectedTags).every(selTag => story.tags.includes(selTag));
+                });
+
+                // Collect tags from these stories
+                matchingStories.forEach(story => {
+                    if (story.tags) {
+                        story.tags.forEach(tag => availableTags.add(tag));
+                    }
+                });
+            }
 
             tagContainer.innerHTML = '';
             sortedTags.forEach(tag => {
+                const isSelected = selectedTags.has(tag);
+                const isAvailable = availableTags.has(tag);
+                const isDisabled = !isSelected && !isAvailable;
+
                 const btn = document.createElement('button');
-                btn.className = `px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${selectedTags.has(tag)
-                    ? 'bg-amber-500 text-black border-amber-500'
-                    : 'bg-zinc-800 text-zinc-400 border-zinc-700 hover:border-zinc-500 hover:text-white'}`;
+
+                // Base classes
+                let classes = "px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ";
+
+                if (isSelected) {
+                    classes += "bg-amber-500 text-black border-amber-500 hover:bg-amber-400";
+                } else if (isDisabled) {
+                    classes += "bg-zinc-900 text-zinc-600 border-zinc-800 cursor-not-allowed opacity-50";
+                } else {
+                    classes += "bg-zinc-800 text-zinc-400 border-zinc-700 hover:border-zinc-500 hover:text-white";
+                }
+
+                btn.className = classes;
                 btn.textContent = tag;
-                btn.onclick = () => {
-                    if (selectedTags.has(tag)) {
-                        selectedTags.delete(tag);
-                    } else {
-                        selectedTags.add(tag);
-                    }
-                    renderTags();
-                    renderList();
-                };
+
+                if (isDisabled) {
+                    btn.disabled = true;
+                } else {
+                    btn.onclick = () => {
+                        if (selectedTags.has(tag)) {
+                            selectedTags.delete(tag);
+                        } else {
+                            selectedTags.add(tag);
+                        }
+                        renderTags();
+                        renderList();
+                    };
+                }
+
                 tagContainer.appendChild(btn);
             });
         }
@@ -746,8 +786,8 @@
             const filteredStories = storiesWithStats.filter(story => {
                 if (selectedTags.size === 0) return true;
                 if (!story.tags) return false;
-                // OR logic: show if story has AT LEAST ONE selected tag
-                return story.tags.some(tag => selectedTags.has(tag));
+                // AND logic: show if story has ALL selected tags
+                return Array.from(selectedTags).every(tag => story.tags.includes(tag));
             });
 
             filteredStories.forEach(story => {
