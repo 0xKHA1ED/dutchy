@@ -856,13 +856,6 @@
                 // Fill with more reviews
                 const extraReviews = reviews.slice(TARGET_REVIEW, TARGET_REVIEW + shortfall);
                 batch = [...batch, ...extraReviews];
-
-                shortfall = BATCH_SIZE - batch.length;
-                if (shortfall > 0) {
-                    // Fill with more new
-                    const extraNew = newItems.slice(TARGET_NEW, TARGET_NEW + shortfall);
-                    batch = [...batch, ...extraNew];
-                }
             }
 
             // Note: We deliberately exclude "Future" items (Known/Review later) from the study session.
