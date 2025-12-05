@@ -822,31 +822,52 @@
 
             const now = Date.now();
 
-            // Sort: Due/Hard first, then New, then Known (Review later)
-            items.sort((a, b) => {
-                // Determine category: 0=Due/Hard, 1=New, 2=Future
-                const getCategory = (item) => {
-                    if (item.srs.nextReview === 0) return 1; // New
-                    if (item.srs.nextReview <= now) return 0; // Due/Hard
-                    return 2; // Future
-                };
+            // Strategy: "Smart Quotas" (Batch Size 10)
+            // Mix: ~70% Reviews (Due/Hard), ~30% New
+            const BATCH_SIZE = 10;
+            const TARGET_REVIEW = 7;
+            const TARGET_NEW = 3;
 
-                const catA = getCategory(a);
-                const catB = getCategory(b);
+            // 1. Split into categories
+            // Reviews: Due (nextReview <= now) and Active (nextReview > 0)
+            const reviews = items.filter(item => item.srs.nextReview > 0 && item.srs.nextReview <= now);
+            // New: Never seen (nextReview === 0)
+            const newItems = items.filter(item => item.srs.nextReview === 0);
 
-                if (catA !== catB) return catA - catB;
-
-                // Within category 0 (Due/Hard)
-                if (catA === 0) {
-                    // "sorted by box level" (lower box first? Hard items have box 0)
-                    if (a.srs.box !== b.srs.box) return a.srs.box - b.srs.box;
-                    return a.srs.nextReview - b.srs.nextReview;
-                }
-
+            // 2. Sort Reviews (Priority: Box Low->High, then Oldest Due)
+            reviews.sort((a, b) => {
+                if (a.srs.box !== b.srs.box) return a.srs.box - b.srs.box;
                 return a.srs.nextReview - b.srs.nextReview;
             });
 
-            studyQueue = items.map(i => i.text);
+            // 3. Sort New Items (Keep Story Order - already in order from map)
+            // (No sort needed as items preserves original order)
+
+            // 4. Select Batch with Quota
+            let batch = [];
+            const selectedReviews = reviews.slice(0, TARGET_REVIEW);
+            const selectedNew = newItems.slice(0, TARGET_NEW);
+
+            batch = [...selectedReviews, ...selectedNew];
+
+            // 5. Fill Shortfall
+            let shortfall = BATCH_SIZE - batch.length;
+            if (shortfall > 0) {
+                // Fill with more reviews
+                const extraReviews = reviews.slice(TARGET_REVIEW, TARGET_REVIEW + shortfall);
+                batch = [...batch, ...extraReviews];
+
+                shortfall = BATCH_SIZE - batch.length;
+                if (shortfall > 0) {
+                    // Fill with more new
+                    const extraNew = newItems.slice(TARGET_NEW, TARGET_NEW + shortfall);
+                    batch = [...batch, ...extraNew];
+                }
+            }
+
+            // Note: We deliberately exclude "Future" items (Known/Review later) from the study session.
+
+            studyQueue = batch.map(i => i.text);
 
             if (studyQueue.length === 0) return;
 
