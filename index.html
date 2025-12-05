@@ -288,38 +288,114 @@
     </div>
 
     <script>
+        /**
+         * @fileoverview Main Application Logic for Dutch Dash.
+         *
+         * This script handles:
+         * - State management for stories, dictionary, and known words.
+         * - UI rendering and event handling for the library, story view, and study mode.
+         * - Spaced Repetition System (SRS) logic for sentence study.
+         * - Interaction with localStorage for persistence.
+         */
+
         // State
+
+        /**
+         * Array of story objects loaded from the JSON data.
+         * @type {Array<Object>}
+         */
         let stories = [];
+
+        /**
+         * Map of Dutch words to English translations.
+         * @type {Map<string, string>}
+         */
         let dictionary = new Map();
+
+        /**
+         * Set of unique words in the currently open story.
+         * Used to calculate the "known" percentage for the current story.
+         * @type {Set<string>|null}
+         */
         let currentStoryUniqueWords = null;
+
+        /**
+         * Set of currently selected tags for filtering stories.
+         * @type {Set<string>}
+         */
         let selectedTags = new Set();
+
+        /**
+         * The currently active story object.
+         * @type {Object|null}
+         */
         let currentStory = null;
 
         // Study Mode State
+
+        /**
+         * Queue of sentences (strings) to be reviewed in the current study session.
+         * @type {Array<string>}
+         */
         let studyQueue = [];
+
+        /**
+         * Index of the current card being displayed in the study queue.
+         * @type {number}
+         */
         let currentCardIndex = 0;
+
+        /**
+         * Boolean indicating if the current flashcard is flipped to the back side.
+         * @type {boolean}
+         */
         let isCardFlipped = false;
 
+        /**
+         * Manages the user's vocabulary of "known" words.
+         * Persists data to localStorage.
+         */
         class KnownWordsManager {
+            /**
+             * Initializes the KnownWordsManager and loads words from localStorage.
+             */
             constructor() {
                 this.storageKey = 'dutch_dash_known_words';
                 this.words = new Set(JSON.parse(localStorage.getItem(this.storageKey) || '[]'));
             }
 
+            /**
+             * Checks if a word is marked as known.
+             * @param {string} word - The word to check.
+             * @returns {boolean} True if the word is known, false otherwise.
+             */
             isKnown(word) {
                 return this.words.has(word.toLowerCase());
             }
 
+            /**
+             * Adds a word to the known list and saves.
+             * @param {string} word - The word to add.
+             */
             addWord(word) {
                 this.words.add(word.toLowerCase());
                 this.save();
             }
 
+            /**
+             * Removes a word from the known list and saves.
+             * @param {string} word - The word to remove.
+             */
             removeWord(word) {
                 this.words.delete(word.toLowerCase());
                 this.save();
             }
 
+            /**
+             * Toggles the known state of a word.
+             * @param {string} word - The word to toggle.
+             * @returns {boolean} The new state (true = known, false = unknown).
+             */
             toggleWord(word) {
                 const lower = word.toLowerCase();
                 let isKnown;
@@ -334,6 +410,9 @@
                 return isKnown;
             }
 
+            /**
+             * Saves the current set of known words to localStorage and triggers a stats update.
+             */
             save() {
                 localStorage.setItem(this.storageKey, JSON.stringify([...this.words]));
                 updateStats();
@@ -342,6 +421,12 @@
 
         const knownWordsManager = new KnownWordsManager();
 
+        /**
+         * Updates the stats display in the header.
+         *
+         * If a story is open, it displays the percentage of known words in that story.
+         * If no story is open (library view), it displays the total count of known words.
+         */
         function updateStats() {
             const el = document.getElementById('known-count');
             if(!el) return;
@@ -432,6 +517,12 @@
             }
         });
 
+        /**
+         * Opens the definition popover card for a specific word.
+         * Populates it with translation data and updates button states.
+         *
+         * @param {string} word - The word to look up.
+         */
         function openDefinitionCard(word) {
             currentSelectedWord = word;
             const lowerWord = word.toLowerCase();
@@ -464,6 +555,9 @@
             els.fixedAudioContainer.classList.add('translate-y-full');
         }
 
+        /**
+         * Closes the definition popover card.
+         */
         function closeDefinitionCard() {
             els.defCard.classList.add('translate-y-full');
             currentSelectedWord = null;
@@ -473,6 +567,11 @@
             }
         }
 
+        /**
+         * Updates the "Add to Known" / "Known" button style and text based on the word's status.
+         *
+         * @param {boolean} isKnown - Whether the word is currently marked as known.
+         */
         function updateCardButtonState(isKnown) {
             if (isKnown) {
                 els.btnToggleKnown.innerHTML = '<i class="fas fa-check"></i> Known';
@@ -483,6 +582,12 @@
             }
         }
 
+        /**
+         * Updates the visual style of a word in the story text (highlight vs transparent).
+         *
+         * @param {string} word - The word to update.
+         * @param {boolean} isKnown - Whether the word is known.
+         */
         function updateWordUI(word, isKnown) {
             // Update all instances of this word in the text
             const allWords = els.detailText.querySelectorAll(`.word`);
@@ -500,6 +605,10 @@
             });
         }
 
+        /**
+         * Initializes the application.
+         * Loads stories and dictionary data, then renders the library.
+         */
         async function init() {
             try {
                 // Load Stories
@@ -543,6 +652,11 @@
             }
         }
 
+        /**
+         * Processes the raw frequency.json data into a Map for fast lookups.
+         *
+         * @param {Object} data - The raw dictionary data.
+         */
         function buildDictionary(data) {
              for (const category in data) {
                 if (Array.isArray(data[category])) {
@@ -558,6 +672,9 @@
              }
         }
 
+        /**
+         * Renders the tag filter buttons in the library view.
+         */
         function renderTags() {
             const tagContainer = document.getElementById('tag-filters');
             if (!tagContainer) return;
@@ -591,6 +708,10 @@
             });
         }
 
+        /**
+         * Renders the grid of stories in the library view.
+         * Sorts stories by "known percentage" and filters by tags.
+         */
         function renderList() {
             els.grid.innerHTML = '';
 
@@ -661,6 +782,11 @@
             }
         }
 
+        /**
+         * Opens the detail view for a specific story.
+         *
+         * @param {Object} story - The story object to display.
+         */
         function openStory(story) {
             currentStory = story;
             // Populate Detail
@@ -700,6 +826,12 @@
             els.headerTitle.innerHTML = `<span class="truncate max-w-[200px] text-zinc-300 text-base">${story.title}</span>`;
         }
 
+        /**
+         * Formats the raw story text into HTML with clickable word spans.
+         *
+         * @param {string} text - The raw story text.
+         * @returns {string} The HTML string.
+         */
         function formatStoryText(text) {
             const paragraphs = text.split('\n').filter(line => line.trim() !== '');
 
@@ -723,6 +855,9 @@
             }).join('');
         }
 
+        /**
+         * Returns to the library view from the story detail view.
+         */
         function showList() {
             currentStory = null;
             currentStoryUniqueWords = null;
@@ -746,17 +881,39 @@
         }
 
         // --- SRS & Persistence ---
+
+        /**
+         * Manages the Spaced Repetition System (SRS) data for sentences.
+         * Persists data to localStorage.
+         */
         class SentenceSRSManager {
+            /**
+             * Initializes the SentenceSRSManager and loads data from localStorage.
+             */
             constructor() {
                 this.storageKey = 'dutch_dash_sentence_srs';
                 this.data = JSON.parse(localStorage.getItem(this.storageKey) || '{}');
             }
 
+            /**
+             * Retrieves the SRS data for a specific sentence.
+             * @param {number} storyId - The ID of the story.
+             * @param {string} sentence - The sentence text.
+             * @returns {Object} The SRS data object { box: number, nextReview: number }.
+             */
             get(storyId, sentence) {
                 const key = `${storyId}:${this._hash(sentence)}`;
                 return this.data[key] || { box: 0, nextReview: 0 };
             }
 
+            /**
+             * Updates the SRS data for a sentence based on the user's rating.
+             *
+             * @param {number} storyId - The ID of the story.
+             * @param {string} sentence - The sentence text.
+             * @param {string} rating - The user's rating ('hard', 'good', 'easy').
+             * @returns {Object} The updated SRS data object.
+             */
             update(storyId, sentence, rating) {
                 const key = `${storyId}:${this._hash(sentence)}`;
                 let item = this.data[key] || { box: 0, nextReview: 0 };
@@ -783,6 +940,12 @@
                 return item;
             }
 
+            /**
+             * Simple hash function to create a key from the sentence text.
+             * @param {string} str - The input string.
+             * @returns {number} The hash code.
+             * @private
+             */
             _hash(str) {
                 let hash = 0;
                 for (let i = 0; i < str.length; i++) {
@@ -793,6 +956,10 @@
                 return hash;
             }
 
+            /**
+             * Saves the current SRS data to localStorage.
+             * @private
+             */
             _save() {
                 localStorage.setItem(this.storageKey, JSON.stringify(this.data));
             }
@@ -802,6 +969,10 @@
 
         // --- STUDY MODE LOGIC ---
 
+        /**
+         * Opens the study mode (flashcards) for the current story.
+         * Generates a study queue based on SRS logic (reviews vs new cards).
+         */
         function openStudyMode() {
             if (!currentStory) return;
 
@@ -874,12 +1045,20 @@
             renderFlashcard();
         }
 
+        /**
+         * Closes the study mode view and returns to the story detail view.
+         */
         function closeStudyMode() {
             els.studyView.classList.add('hidden');
             // Show Audio again
             els.fixedAudioContainer.classList.remove('translate-y-full');
         }
 
+        /**
+         * Uses the Web Speech API to speak the given text in Dutch.
+         *
+         * @param {string} text - The text to speak.
+         */
         function speakSentence(text) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
@@ -889,6 +1068,10 @@
             }
         }
 
+        /**
+         * Renders the current flashcard in the study view.
+         * Updates the front text, back content (gloss/translation), and progress counter.
+         */
         function renderFlashcard() {
             // Reset Flip
             flipCard(false);
@@ -955,6 +1138,11 @@
             if (els.fcBackCounter) els.fcBackCounter.textContent = progressText;
         }
 
+        /**
+         * Flips the flashcard.
+         *
+         * @param {boolean} flipped - True to show the back, false to show the front.
+         */
         function flipCard(flipped) {
             isCardFlipped = flipped;
             if (flipped) {
@@ -970,6 +1158,12 @@
             }
         }
 
+        /**
+         * Handles the user's rating for a flashcard.
+         * Updates the SRS data and moves to the next card.
+         *
+         * @param {string} rating - The rating ('hard', 'good', 'easy').
+         */
         function handleRating(rating) {
             const currentSentence = studyQueue[currentCardIndex];
 

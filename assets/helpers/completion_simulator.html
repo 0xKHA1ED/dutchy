@@ -76,10 +76,25 @@
     </div>
 
 <script>
+    /**
+     * @fileoverview Dutch Comprehensible Input Sorter (Simulator)
+     *
+     * This script simulates the story sorting and "known words" analysis logic.
+     * It allows a user to mark stories as "Known" (read) and calculates the readability
+     * percentage of remaining stories based on the vocabulary acquired from the known stories.
+     *
+     * It mimics the logic used in the main application but focuses on the sorting algorithm.
+     */
+
     // ==========================================
     // 1. DATA
     // Paste your full JSON array here
     // ==========================================
+
+    /**
+     * Array of story objects containing the content and metadata for the library.
+     * @type {Array<{id: number, title: string, body: string, image_prompt: string, image: string, audio: string, original_idea: string, tags: Array<string>}>}
+     */
     const storiesData = [
     {
         "id": 1,
@@ -1387,14 +1402,29 @@
     // ==========================================
     // 2. STATE MANAGEMENT
     // ==========================================
+
+    /**
+     * List of IDs of stories that the user has marked as 'known'.
+     * Persisted in localStorage.
+     * @type {Array<number>}
+     */
     let knownStoryIds = JSON.parse(localStorage.getItem('knownStoryIds')) || [];
+
+    /**
+     * The ID of the currently selected story in the UI.
+     * @type {number|null}
+     */
     let activeStoryId = null;
 
     // ==========================================
     // 3. LOGIC: Tokenizer & Analysis
     // ==========================================
     
-    // Words to be completely ignored in calculations
+    /**
+     * Set of words to be completely ignored in vocabulary calculations.
+     * Includes proper nouns, city names, and nonsense words from sci-fi stories.
+     * @type {Set<string>}
+     */
     const ignoredWords = new Set([
         "alert", "amsterdam", "anna", "barada", "bella", "bitcoin", "bola", "bond", 
         "breda", "brutus", "daan", "daga", "doe", "els", "erik", "eva", "facebook", 
@@ -1405,13 +1435,23 @@
         "vries", "zola"
     ]);
 
-    // Tokenize: Lowercase -> Match words+accents -> Filter ignored
+    /**
+     * Tokenizes a text into an array of valid words.
+     * Converts to lowercase, matches words with accents, and filters out ignored words.
+     *
+     * @param {string} text - The input text to tokenize.
+     * @returns {Array<string>} An array of valid word tokens.
+     */
     const tokenize = (text) => {
         const words = text.toLowerCase().match(/\b[\w\u00C0-\u00FF]+\b/g) || [];
         return words.filter(word => !ignoredWords.has(word));
     };
 
-    // Build Set of all words from known stories
+    /**
+     * Builds a Set of all unique words found in stories marked as 'known'.
+     *
+     * @returns {Set<string>} A set containing all known vocabulary words.
+     */
     const getKnownVocabulary = () => {
         const vocabSet = new Set();
         storiesData.forEach(story => {
@@ -1423,6 +1463,12 @@
         return vocabSet;
     };
 
+    /**
+     * Calculates the total count of unique words across the entire library.
+     * Updates the 'total-library-count' DOM element.
+     *
+     * @returns {void}
+     */
     const calculateTotalLibraryStats = () => {
         const totalVocabSet = new Set();
         storiesData.forEach(story => {
@@ -1433,7 +1479,12 @@
         document.getElementById('total-library-count').innerText = totalVocabSet.size;
     };
 
-    // Main analysis function
+    /**
+     * Analyzes all stories to calculate their readability score based on known vocabulary.
+     * Updates the 'known-words-count' DOM element.
+     *
+     * @returns {Array<Object>} Array of story objects enriched with analysis data (readability, uniqueWordCount, etc.), sorted by readability.
+     */
     const analyzeStories = () => {
         const knownVocab = getKnownVocabulary();
         document.getElementById('known-words-count').innerText = knownVocab.size;
@@ -1466,6 +1517,12 @@
     // ==========================================
     // 4. UI RENDERING
     // ==========================================
+
+    /**
+     * Renders the list of stories in the sidebar.
+     *
+     * @returns {void}
+     */
     const renderList = () => {
         const analyzed = analyzeStories();
         const listContainer = document.getElementById('story-list');
@@ -1510,6 +1567,13 @@
         });
     };
 
+    /**
+     * Loads a specific story into the reader view.
+     * Populates the title, body, image, and stats.
+     *
+     * @param {number} id - The ID of the story to load.
+     * @returns {void}
+     */
     const loadStory = (id) => {
         activeStoryId = id;
         // Re-analyze just to get the specific stats for this story easily
@@ -1559,6 +1623,14 @@
         renderList(); // Highlight active card
     };
 
+    /**
+     * Toggles the 'known' state of a story.
+     * If marked as known, adds to knownStoryIds. If already known, removes it.
+     * Persists the change to localStorage and refreshes the view.
+     *
+     * @param {number} id - The ID of the story to toggle.
+     * @returns {void}
+     */
     const toggleKnown = (id) => {
         if (knownStoryIds.includes(id)) {
             knownStoryIds = knownStoryIds.filter(x => x !== id);
