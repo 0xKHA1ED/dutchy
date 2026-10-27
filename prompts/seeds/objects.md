@@ -1,0 +1,59 @@
+# Objects
+
+Candidates for the story's symbolic object: an ordinary thing that will gather meaning by repetition. The best ones are banal, physical and a little odd. Avoid objects that announce their symbolism (caged birds, broken mirrors in general, red threads, keys that "unlock").
+
+- A side mirror from a car, broken, wrapped in a towel
+- A stranger's glove, too big
+- A voicemail that can't be deleted
+- A pencil and an eraser that has never been used
+- A parking ticket from a city nobody remembers visiting
+- A dog's lead with no dog
+- A hotel key card from a room number that doesn't exist
+- A wedding cake topper missing one figure
+- A cassette tape labelled in someone else's handwriting
+- A coat that belongs to someone who left
+- A child's drawing kept in a wallet for thirty years
+- A hearing aid switched off
+- A pair of shoes, one size too small, never worn
+- A bottle of perfume that was discontinued
+- A receipt for two coffees
+- A plastic plant that has been "dying" for years
+- A drawer that has been locked since 1998
+- A deck of cards missing the queen of hearts
+- An umbrella returned by a stranger
+- A typewriter ribbon
+- A landline phone that still rings sometimes
+- An expired passport with a different name
+- A ring found in a bread roll
+- A jar of jam made by someone who has died, never opened
+- A tape measure
+- A photograph with one person cut out
+- A box of business cards for a job they never had
+- A lighter that belonged to someone who never smoked
+- A pair of reading glasses that fit perfectly but aren't theirs
+- An ID badge for a company that no longer exists
+- A stopped watch that is still worn
+- A toothbrush in a second home's bathroom
+- A sealed envelope marked "after"
+- A whistle on a string
+- A broken umbrella that is still carried
+- A recipe card with one ingredient crossed out
+- A bus timetable from twenty years ago
+- A spare set of someone else's house keys
+- A swimming costume never used
+- A fridge magnet from a place never visited
+- A hospital wristband, kept
+- A lottery ticket bought every week with the same numbers
+- A tie that was a gift, worn only once
+- An answering machine tape
+- A rubber stamp that says APPROVED
+- A school report card from 1979
+- A first-aid kit with one thing missing
+- A train ticket with no return
+- A broken metronome
+- A piece of chewing gum stuck under a specific café table
+- A chess piece from a set that is otherwise lost
+- An alarm clock set to a time nobody remembers choosing
+- A sugar bowl that is never refilled
+- A pair of dice
+- An old mobile phone kept charged, with one contact

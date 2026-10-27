@@ -1,0 +1,115 @@
+# Story pipeline preferences
+#
+# Every mix, weight and cooldown the dice use lives here, so tastes can change
+# without touching any prompt. Edit by hand for now. Later, ratings of finished
+# stories can adjust the weights automatically.
+#
+# Mix values are relative weights; they do not need to add up to 100.
+# Weights for individual entries default to 1. Set a weight to 0 to ban an
+# entry, or above 1 to favour it.
+
+language: fr
+level: b1
+
+# ---------------------------------------------------------------------------
+# Story-level mixes
+# ---------------------------------------------------------------------------
+
+ending_temperature:        # how the ending feels
+  warm: 45
+  bitter: 45
+  open: 10
+
+register:                  # the overall tone
+  tragic: 40
+  comic: 33                # about a third of stories are funny
+  both: 27                 # comic turning tragic, or the reverse
+
+era:
+  present: 75
+  past: 15                 # a specific past moment, any period
+  near_future: 10
+
+speculative: 25            # % of stories that roll one changed rule
+
+collision_mechanism: 30    # % of stories that roll a second mechanism
+
+quiet_structure: 10        # % of stories nudged toward kishōtenketsu (no conflict)
+
+direct_address: 10         # % of stories where the narrator may speak to the listener
+
+pov:
+  close_third: 55
+  first_person: 35
+  second_person: 3
+  multiple: 7
+
+narrative_tense:
+  past: 80                 # passé composé + imparfait
+  present: 20
+
+# ---------------------------------------------------------------------------
+# Cooldowns: how many stories must pass before an entry can be rolled again
+# ---------------------------------------------------------------------------
+
+cooldowns:
+  mechanism: 10
+  structure: 5
+  place: 40
+  role: 40
+  object: 40
+  wildcard: 25
+  changed_rule: 30
+  costume: 3               # the same genre costume no more than every 3 stories
+
+# ---------------------------------------------------------------------------
+# Director freedom
+# ---------------------------------------------------------------------------
+
+director:
+  rerolls_allowed: 1       # categories the director may reroll per story
+
+# ---------------------------------------------------------------------------
+# Pipeline sizes
+# ---------------------------------------------------------------------------
+
+pipeline:
+  premises: 12
+  plot_skeletons: 5
+  drafts: 2
+  story_rounds_max: 2
+  plot_retries_max: 1
+  writer_single_pass_max_words: 3000
+
+# ---------------------------------------------------------------------------
+# Per-entry weights (optional). Keys are the entry's file and a unique part of
+# its text. Examples:
+#
+# weights:
+#   universals/projection.md: 1.5
+#   seeds/places.md: { "japan": 1.2 }        # tag weight
+#   seeds/wildcards.md: { "One character never speaks": 0 }
+# ---------------------------------------------------------------------------
+
+weights: {}
+
+# Genre costumes the director can dress a mechanism in, with weights.
+costumes:
+  psychological thriller: 1
+  crime: 1
+  ghost story: 1
+  horror: 0.8
+  workplace comedy: 1
+  comedy of manners: 1
+  satire: 1
+  absurd comedy: 1
+  romance: 0.8
+  family drama: 1
+  mystery: 1
+  science fiction: 1
+  techno-thriller: 0.8
+  fable: 0.6
+  road story: 0.8
+  heist: 0.6
+  survival: 0.6
+  noir: 0.8
