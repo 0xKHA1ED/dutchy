@@ -71,3 +71,9 @@ length_band: <number of chapters, 1–6, and roughly how long>
 
 <"No swap." or the category swapped, from what to what, and why.>
 ```
+
+End with a JSON block naming the category you swapped, using the category key from `<roll>` (for example `"place"` or `"register"`), or `null` if you kept every primary. The runner uses it to keep track of which ingredients each story used.
+
+```json
+{"swap": null}
+```

@@ -1,0 +1,2 @@
+anthropic>=2.3
+PyYAML>=6.0

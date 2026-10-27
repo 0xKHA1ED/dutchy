@@ -64,7 +64,7 @@ output: 03c-lens-jungian.md
 Inside the body:
 
 - `{{include path/to/file.md}}` pastes another file in at that point. Shared files (`_shared/quality-bar.md`, `_shared/banned-defaults.md`, the language and level files) are pulled in this way, so every stage measures against the same bar.
-- `{{language}}` and `{{level}}` are replaced by the runner (`fr`, `b1`), and `{{include _shared/languages/{{language}}.md}}` resolves to the right file.
+- `{{language}}` and `{{level}}` are filled in by the runner. Inside an include path they become codes, so `{{include _shared/languages/{{language}}.md}}` resolves to `_shared/languages/fr.md`. Everywhere else they become names ("French", "B1").
 - Inputs are never pasted into the system prompt. The runner sends them in the user message, each wrapped in an XML tag named after the input (`<dossier>…</dossier>`). Each prompt refers to its inputs by those tag names.
 
 Outputs are Markdown with fixed headings, so later stages and the critics can find what they need. When code needs to read a decision (a winner, a score, a pass or fail), the prompt asks for a final fenced `json` block, and that block is the only thing the runner parses.
@@ -90,6 +90,7 @@ prompts/
   09-revise/               story rewrite and language pass
   10-package/              translation, report card, TTS script, image prompt, ledger entry
 config/preferences.yaml    every mix, weight and cooldown, editable by hand
+pipeline/                  the runner that executes this tree (see pipeline/README.md)
 ```
 
 ## Editing rules for this tree

@@ -3,7 +3,7 @@ stage: 04a
 name: plot-skeletons
 model: opus
 thinking: true
-inputs: [recipe, premise, mechanism, characters]
+inputs: [recipe, premise, mechanism, characters, replot_notes]
 output: 04a-skeletons.md
 ---
 
@@ -19,6 +19,7 @@ A plot here is not a genre template filled with people. It is **the character's 
 - `<premise>`: the chosen premise, with its surface question, deep question and invention.
 - `<mechanism>`: the library file for the mechanism.
 - `<characters>`: the character sheets and relationship map from the case conference.
+- `<replot_notes>` (only when a story is sent back): a full draft was written from an earlier plot and failed a gate because of its structure. The notes say why. Don't repeat that plot; design five new skeletons that can produce what it couldn't.
 
 ## The structures library
 

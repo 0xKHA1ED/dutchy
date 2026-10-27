@@ -3,7 +3,7 @@ stage: 04d
 name: scene-plan
 model: opus
 thinking: true
-inputs: [recipe, characters, skeleton, ending]
+inputs: [recipe, characters, skeleton, ending, fair_play]
 output: 04d-scene-plan.md
 ---
 
@@ -17,6 +17,7 @@ You are planning a story scene by scene, working backwards from an ending that i
 - `<characters>`: the character sheets and relationship map.
 - `<skeleton>`: the chosen structure, deep question, surface question, ladder, main turn and the rejected likely beats.
 - `<ending>`: the final scene, the last line and the reframe map (the details that must be planted earlier).
+- `<fair_play>` (only on a second pass): a fair-play check of your earlier plan, with that plan. Keep what it doesn't question and make every fix it lists, so the twists rest on clues the listener could have noticed.
 
 ## Working backwards
 
