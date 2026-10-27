@@ -19,32 +19,32 @@ The design behind every file here was worked out in a series of design docs (qua
 | # | Stage | Prompt files | Reads | Writes |
 | --- | --- | --- | --- | --- |
 | 0 | Dice (code) | — | `config/preferences.yaml`, `seeds/*`, `universals/*`, `library/ledger.jsonl` | `00-roll.yaml` |
-| 1 | Director | `01-director/director.md` | roll, ledger summary | `01-recipe.md` |
+| 1 | Director | `01-director/director.md` | roll, mechanism file(s), ledger summary | `01-recipe.md` |
 | 2a | Premises | `02-concept/generate-premises.md` | recipe, mechanism file | `02a-premises.md` |
 | 2b | Premise judge | `02-concept/judge-premises.md` | recipe, premises, ledger summary | `02b-premise.md` |
-| 3a | Dossier | `03-character/dossier.md` | recipe, premise | `03a-dossier-<name>.md` |
+| 3a | Dossier | `03-character/dossier.md` | recipe, premise, mechanism file, names bank slice | `03a-dossier-<name>.md` |
 | 3b | Interview | `03-character/interview.md` | dossier | `03b-interview-<name>.md` |
 | 3c | Lenses ×7 (parallel) | `03-character/lenses/*.md` | dossier, interview, mechanism file | `03c-lens-<lens>.md` |
-| 3d | Supporting cast | `03-character/supporting-cast.md` (+ 2 lenses each) | recipe, premise, protagonist dossier | `03d-cast-<name>.md` |
+| 3d | Supporting cast | `03-character/supporting-cast.md`, then 2 lenses each in light mode | recipe, premise, protagonist dossier and interview, names | `03d-cast.md`, `03d-cast-lens-<name>-<lens>.md` |
 | 3e | Case conference | `03-character/case-conference.md` | everything from 3a–3d | `03e-characters.md` |
 | 4a | Plot skeletons | `04-plot/skeletons.md` + `04-plot/structures/*` | recipe, premise, characters | `04a-skeletons.md` |
 | 4b | Skeleton judge | `04-plot/judge-skeletons.md` | recipe, characters, skeletons | `04b-skeleton.md` |
 | 4c | Ending | `04-plot/ending.md` | recipe, characters, chosen skeleton | `04c-ending.md` |
-| 4d | Scene plan | `04-plot/scene-plan.md` | all of the above | `04d-scene-plan.md` |
-| 4e | Fair-play check | `04-plot/fair-play-check.md` | scene plan, ending | `04e-fair-play.md` |
-| 5 | World | `05-world/world.md` | recipe, characters, scene plan | `05-world.md` |
-| 6 | Assembler | `06-assembler/build-brief.md` | the whole bible (1–5) | `06-brief.md` |
+| 4d | Scene plan | `04-plot/scene-plan.md` | recipe, characters, chosen skeleton, ending | `04d-scene-plan.md` |
+| 4e | Fair-play check | `04-plot/fair-play-check.md` | scene plan, ending | `04e-fair-play.md` (if fixes are needed, 4d reruns once with them) |
+| 5 | World | `05-world/world.md` | recipe, characters, scene plan, ending, changed rule | `05-world.md` |
+| 6 | Assembler | `06-assembler/build-brief.md` | the whole bible (1–5), exemplars | `06-brief.md` |
 | 7 | Writer ×2 | `07-writer/writer-base.md` + brief | brief | `07-draft-a.md`, `07-draft-b.md` |
-| 8a | Draft comparison | `08-critique/compare.md` | brief, two drafts | `08a-chosen.md` |
-| 8b | Story critics ×4 (parallel) | `08-critique/{cold-reader,predictor,character-truth,cliche}.md` | see each file | `08b-notes-<critic>.md` |
-| 8c | Editor | `08-critique/editor.md` | brief, draft, all notes | `08c-plan.md` |
-| 8d | Rewrite | `09-revise/rewrite.md` | writer base, brief, draft, plan | `08d-draft-r<n>.md` |
+| 8a | Draft comparison | `08-critique/compare.md` | pitch intent, two drafts (blind, random order) | `08a-chosen.md` |
+| 8b | Story critics ×4 (parallel) | `08-critique/{cold-reader,predictor,character-truth,cliche}.md` | see each file | `08b-notes-<critic>.md` (the predictor runs as a conversation, one chapter per turn) |
+| 8c | Editor | `08-critique/editor.md` | brief, draft, all notes, round number | `08c-plan.md` |
+| 8d | Rewrite | `09-revise/rewrite.md` | writer base, brief, draft, plan, borrow (from the losing draft) | `08d-draft-r<n>.md` |
 | — | Loop 8b–8d at most twice. If a gate still fails: back to 4a once, then discard. | | | |
-| 9a | Language critics ×3 (parallel) | `08-critique/{level,native-ear,read-aloud}.md` | story (+ level file, vocab report) | `09a-notes-<critic>.md` |
+| 9a | Language critics ×3 (parallel) | `08-critique/{level,native-ear,read-aloud}.md` | story (+ palette and vocab report for the level critic) | `09a-notes-<critic>.md` |
 | 9b | Language pass | `09-revise/language-pass.md` | story, language notes | `09b-story.md` |
 | 9c | French cold re-read | `08-critique/cold-reread.md` | final story only | `09c-reread.md` |
-| 9d | Final judge | `08-critique/final-judge.md` | brief (pitch intent only), all versions | `09d-final.md` |
-| 10 | Package | `10-package/*.md` | final story, bible | translation, report card, TTS script, image prompt, ledger row |
+| 9d | Final judge | `08-critique/final-judge.md` | pitch intent, all versions (blind), re-read | `09d-final.md` (if an earlier version wins, it goes through 9a–9c before packaging) |
+| 10 | Package | `10-package/*.md` | final story, bible, critic notes | `10-translation.json`, `10-report-card.md`, `10-tts-script.json`, `10-image-prompt.md`, `10-ledger-entry.json` (appended to `library/ledger.jsonl`) |
 
 ## How a prompt file is built
 
@@ -75,7 +75,7 @@ Outputs are Markdown with fixed headings, so later stages and the critics can fi
 prompts/
   README.md                this file
   _shared/                 included by many stages: quality bar, house style, banned defaults,
-                           languages/, levels/, exemplars/
+                           languages/, levels/, exemplars/, calibration/
   universals/              the mechanism library: one file per universal psychological mechanism
   seeds/                   dice banks: places, roles, life stages, objects, pressures, changed rules,
                            wildcards, names
