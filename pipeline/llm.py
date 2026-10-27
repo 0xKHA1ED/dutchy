@@ -22,8 +22,16 @@ class LLM:
         self.lock = threading.Lock()
         self.cost = 0.0
         if not dry_run:
+            import os
             import anthropic
-            self.client = anthropic.Anthropic(max_retries=4)
+            # Cloud sessions keep ANTHROPIC_* names for their own use, so the
+            # key can also come as DUTCHY_ANTHROPIC_KEY. The base URL is fixed
+            # because the session's ANTHROPIC_BASE_URL points elsewhere.
+            key = os.environ.get("DUTCHY_ANTHROPIC_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+            if not key:
+                raise SystemExit("No API key: set DUTCHY_ANTHROPIC_KEY or ANTHROPIC_API_KEY.")
+            self.client = anthropic.Anthropic(
+                api_key=key, base_url="https://api.anthropic.com", max_retries=4)
 
     def call(self, system, messages, effort, label, max_tokens=64000):
         """Send one request and return (text, content blocks). Thinking is

@@ -6,7 +6,7 @@ A small runner for the prompt tree in `prompts/`: it rolls the dice, runs every 
 
 ```
 pip install -r pipeline/requirements.txt
-export ANTHROPIC_API_KEY=...
+export DUTCHY_ANTHROPIC_KEY=...   # or ANTHROPIC_API_KEY
 python -m pipeline.run
 ```
 
