@@ -3,6 +3,7 @@ stage: 10
 name: translation
 model: opus
 thinking: true
+max_tokens: 128000
 inputs: [story, palette]
 output: 10-translation.json
 ---

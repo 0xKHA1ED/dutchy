@@ -55,6 +55,7 @@ class LLM:
         if msg.stop_reason == "refusal":
             raise Refused(f"{label}: {msg.stop_details}")
         if msg.stop_reason == "max_tokens":
+            self._log(label + " (hit max_tokens)", effort, msg.usage, time.time() - start, msg.model)
             raise RuntimeError(f"{label}: output hit max_tokens ({max_tokens})")
         text = "".join(b.text for b in msg.content if b.type == "text")
         self._log(label, effort, msg.usage, time.time() - start, msg.model)

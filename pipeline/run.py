@@ -69,7 +69,8 @@ class Story:
         effort = meta.get("effort") or EFFORT[bool(meta.get("thinking"))]
         print(f"> {out}", flush=True)
         text, _ = self.llm.call(system, [{"role": "user", "content": user_message(inputs)}],
-                                effort, label=out.rsplit(".", 1)[0].replace("../", "").replace("/", "_"))
+                                effort, label=out.rsplit(".", 1)[0].replace("../", "").replace("/", "_"),
+                                max_tokens=int(meta.get("max_tokens", 64000)))
         return self.save(out, text)
 
     def parallel(self, jobs):
