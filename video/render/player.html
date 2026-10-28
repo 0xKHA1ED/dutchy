@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="c" width="1280" height="720"></canvas>
+<script src="../kit/kit.js"></script>
+<script>
+// A scene file calls SCENE({ draw(ctx, t, dur, B) { ... } }).
+// B(id) = seconds from scene start when segment `id` begins; B.end(id) when it ends.
+window.SCENE = s => { window.__scene = s; };
+window.__setup = (dur, beats) => {
+  const ends = beats.ends || {};
+  const B = id => (beats.starts[id] ?? 0);
+  B.end = id => (ends[id] ?? B(id) + 3);
+  B.starts = beats.starts; B.ends = ends;
+  window.__B = B; window.__dur = dur;
+};
+window.__draw = t => {
+  const ctx = document.getElementById('c').getContext('2d');
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, 1280, 720);
+  window.__scene.draw(ctx, t, window.__dur, window.__B);
+};
+window.__frames = (t0, n, fps, q) => {
+  const out = [], c = document.getElementById('c');
+  for (let i = 0; i < n; i++) { window.__draw(t0 + i / fps); out.push(c.toDataURL('image/jpeg', q).slice(23)); }
+  return out;
+};
+</script></body></html>
