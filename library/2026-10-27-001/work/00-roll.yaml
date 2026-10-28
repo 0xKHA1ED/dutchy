@@ -1,0 +1,47 @@
+mechanism:
+  primary: the-double
+  alternate: excess-importance
+collision_mechanism: null
+place:
+  primary: A hammam in the old medina of Fès on women's day
+  alternate: A cable car in La Paz connecting rich and poor neighbourhoods
+  primary_region: maghreb
+  alternate_region: latin-america
+role:
+  primary: A supermarket cashier on the night shift
+  alternate: A baker who has opened at 4 a.m. for forty years
+life_stage:
+  primary: 63, three weeks before retirement
+  alternate: 50, the age their own father was when he died
+object:
+  primary: A pair of shoes, one size too small, never worn
+  alternate: An ID badge for a company that no longer exists
+pressure:
+  primary: One hour left on a parking meter
+  alternate: A promise that must be kept by midnight
+changed_rule: null
+wildcard:
+  primary: A character is only ever seen from behind
+  alternate: The antagonist is right about everything except one thing
+register:
+  primary: both
+  alternate: comic
+ending_temperature:
+  primary: bitter
+  alternate: open
+era:
+  primary: present
+  alternate: near_future
+pov:
+  primary: close_third
+  alternate: first_person
+narrative_tense:
+  primary: past
+  alternate: present
+costume_candidates:
+- ghost story
+- science fiction
+- crime
+flags:
+  quiet_structure: false
+  direct_address_allowed: true

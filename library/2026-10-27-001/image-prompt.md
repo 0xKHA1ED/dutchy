@@ -1,0 +1,8 @@
+## Moment chosen
+In the hammam changing area, Khadija's black Velcro pharmacy sandals sit perfectly straight beside a stranger's worn black ballet flats with gold buckles. Around them, wet plastic slippers stand in a crooked line on flattened cardboard. Two pairs set side by side, one careful and one well-travelled, make the viewer wonder who these women are to each other. Nothing is given away.
+
+## Prompt
+Painterly illustration, slightly elevated viewpoint looking down at a sheet of flattened cardboard on a wet tiled floor in a traditional women's bathhouse changing room. A crooked line of wet plastic slippers leads to two pairs of shoes placed side by side. One is a pair of plain black orthopedic Velcro sandals, set perfectly straight. The other is a pair of worn black ballet flats with small gold buckles, their heels resoled many times so the soles stack like pancakes. At the edge of the frame, a scarf-tied bundle of clothes sits on a bench. Muted palette of damp greys, umber and chalky blue, with the small gold buckles as the only warm accent. Soft natural light falls from above. Cinematic composition, no people, no text.
+
+## Negative prompt
+text, letters, signage, numbers, logos, brand names, watermark, signature, faces, people, nude bodies, hands, extra fingers, steam-filled spa cliché, candles, rose petals, luxury spa, ornate zellige postcard, blue gate of Fès, tanneries, tagines, lanterns, camels, desert, sunset, silhouettes, rain on windows, fog, parking meter, car, clock, earrings, bright saturated colours, glossy 3D render, cartoon style

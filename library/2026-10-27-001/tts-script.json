@@ -1,0 +1,2035 @@
+{
+ "voices": [
+  {
+   "id": "narrator",
+   "description": "Female presentation, about 40–50. Clear standard French with no strong regional accent; foreign names and Darija words are said naturally, not exoticised. Medium-low pitch. Measured pace, a little slower than conversation so learners can follow. Clean, close texture. The manner is understated and dry with quiet warmth, and the small comic details are played deadpan. Never sentimental and never explanatory: she reports and lets the listener feel. She speeds up slightly for counting and tightens in the final chapter."
+  },
+  {
+   "id": "khadija",
+   "description": "Khadija Amrani, 63, a night cashier from Fès about to retire. Female presentation, working-class Fassi, speaking French with a light Moroccan colour. Darija words (safi, lalla, aafak) are pronounced natively. Medium-low pitch, slightly husky from years of night shifts. Quick, clipped delivery in short bursts and fragments, mostly under her breath, like a cashier commenting at 3 a.m. Numbers and prices come out crisp and instant. Deadpan, mock-detective humour; she corrects herself mid-line and never leaves a pause long enough to be interrupted. She breaks off mid-sentence when something touches her, then covers fast. She rarely laughs out loud, and when she does it is short and low. She can switch into a pompous, over-enunciated impression of her manager Hamid (mocking 'vous'). Keep her clearly distinct from Dija: drier, quieter, tighter."
+  },
+  {
+   "id": "fatiha",
+   "description": "Fatiha Kaddour, 63, the 'thin woman', a hammam scrubber for decades. Female presentation. A Fès accent worn down by long years in Tangier. Spanish words (venga, ya está) slip out naturally with a northern Moroccan / Andalusian Spanish sound, not a textbook one. Low pitch, slightly grainy. Fast, low and practical, close to the listener: her orders sound like kindness. She never raises her voice. Her few tender lines are almost breathed. Distinct from Khadija by being softer and lower in volume, and from Dija by having no performance at all."
+  },
+  {
+   "id": "dija",
+   "description": "Khadija 'Dija' Trabelsi, 64, the 'round woman', a supervisor from Tangier with a bad hip. Female presentation, with Taza vowels intact under the French. Mid to mid-low pitch, round and full-bodied, generous resonance. Loud and warm, playing to the whole room like a comedian. She starts laughing two words before her own punchline. When something hurts she gets brighter and louder, not quieter. Genuinely happy. She may share a faint generational colour with Khadija's voice, but must be clearly distinguishable by volume, brightness and openness."
+  },
+  {
+   "id": "souad",
+   "description": "Souad Ben Salah, 52, the hammam attendant 'with the bucket'. Female presentation, Fassi working-class, French with a Moroccan colour. Mid pitch, firm and plain. Direct and unhurried, with a voice that naturally carries across three rooms without shouting. She uses few words, says less than she knows, and never preaches or plays the wise woman. She repeats 'Ton gommage est payé' the same way each time, and it softens only very slightly in chapter 3. A small, quickly hidden catch on her daughter's train."
+  },
+  {
+   "id": "voisine",
+   "description": "A neighbour on the bench, one line. Female presentation, about 40–55, ordinary Moroccan French. Mid pitch, friendly and casual, light and quick."
+  },
+  {
+   "id": "passant",
+   "description": "An unseen voice in the alley, one word. Male presentation, adult. A short, sharp Moroccan street warning shouted from a distance up the alley, slightly off-mic."
+  }
+ ],
+ "segments": [
+  {
+   "id": 1,
+   "chapter": 0,
+   "voice": "narrator",
+   "text": "La Paire",
+   "direction": "Title.",
+   "pause_after": 2.0
+  },
+  {
+   "id": 2,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "1",
+   "direction": "Chapter heading; read « Un ».",
+   "pause_after": 1.5
+  },
+  {
+   "id": 3,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Devant Bab Boujloud, Khadija a lu le papier collé sur le parcmètre comme une étiquette de prix.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 4,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Pièces de deux dirhams uniquement. Une heure maximum. Amende : cent dirhams.",
+   "direction": "Reading the notice aloud, flat, like a price label at the till.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 5,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Elle a fait claquer sa langue.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 6,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Cent dirhams. Même prix pour une minute ou pour un jour. Tu te rends compte.",
+   "direction": "Dry indignation under her breath, to nobody.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 7,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Personne n'a répondu. À la caisse, à trois heures du matin, personne ne répondait non plus.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 8,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Pour ce prix-là, tu prends le car de nuit pour Tanger. Avec un sandwich.",
+   "direction": "Deadpan joke to herself; throw « Tanger » away lightly.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 9,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Le pot de Nescafé était entre les deux sièges de la Fiat, au milieu des restes de graines de tournesol de la semaine dernière. Khadija a mis la main dans le pot sans regarder. Sept pièces de deux dirhams. Elle les a comptées au toucher, contre sa paume.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 10,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Elle a laissé la vitre baissée. Le pot était vide.",
+   "direction": "Plain; let « Le pot était vide » land without stressing it.",
+   "pause_after": 0.5
+  },
+  {
+   "id": 11,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Les petits taxis rouges attendaient à la file, les chauffeurs appuyés sur leurs voitures. Un homme vendait des graines de tournesol dans des cornets en papier de cahier. Les chaises du café regardaient toutes la rue, comme une télévision. Sur l'une d'elles, un agent en gilet orange buvait un café.\n\nLe parcmètre avait un sac en plastique, pour les jours de panne. Quelqu'un avait poussé le sac en arrière et l'avait noué sous l'écran, comme un foulard tombé sur le cou.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 12,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Première pièce. Clac. Sur le petit écran : dix minutes. Clac. Vingt. Elle aimait ce bruit. Une pièce entre, des minutes sortent, et personne ne discute.",
+   "direction": "Brisk; enjoy the rhythm of « Clac ».",
+   "pause_after": 0.0
+  },
+  {
+   "id": 13,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Six pièces. Une heure. L'écran a affiché : fin 11 h 20. La septième pièce est retombée tout de suite dans le petit trou du bas.",
+   "direction": "« fin 11 h 20 » is screen text (italic in source): read « fin, onze heures vingt ».",
+   "pause_after": 0.0
+  },
+  {
+   "id": 14,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Safi,",
+   "direction": "To the machine, mock-offended.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 15,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a dit Khadija à la machine.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 16,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Tu ne veux pas de mon argent ? Tant pis pour toi.",
+   "direction": "Shrugging, amused.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 17,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Elle a glissé la pièce dans la poche de sa djellaba et l'a fait tourner entre ses ongles. Deux dirhams. Deux dirhams, c'était le doigt.",
+   "direction": "",
+   "pause_after": 0.6
+  },
+  {
+   "id": 18,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Le doigt, c'était une main, à la caisse, au mois de mars. Du pain et un briquet sur le tapis. Il manquait un bout de doigt à cette main, et il manquait aussi deux dirhams à la cliente. Khadija les avait mis de sa poche, comme toujours. Puis elle avait écrit dans le carnet : « Le doigt. Pain, briquet. 2 dirhams. Mars. » C'était toujours dans le carnet. Vingt-sept ans de carnet, et elle n'avait jamais rien réclamé à personne. Elle écrivait, c'est tout.",
+   "direction": "A shade slower for the memory. Read the notebook entry like a list; « 2 dirhams » = « deux dirhams ».",
+   "pause_after": 0.0
+  },
+  {
+   "id": 19,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Son pouce est monté à sa boucle d'oreille gauche et l'a tournée.\n\nLe bon cadeau de Naïma était dans son autre main. Dessus, c'était écrit : Bon pour un gommage. En dessous, au stylo bleu : « Profite ! » Khadija l'a plié en quatre, coin sur coin, et elle a appuyé sur le pli avec l'ongle du pouce.",
+   "direction": "« Bon pour un gommage » is printed text (italic in source); read it as a label. « Profite ! » a little brighter.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 20,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Onze minutes,",
+   "direction": "Quick calculation, to herself.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 21,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a-t-elle dit.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 22,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "En descendant.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 23,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "À la porte du hammam, une femme téléphonait, une claquette dedans, une claquette dehors.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 24,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Si tu pars, pars,",
+   "direction": "Like a proverb; firm, half-joking, to a stranger. This line returns in chapter 4.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 25,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a dit Khadija.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 26,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Si tu restes, reste. La porte, c'est pour tout le monde.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 27,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "La claquette du dehors est rentrée. Derrière Khadija, la lourde porte s'est fermée, et son caoutchouc a soupiré.",
+   "direction": "",
+   "pause_after": 1.2
+  },
+  {
+   "id": 28,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Il n'y avait pas de casiers. Les vêtements attendaient sur les bancs, noués dans le foulard de leur propriétaire, devant tout le monde. Sur un carton aplati, les claquettes mouillées faisaient une ligne de travers. Khadija a ouvert le scratch de ses sandales de pharmacie, noires, pointure trente-neuf. Elle les a posées bien droites, à côté d'une paire de ballerines noires à boucle dorée. On avait réparé les talons tant de fois qu'ils faisaient une petite pile, comme des crêpes.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 29,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "La même boucle que les miennes,",
+   "direction": "Murmured; a flicker of surprise.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 30,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a-t-elle murmuré.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 31,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Les miennes, c'est du trente-sept. Sous le lit, encore dans le papier. On m'avait dit qu'elles allaient se faire à mon pied.",
+   "direction": "Quiet, matter-of-fact, a small private regret not dwelt on.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 32,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "La femme de l'accueil était assise plus haut que tout le monde. Elle prenait l'argent et surveillait les bancs, sans jamais lever la tête. Khadija a donné le bon et une pièce de dix dirhams pour l'entrée. La pièce est tombée dans une vieille boîte à biscuits, avec un petit bruit de fer fatigué. À un clou, près du comptoir, pendaient les objets perdus : une chaussette d'enfant, une clé au bout d'un fil rouge, trois boucles d'oreilles sans leur paire, aucune en or.\n\nLe reçu, Khadija l'a plié en quatre et rangé dans son porte-monnaie.\n\nElle s'est déshabillée le dos contre le carrelage, la serviette déjà sur les épaules. Elle a dénoué son foulard sans miroir. Son henné avait deux semaines, et elle savait où commençait le gris. Le petit miroir était accroché haut, pour les foulards. Elle s'est regardée jusqu'aux épaules, pas plus, et elle a fait un petit signe de tête, comme à une cliente qui a le compte juste.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 33,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Soixante-trois ans,",
+   "direction": "Dry, self-mocking.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 34,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a-t-elle dit, pour personne.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 35,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "On regarde, on ne touche pas. Comme le musée Batha.",
+   "direction": "Deadpan joke.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 36,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "La pièce de deux dirhams, elle l'a gardée dans son poing. On ne laisse pas l'argent sur un banc.",
+   "direction": "",
+   "pause_after": 1.0
+  },
+  {
+   "id": 37,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Dans la salle froide, les seaux en plastique raclaient le carrelage, et le bruit montait jusqu'au dôme. Par les petits trous de verre, le jour tombait en ronds sur le sol. Les femmes marchaient autour sans les voir. Khadija a traversé toute la salle par le milieu, sans se presser. Puis elle s'est assise contre le mur, le carrelage froid derrière elle.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 38,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Près d'elle, un tabouret boitait. Toc, chaque fois que la femme assise dessus bougeait. Toc. Khadija a ramassé par terre un bout d'emballage de savon. Elle l'a plié en quatre, coin sur coin, et elle a appuyé sur le pli avec l'ongle du pouce. Elle l'a glissé sous le pied court, sans lever les yeux. La femme a bougé. Plus de toc.",
+   "direction": "Lightly comic; a small beat before « Plus de toc. »",
+   "pause_after": 0.0
+  },
+  {
+   "id": 39,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Au-dessus de chaque porte, il y avait une horloge de cuisine blanche, dans un sac plastique contre l'humidité. Khadija le savait sans lever la tête. Elle n'en avait pas besoin : elle ne s'était jamais trompée d'une minute.",
+   "direction": "",
+   "pause_after": 0.8
+  },
+  {
+   "id": 40,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Trois minutes plus tard, elle avait la paire.",
+   "direction": "A detective-story beat: slightly lower, satisfied.",
+   "pause_after": 1.0
+  },
+  {
+   "id": 41,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Une femme mince portait un petit sac à main marron, enfermé dans un sac plastique noué. Elle le promenait d'un banc à l'autre, derrière une femme ronde. Elle ne l'ouvrait jamais.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 42,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Comme des œufs,",
+   "direction": "Murmured, gleeful.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 43,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a murmuré Khadija.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 44,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Elle le porte comme si c'étaient des œufs ! Ce n'est pas son sac, je te le dis. Ton sac à toi, tu le jettes par terre et tu t'assois dessus.",
+   "direction": "Still under her breath but building, delighted with her own case.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 45,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "La femme ronde s'est installée sur le carrelage, de dos. La mince a posé le sac tout près de sa main et elle a pris une grosse poignée de savon noir dans le pot.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 46,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Huit dirhams à Bab Ftouh. Elle se sert comme si c'était gratuit. Bien sûr. Ce n'est pas son savon non plus.",
+   "direction": "Cashier's running commentary, dry.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 47,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Puis la mince a remonté ses manches. Elle n'avait pas de manches. Elle était nue jusqu'à la taille, comme tout le monde, et pourtant ses mains ont poussé deux manches invisibles au-dessus du coude.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 48,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Ça, c'est le geste d'une…",
+   "direction": "Starts confidently, then stops dead.",
+   "pause_after": 1.5
+  },
+  {
+   "id": 49,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Khadija s'est tue. Elle a regardé les bras nus. Puis la mince a mis le gant, la kessa noire, et Khadija a retrouvé sa voix.",
+   "direction": "Quiet on the first two sentences; pick up on the last.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 50,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Elle connaissait les voleuses. En 2014, à la caisse quatre, elle avait vu une main dans le sac d'une dame, entre les yaourts. Elle avait dit, très calme : « Lalla, ton sac est dans la main du monsieur. » Le magasin lui avait donné un diplôme, Vigilance 2014. Il était encadré à côté de son évier. Elle avait déjà la phrase pour aujourd'hui : Lalla, ton sac est dans la main de la mince.",
+   "direction": "A hint of pride. The quoted 2014 line calm and official. The last sentence is her rehearsed phrase (italic in source), slightly more pointed.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 51,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Une voleuse,",
+   "direction": "Murmured, certain.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 52,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a-t-elle murmuré.\n\nSon pouce a tourné la boucle gauche.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 53,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Ça se reconnaît aux mains.",
+   "direction": "Expert's verdict.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 54,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "À ce moment-là, les mains de la mince se sont arrêtées. Ses épaules se sont tournées vers le mur de Khadija, une seconde. Puis elles sont revenues, et le gant a repris.",
+   "direction": "Slight tension; a tiny hold after « une seconde ».",
+   "pause_after": 0.5
+  },
+  {
+   "id": 55,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Tu vois ? Une voleuse vérifie toujours où est le gardien.",
+   "direction": "A triumphant whisper, a little too quick.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 56,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "À la porte de la salle tiède, il y avait un seau bleu posé par terre, une serviette sur un bras, deux bras croisés. La femme au seau avait une voix assez forte pour traverser trois salles :",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 57,
+   "chapter": 1,
+   "voice": "souad",
+   "text": "Ton gommage est payé, lalla.",
+   "direction": "Loud, plain, unhurried; carries from across the room.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 58,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Khadija n'a regardé que le seau. Il avait une fissure sur le côté, réparée avec du scotch.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 59,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Plus tard, lalla,",
+   "direction": "Brisk and dismissive but not unkind; her eyes are elsewhere.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 60,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "a dit Khadija.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 61,
+   "chapter": 1,
+   "voice": "khadija",
+   "text": "Je suis occupée. Ton gant ne va pas s'envoler.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 62,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Le seau est resté encore un moment. Puis il est parti, sans se presser.\n\nLa femme ronde s'est levée. Elle est passée la première dans la salle tiède, et Khadija a regardé ses pieds. Le gauche se posait à plat, d'un seul coup, lourd. La mince suivait, le sac contre elle.\n\nKhadija a serré la pièce dans son poing. Elle les a suivies et a pris le banc juste derrière elles.",
+   "direction": "Give a little weight to « Le gauche se posait à plat, d'un seul coup, lourd », without comment.",
+   "pause_after": 0.8
+  },
+  {
+   "id": 63,
+   "chapter": 1,
+   "voice": "narrator",
+   "text": "Encore quarante-trois minutes au parcmètre.",
+   "direction": "Flat, timekeeping.",
+   "pause_after": 3.0
+  },
+  {
+   "id": 64,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "2",
+   "direction": "Chapter heading; read « Deux ».",
+   "pause_after": 1.5
+  },
+  {
+   "id": 65,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Dans la salle tiède, un seul robinet coulait. Quelqu'un avait attaché une chaussette grise au bout du robinet, pour filtrer l'eau. Pendant que le seau se remplissait, le bruit montait, de plus en plus aigu. Puis le seau plein raclait le sol, et le suivant prenait sa place. Rouge, vert, rouge, jaune. Ils faisaient la queue, comme des clients à la caisse.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 66,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Khadija a appuyé son dos contre le carrelage. L'air sentait le henné et l'argile mouillée. Très haut, sur une étagère, un téléphone s'est allumé dans son sac plastique, et sa lumière bleue est passée sur le carrelage. Personne n'a bougé.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 67,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Vingt et un jours avant la retraite,",
+   "direction": "Murmured, wry.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 68,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a murmuré Khadija.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 69,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Des nuits, plutôt. Et je finis avec une voleuse. Hamid va mettre ça sur le gâteau.",
+   "direction": "Quick self-correction on « Des nuits, plutôt ».",
+   "pause_after": 0.0
+  },
+  {
+   "id": 70,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Elle a pris la voix de Hamid, sa voix de réunion :",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 71,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Un gâteau pour votre dynamisme, Madame Amrani.",
+   "direction": "Impression of Hamid: pompous manager voice, slower, over-enunciated, a mocking « vous ».",
+   "pause_after": 0.0
+  },
+  {
+   "id": 72,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Puis elle a repris la sienne, les yeux sur le sac :",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 73,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Mon dynamisme, il est là, à deux mètres, avec un sac qui n'est pas à elle.",
+   "direction": "Back to her own quick, dry voice.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 74,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Devant elle, la femme ronde était assise sur le carrelage, la tête penchée très bas, presque sur les genoux. La mince, à genoux derrière elle, faisait descendre le gant sur son dos. Lentement. Des épaules à la taille, on avait le temps de remplir un seau.",
+   "direction": "Slow down on « Lentement. »",
+   "pause_after": 0.0
+  },
+  {
+   "id": 75,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Personne ne frotte un dos aussi lentement,",
+   "direction": "Suspicious, emphatic, under her breath.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 76,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a dit Khadija.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 77,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Personne. Sauf si l'autre main a du travail.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 78,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Elle a cherché l'autre main. Elle était posée à plat sur l'épaule de la femme ronde, et elle ne faisait rien. C'était peut-être ça, le travail.\n\nLe dos était large. L'épaule gauche tombait plus bas que la droite. Les cheveux mouillés pendaient en mèches : les pointes couleur henné, brun-rouge, et à la raie, deux doigts de gris. Un dos. Seulement un dos.",
+   "direction": "Even and observational; no hinting emphasis. A small beat before « Un dos. Seulement un dos. »",
+   "pause_after": 0.6
+  },
+  {
+   "id": 79,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Khadija a regardé les pieds. Vingt-sept ans de caisse : on reconnaît les gens à leurs chaussures, et quand il n'y a pas de chaussures, à leurs pieds.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 80,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "La mince, trente-huit. Étroit. Les ballerines à boucle, sur le carton ? C'est elle. Les talons réparés trois fois. Elle court, celle-là. Derrière les sacs. La ronde…",
+   "direction": "Rapid-fire expert assessment; trails off on « La ronde… ».",
+   "pause_after": 0.0
+  },
+  {
+   "id": 81,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Elle a penché la tête.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 82,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Trente-neuf. Comme un bateau.",
+   "direction": "Deadpan verdict.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 83,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "La mince s'est arrêtée pour reprendre du savon. Avant de remettre le gant, elle a encore poussé ses manches invisibles, une, deux, jusqu'au-dessus du coude.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 84,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Regarde comme elle…",
+   "direction": "Starts, then stops.",
+   "pause_after": 1.0
+  },
+  {
+   "id": 85,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Khadija s'est tue. Le robinet montait. Un seau est parti.",
+   "direction": "Quiet, spaced.",
+   "pause_after": 0.5
+  },
+  {
+   "id": 86,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "… comme elle s'échauffe,",
+   "direction": "Picking the sentence back up, covering; slightly forced.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 87,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a-t-elle repris.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 88,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Comme avant un match. Elle a de l'entraînement, celle-là.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 89,
+   "chapter": 2,
+   "voice": "fatiha",
+   "text": "Venga,",
+   "direction": "Fast and low; the Spanish word is natural, not exotic.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 90,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a dit la mince, vite et tout bas.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 91,
+   "chapter": 2,
+   "voice": "fatiha",
+   "text": "L'autre épaule. Je suis pas payée aujourd'hui, me le fais pas répéter.",
+   "direction": "Quick, quiet order with teasing warmth underneath.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 92,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "De l'espagnol, maintenant,",
+   "direction": "Murmured, pleased to add evidence.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 93,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a murmuré Khadija.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 94,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Une professionnelle. Internationale, en plus. Pas payée aujourd'hui. Note ça. Aujourd'hui, c'est le sac qui paie.",
+   "direction": "Echo « Pas payée aujourd'hui » (italic in source) with a slight mimicking edge. « Note ça » as if dictating to a clerk.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 95,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "La femme ronde a tendu l'autre épaule. Le gant a appuyé un peu plus fort.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 96,
+   "chapter": 2,
+   "voice": "dija",
+   "text": "Doucement, doucement,",
+   "direction": "Loud and warm, playing to the whole room.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 97,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a-t-elle dit à toute la salle.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 98,
+   "chapter": 2,
+   "voice": "dija",
+   "text": "Je suis un musée, pas un…",
+   "direction": "Already starting to laugh before the punchline.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 99,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Elle riait déjà.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 100,
+   "chapter": 2,
+   "voice": "dija",
+   "text": "… pas un tapis !",
+   "direction": "The punchline through laughter.",
+   "pause_after": 0.3
+  },
+  {
+   "id": 101,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "La salle a ri. Les seaux ont arrêté de racler. Même la femme au robinet a ri, la main sous l'eau.\n\nKhadija a ri aussi, tout bas, la bouche ouverte, presque assez pour montrer la dent en or du fond. Puis elle a fermé la bouche.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 102,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Une femme qui rit comme ça ne surveille pas son sac,",
+   "direction": "Quiet, regaining the detective's dryness.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 103,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a-t-elle dit.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 104,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "C'est pour ça qu'elles l'ont choisie.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 105,
+   "chapter": 2,
+   "voice": "dija",
+   "text": "Chez moi,",
+   "direction": "Loud, expansive.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 106,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a continué la femme ronde,",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 107,
+   "chapter": 2,
+   "voice": "dija",
+   "text": "je rentre dans la mer jusqu'au ventre, et je la laisse faire. Gratuit !",
+   "direction": "Happy, physical pleasure; laughing on « Gratuit ! »",
+   "pause_after": 0.0
+  },
+  {
+   "id": 108,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "La salle a encore ri. Khadija, non.",
+   "direction": "A small beat before « Khadija, non. »",
+   "pause_after": 0.6
+  },
+  {
+   "id": 109,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "À côté d'elle, une voisine a rempli un bol dans son seau.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 110,
+   "chapter": 2,
+   "voice": "voisine",
+   "text": "Je te verse un peu sur le dos, lalla ?",
+   "direction": "Friendly, casual.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 111,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Non, merci. Ça va.",
+   "direction": "Quick, polite, closed.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 112,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Le seau bleu est revenu. Il s'est arrêté devant ses genoux.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 113,
+   "chapter": 2,
+   "voice": "souad",
+   "text": "Ton gommage est payé, lalla.",
+   "direction": "The same words, the same calm; closer now.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 114,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Plus tard.",
+   "direction": "Curt.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 115,
+   "chapter": 2,
+   "voice": "souad",
+   "text": "Le gant va accrocher tes boucles d'oreilles,",
+   "direction": "Matter-of-fact.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 116,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a dit la femme au seau.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 117,
+   "chapter": 2,
+   "voice": "souad",
+   "text": "Enlève-les.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 118,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Non.",
+   "direction": "Instant, flat, final.",
+   "pause_after": 0.3
+  },
+  {
+   "id": 119,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Le pouce de Khadija a tourné la boucle gauche.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 120,
+   "chapter": 2,
+   "voice": "souad",
+   "text": "Du vieil or,",
+   "direction": "Appraising, unhurried.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 121,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a dit la femme au seau.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 122,
+   "chapter": 2,
+   "voice": "souad",
+   "text": "On fait plus ce jaune-là.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 123,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Cent quatre-vingt-dix dirhams,",
+   "direction": "Instant and exact, like answering a price check; no feeling shown.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 124,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a dit Khadija, sans cesser de la faire tourner.\n\nElle a ouvert son poing et a mis la pièce de deux dirhams dans une paume, sans regarder la main. Ses yeux restaient sur le sac en plastique, près du genou de la mince.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 125,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Plus tard, aafak. Va frotter quelqu'un qui en a envie.",
+   "direction": "Dismissive yet almost kind, the tone of someone giving a tip.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 126,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "La pièce n'a fait aucun bruit. La main est montée plus haut que le regard de Khadija, vers le nœud d'un foulard, et elle est redescendue vide.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 127,
+   "chapter": 2,
+   "voice": "souad",
+   "text": "C'est pour le train de ma fille,",
+   "direction": "Plain, without self-pity.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 128,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a dit la femme au seau.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 129,
+   "chapter": 2,
+   "voice": "souad",
+   "text": "Rabat. En octobre.",
+   "direction": "A slight catch, quickly hidden.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 130,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Le seau est reparti.",
+   "direction": "",
+   "pause_after": 0.8
+  },
+  {
+   "id": 131,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Le gant était plus bas maintenant. Il descendait le long du dos, plus lentement qu'avant, et la femme ronde ne parlait plus. Khadija non plus. Son dos s'est décollé du mur d'un centimètre. Elle ne l'a pas senti.",
+   "direction": "Slower and quieter.",
+   "pause_after": 0.8
+  },
+  {
+   "id": 132,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Un autre carrelage mouillé, elle avait quatorze ans, un doigt passait lentement sur son dos, une lettre, puis une autre, et elle devinait, elle devinait presque…",
+   "direction": "Memory: softer, slower, almost hushed. Let it trail off unfinished.",
+   "pause_after": 2.0
+  },
+  {
+   "id": 133,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Trente minutes,",
+   "direction": "Abrupt, cutting the memory off; counting voice.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 134,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "a dit Khadija.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 135,
+   "chapter": 2,
+   "voice": "khadija",
+   "text": "Vingt-neuf.",
+   "direction": "Correcting herself, firmer.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 136,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Son dos est revenu contre le carrelage. La serviette pesait sur ses épaules, lourde d'eau.\n\nLa femme ronde s'est levée, une main sur le genou. Sans se retourner, elle a tendu le sac derrière elle.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 137,
+   "chapter": 2,
+   "voice": "dija",
+   "text": "Fais attention à ça.",
+   "direction": "Casual, trusting, without looking.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 138,
+   "chapter": 2,
+   "voice": "fatiha",
+   "text": "Oui, ma Dija.",
+   "direction": "Soft and simple; tender without emphasis.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 139,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Le robinet a coulé. Un seau s'est rempli, et le son est monté, monté. Quelqu'un l'a tiré. Le suivant.\n\nLa femme ronde est partie vers la salle chaude, doucement, une main sur sa hanche gauche, qui pliait mal. La mince marchait à côté d'elle, le sac contre la poitrine.\n\nKhadija s'est levée. Sa main est allée à sa propre hanche.",
+   "direction": "Plain; no weight on « sa propre hanche ».",
+   "pause_after": 0.8
+  },
+  {
+   "id": 140,
+   "chapter": 2,
+   "voice": "narrator",
+   "text": "Vingt-quatre minutes.",
+   "direction": "Flat, timekeeping.",
+   "pause_after": 3.0
+  },
+  {
+   "id": 141,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "3",
+   "direction": "Chapter heading; read « Trois ».",
+   "pause_after": 1.5
+  },
+  {
+   "id": 142,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Dans la salle chaude, l'eau sifflait en touchant le sol.\n\nKhadija a cherché un mur. Le premier brûlait. Derrière, il y avait le four, le même que celui de la boulangerie d'à côté, et la salle sentait un peu le pain. Elle a pris l'autre mur. Il était chaud, mais on pouvait s'appuyer.\n\nAu milieu, la grande pierre de marbre avait un creux, usé par des années de corps.",
+   "direction": "Slightly slower; the air is heavier here.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 143,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Du dôme, une goutte tombait. Toujours sur le même carreau, plus pâle que les autres. Quelqu'un avait posé une claquette dessus, pour dire : pas ici. La goutte tombait sur la claquette.",
+   "direction": "",
+   "pause_after": 0.5
+  },
+  {
+   "id": 144,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "La vapeur mangeait tout. Les femmes devenaient des formes, des épaules, des genoux. Seuls les carreaux, près de ses pieds, restaient nets.\n\nSa serviette était trempée. Elle a glissé de ses épaules, doucement, et elle est tombée sur le carrelage. Khadija a tendu la main vers elle, une fois. Puis elle l'a laissée par terre.",
+   "direction": "",
+   "pause_after": 0.6
+  },
+  {
+   "id": 145,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Son dos était nu contre le mur.",
+   "direction": "Quiet.",
+   "pause_after": 1.0
+  },
+  {
+   "id": 146,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Devant le marbre, la femme ronde a encore tendu le sac derrière elle, sans regarder. La mince l'a pris.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 147,
+   "chapter": 3,
+   "voice": "dija",
+   "text": "Fais attention à ça,",
+   "direction": "Light; she jokes even about this.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 148,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "a dit la femme ronde.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 149,
+   "chapter": 3,
+   "voice": "dija",
+   "text": "Ma nouvelle hanche est dedans. Elle est payée.",
+   "direction": "Half joke, half pride.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 150,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Le pouce de Khadija a tourné la boucle.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 151,
+   "chapter": 3,
+   "voice": "khadija",
+   "text": "Elles disent toujours « payée »,",
+   "direction": "Murmured and hollow; the joke has no audience.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 152,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "a-t-elle murmuré.\n\nLa vapeur a pris sa voix. Personne n'a entendu.",
+   "direction": "",
+   "pause_after": 0.5
+  },
+  {
+   "id": 153,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "La mince a posé le sac sur une marche sèche. Elle a mis une main sous le coude de la femme ronde, l'autre au milieu du dos. Et la femme ronde est descendue sur le marbre chaud, dans le creux, un peu, encore un peu, jusqu'en bas.",
+   "direction": "Slow down through « un peu, encore un peu, jusqu'en bas ».",
+   "pause_after": 0.0
+  },
+  {
+   "id": 154,
+   "chapter": 3,
+   "voice": "fatiha",
+   "text": "Ya está, ma Dija,",
+   "direction": "Low and soothing, almost a breath.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 155,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "a dit la mince.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 156,
+   "chapter": 3,
+   "voice": "fatiha",
+   "text": "Ya está.",
+   "direction": "Softer still.",
+   "pause_after": 0.5
+  },
+  {
+   "id": 157,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Khadija a regardé le sac, seul sur sa marche.\n\nLa goutte tombait sur la claquette.",
+   "direction": "",
+   "pause_after": 1.0
+  },
+  {
+   "id": 158,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Quelqu'un s'est assis à côté de Khadija. Un seau bleu a touché son pied. Une main s'est posée à plat sur un genou, juste à la hauteur de ses yeux.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 159,
+   "chapter": 3,
+   "voice": "souad",
+   "text": "Tu regardes son dos depuis une heure,",
+   "direction": "Close now, lower than before and plain; no reproach, no wisdom.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 160,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "a dit la femme au seau.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 161,
+   "chapter": 3,
+   "voice": "souad",
+   "text": "Tu veux que je te dise à quoi ressemble le tien ?",
+   "direction": "A real, steady question; leave it hanging.",
+   "pause_after": 0.5
+  },
+  {
+   "id": 162,
+   "chapter": 3,
+   "voice": "khadija",
+   "text": "Ça fait vingt-six minutes,",
+   "direction": "Instantly, too fast; correcting the number.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 163,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "a dit Khadija tout de suite.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 164,
+   "chapter": 3,
+   "voice": "khadija",
+   "text": "Pas une heure.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 165,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Plus loin, dans la vapeur, une femme a ri.",
+   "direction": "",
+   "pause_after": 0.8
+  },
+  {
+   "id": 166,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Puis Khadija a vu la main. Les doigts posés sur le genou. L'un d'eux était plus court que les autres.",
+   "direction": "Slower; recognition dawning.",
+   "pause_after": 1.0
+  },
+  {
+   "id": 167,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Le doigt.",
+   "direction": "Alone, quiet.",
+   "pause_after": 1.5
+  },
+  {
+   "id": 168,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Deux dirhams dans le nœud d'un foulard.",
+   "direction": "Quiet.",
+   "pause_after": 2.0
+  },
+  {
+   "id": 169,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Khadija n'a rien dit. La femme au seau a attendu. Loin, dans la salle tiède, le robinet montait vers l'aigu. La goutte est tombée. Encore une fois.",
+   "direction": "Unhurried; leave space between the sentences.",
+   "pause_after": 1.5
+  },
+  {
+   "id": 170,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "La femme au seau s'est levée.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 171,
+   "chapter": 3,
+   "voice": "souad",
+   "text": "Ton gommage est payé,",
+   "direction": "The same words as always, a shade gentler.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 172,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "a-t-elle dit.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 173,
+   "chapter": 3,
+   "voice": "souad",
+   "text": "Je bouge pas.",
+   "direction": "Plain, like a promise.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 174,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Le seau bleu est parti dans la vapeur.\n\nLa main de Khadija s'est fermée, par habitude. Il n'y avait plus de pièce dedans.",
+   "direction": "",
+   "pause_after": 1.0
+  },
+  {
+   "id": 175,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Sur le marbre, le gant a repris. Il descendait vers la hanche gauche. La femme ronde a commencé à chanter, tout bas, une chanson de mariage, de celles qu'on chante en tapant dans les mains. Le gant est arrivé tout près de la hanche. Elle a chanté plus fort, et elle a tapé une fois dans ses mains.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 176,
+   "chapter": 3,
+   "voice": "dija",
+   "text": "Ah ! Là,",
+   "direction": "Pain turned into a bright laugh, mid-song.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 177,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "a-t-elle dit au milieu d'un couplet.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 178,
+   "chapter": 3,
+   "voice": "dija",
+   "text": "C'est là, la facture !",
+   "direction": "Comic and loud, wincing through the joke.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 179,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "La mince ne disait rien. Ses mains continuaient, toujours à la même vitesse.",
+   "direction": "",
+   "pause_after": 0.6
+  },
+  {
+   "id": 180,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Encore treize minutes. Douze.",
+   "direction": "Counting; a beat between the two numbers.",
+   "pause_after": 0.8
+  },
+  {
+   "id": 181,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "La mince a repris du savon. Avant de remettre le gant, ses mains ont poussé encore une fois les manches qu'elle n'avait pas, une, deux, jusqu'au-dessus du coude. Puis elle s'est penchée sur le dos qu'elle frottait. Elle a appelé tout bas, presque dans l'épaule :",
+   "direction": "",
+   "pause_after": 0.5
+  },
+  {
+   "id": 182,
+   "chapter": 3,
+   "voice": "fatiha",
+   "text": "Khadija.",
+   "direction": "Very quiet and close, almost into the shoulder. The full name, deliberate. Not loud.",
+   "pause_after": 1.0
+  },
+  {
+   "id": 183,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Deux femmes ont répondu.",
+   "direction": "Quiet.",
+   "pause_after": 1.0
+  },
+  {
+   "id": 184,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Le dos de Khadija s'est décollé du mur d'un centimètre.\n\nLa bouche de Khadija était déjà ouverte.",
+   "direction": "",
+   "pause_after": 1.0
+  },
+  {
+   "id": 185,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Une seconde plus tard, sans se retourner, la femme ronde a répondu oui :",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 186,
+   "chapter": 3,
+   "voice": "dija",
+   "text": "Na'am ?",
+   "direction": "Simple, ordinary, a beat late; nothing dramatic.",
+   "pause_after": 0.5
+  },
+  {
+   "id": 187,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Khadija a fermé la bouche sur rien.",
+   "direction": "",
+   "pause_after": 2.0
+  },
+  {
+   "id": 188,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Dans sa tête, une lettre, puis une autre. Fatiha.",
+   "direction": "Hushed. « Fatiha » (italic in source, her thought) is almost breathed, in the narrator's voice only; it is never spoken in Khadija's voice.",
+   "pause_after": 1.5
+  },
+  {
+   "id": 189,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Le nom est monté, une fois. Khadija l'a repoussé, comme une pièce qu'on fait glisser sur le comptoir, du bout des doigts. Le petit bruit du métal qui frotte. Au suivant.",
+   "direction": "Brisk on « Au suivant. », like a cashier.",
+   "pause_after": 1.0
+  },
+  {
+   "id": 190,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Le gant s'est arrêté.",
+   "direction": "",
+   "pause_after": 1.5
+  },
+  {
+   "id": 191,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "La femme ronde a bougé sur le marbre. Lentement, sur sa hanche gauche, elle a commencé à se retourner. L'épaule gauche, la plus basse, venait la première.",
+   "direction": "Slow and tense.",
+   "pause_after": 0.8
+  },
+  {
+   "id": 192,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Les yeux de Khadija sont montés. Plus haut que les pieds. Plus haut que le sac. Ils ont dépassé l'épaule qui tournait, ils sont montés le long du mur, ils ont traversé la vapeur jusqu'à l'horloge blanche au-dessus de la porte, la seule chose nette dans la salle.",
+   "direction": "Build steadily, one breath per clause, rising to the clock.",
+   "pause_after": 1.5
+  },
+  {
+   "id": 193,
+   "chapter": 3,
+   "voice": "narrator",
+   "text": "Neuf minutes.",
+   "direction": "Flat and final.",
+   "pause_after": 3.5
+  },
+  {
+   "id": 194,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "4",
+   "direction": "Chapter heading; read « Quatre ».",
+   "pause_after": 1.5
+  },
+  {
+   "id": 195,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Elle est sortie vite. Salle tiède, salle froide. Les yeux baissés : des pieds, des seaux, le pied d'un tabouret. Un rond de jour sur le sol. Elle a marché dedans sans le voir.",
+   "direction": "Quicker and clipped.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 196,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Sur le carton, les ballerines noires attendaient à côté de ses sandales. Sur la semelle intérieure, un trente-huit, à moitié effacé. Le cuir des talons était mou, cassé vers l'intérieur.\n\nElle a mis ses trente-neuf, juste à côté. Elle s'est penchée vers le scratch. Sa hanche l'a arrêtée à mi-chemin, et elle a fermé le scratch de là.\n\nSa serviette était restée par terre, dans la salle chaude. Elle a dénoué le foulard qui gardait ses vêtements. Elle a passé la djellaba sur sa peau mouillée, et le tissu a collé tout de suite à son dos, que personne n'avait frotté. Elle a noué son foulard sur ses cheveux qui gouttaient, sans miroir.",
+   "direction": "Plain and steady.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 197,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "À travers le mur, la femme ronde chantait. La même chanson de mariage, plus fort maintenant, plus gaie.\n\nKhadija ne s'est pas tournée vers le mur.",
+   "direction": "",
+   "pause_after": 0.8
+  },
+  {
+   "id": 198,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Si tu pars, pars,",
+   "direction": "Murmured to herself: the same words as at the door in chapter 1, with no joke left in them.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 199,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "a-t-elle murmuré.\n\nElle a ouvert la porte de la rue. Le bruit de la ruelle est entré.",
+   "direction": "",
+   "pause_after": 0.8
+  },
+  {
+   "id": 200,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Une autre boîte à biscuits, autrefois. Trois cent quatre-vingts. La moitié. Cent quatre-vingt-dix. Un comptoir en verre. Un plateau de velours.",
+   "direction": "Memory fragments: slower and flat, like items scanned at a till, with a small beat after each.",
+   "pause_after": 1.5
+  },
+  {
+   "id": 201,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Dehors, la ruelle montait.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 202,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Six,",
+   "direction": "Counting voice, steadying herself.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 203,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "a dit Khadija.\n\nElle a commencé à monter. Son pied gauche se posait à plat sur les pavés, d'un seul coup. Elle comptait tout bas.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 204,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Cent pas. Cinq minutes. Deux cents. Quatre.",
+   "direction": "Under her breath, slightly breathless, in step with her walking.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 205,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Devant le four du quartier, des planches pleines de pains prenaient la moitié de la ruelle. Sur chaque pain, une marque : une croix, un point, un bouchon de bouteille. Khadija les a contournées sans ralentir.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 206,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Trois cents. Trois.",
+   "direction": "Breathless count.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 207,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Un rideau de fer est monté à côté d'elle, avec un grand bruit. Elle n'a pas tourné la tête. Dans une caisse de menthe, un chat dormait. Elle a passé la caisse.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 208,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Quatre cents. Deux.",
+   "direction": "More breathless.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 209,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "À l'ombre, les pavés étaient lisses comme du savon. Elle a mis une main au mur.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 210,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Le gilet commence par le bas de la rue,",
+   "direction": "Reasoning aloud, hoping, out of breath.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 211,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "a-t-elle dit.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 212,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Et il prend son café avant.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 213,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Elle n'a pas ralenti.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 214,
+   "chapter": 4,
+   "voice": "passant",
+   "text": "Balak !",
+   "direction": "Shouted from up the alley, off-mic, urgent.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 215,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Une mule descendait, chargée de bouteilles de gaz qui cognaient entre elles. Khadija s'est collée contre la pierre. Les sabots sont passés tout près, et les bouteilles ont sonné, l'une contre l'autre, jusqu'en bas de la ruelle. L'homme qui suivait la mule n'a rien dit.",
+   "direction": "",
+   "pause_after": 0.5
+  },
+  {
+   "id": 216,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Elle est repartie. Elle a recompté.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 217,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Une minute pour une mule. Cinq cents. Une.",
+   "direction": "Shaken, then back to the count.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 218,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "La place. Les petits taxis rouges, les chaises du café tournées vers la rue. L'homme aux graines de tournesol pliait un nouveau cornet. À la même table, le gilet orange avait un autre verre devant lui. Il regardait les plaques des voitures, pas les gens.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 219,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Zéro,",
+   "direction": "Arriving; out of breath, flat.",
+   "pause_after": 0.0
+  },
+  {
+   "id": 220,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "a dit Khadija.",
+   "direction": "",
+   "pause_after": 0.6
+  },
+  {
+   "id": 221,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "La Fiat blanche était là. Sous l'essuie-glace, il y avait un papier.",
+   "direction": "",
+   "pause_after": 1.0
+  },
+  {
+   "id": 222,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Elle a soulevé l'essuie-glace avec deux doigts. Le métal brûlait. Elle a pris le ticket et l'a lu. Puis elle l'a relu, comme un prix qui passe mal à la caisse. Mais il n'y avait pas d'erreur. Fin du stationnement : 11 h 20. Passage de l'agent : 11 h 24.",
+   "direction": "The ticket text (italic in source) flat and official: « onze heures vingt », « onze heures vingt-quatre », with a tiny beat between the two times.",
+   "pause_after": 0.5
+  },
+  {
+   "id": 223,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "En bas, il y avait l'amende. Elle l'a lue tout bas, d'une voix blanche, comme un total à trois heures du matin.",
+   "direction": "",
+   "pause_after": 0.0
+  },
+  {
+   "id": 224,
+   "chapter": 4,
+   "voice": "khadija",
+   "text": "Cent dirhams.",
+   "direction": "Very quiet and toneless, like a till total at 3 a.m.",
+   "pause_after": 1.5
+  },
+  {
+   "id": 225,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Elle s'est tournée vers le parcmètre. Son petit écran était vide. Sa main est entrée par la vitre ouverte, jusqu'au pot de Nescafé. Ses ongles ont gratté le verre. Le fond. Le côté. Le fond.",
+   "direction": "Slow through « Le fond. Le côté. Le fond. »",
+   "pause_after": 0.8
+  },
+  {
+   "id": 226,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Sa main est allée à sa poche. Il n'y avait rien dedans.",
+   "direction": "",
+   "pause_after": 1.0
+  },
+  {
+   "id": 227,
+   "chapter": 4,
+   "voice": "narrator",
+   "text": "Elle a plié le ticket en quatre, coin sur coin, et elle a passé l'ongle du pouce sur le pli, une fois, deux fois, jusqu'à ce qu'il soit bien plat. Elle l'a glissé au fond de la poche de sa djellaba, celle qui était vide. Son pouce est monté jusqu'à la boucle gauche, et il est resté là.",
+   "direction": "Slow and even, without sentiment. Let the last clause settle into silence.",
+   "pause_after": 4.0
+  }
+ ],
+ "sound_cues": [
+  {
+   "after_segment": 11,
+   "cue": "Two-dirham coin dropping into a parking meter: a dry metallic « clac ». Ideally timed with each « Clac » in segment 12; otherwise a single clac just before it.",
+   "optional": true
+  },
+  {
+   "after_segment": 27,
+   "cue": "Heavy door swinging shut with a soft rubber sigh. The street fades and a low, reverberant hammam room tone begins (distant buckets, water), kept well under the voice.",
+   "optional": true
+  },
+  {
+   "after_segment": 64,
+   "cue": "A single tap filling a plastic bucket, pitch rising as it fills, then the bucket scraping away. This establishes the warm room's recurring sound; keep it faint.",
+   "optional": true
+  },
+  {
+   "after_segment": 84,
+   "cue": "Return of the filling bucket, rising pitch, under Khadija's silence (segment 85).",
+   "optional": true
+  },
+  {
+   "after_segment": 100,
+   "cue": "Soft, warm laughter from several women, echoing slightly under the dome; fades quickly.",
+   "optional": true
+  },
+  {
+   "after_segment": 138,
+   "cue": "The tap again: a bucket filling, the sound rising, then scraped away.",
+   "optional": true
+  },
+  {
+   "after_segment": 143,
+   "cue": "A single water drop falling onto a plastic slipper: a small, soft, flat tap. This is the hot room's recurring sound.",
+   "optional": true
+  },
+  {
+   "after_segment": 157,
+   "cue": "The drop on the slipper, once.",
+   "optional": true
+  },
+  {
+   "after_segment": 169,
+   "cue": "The drop on the slipper, once, inside the silence before Souad stands; very faint distant tap rising in pitch beneath it.",
+   "optional": true
+  },
+  {
+   "after_segment": 196,
+   "cue": "A muffled wedding song through a wall, a woman's voice, cheerful, with a distant hand clap; low and brief, behind segment 197.",
+   "optional": true
+  },
+  {
+   "after_segment": 199,
+   "cue": "Street noise floods in as the door opens: medina alley ambience, footsteps, distant voices.",
+   "optional": true
+  },
+  {
+   "after_segment": 214,
+   "cue": "Mule hooves on cobbles and gas bottles clanking against each other, passing close and receding down the alley.",
+   "optional": true
+  },
+  {
+   "after_segment": 224,
+   "cue": "Fingernails scraping the inside of an empty glass jar, very faint, under segment 225.",
+   "optional": true
+  }
+ ],
+ "pronunciation": [
+  {
+   "text": "Khadija",
+   "hint": "kha-DI-ja; the « kh » is guttural, like the Spanish jota or German « ach ». Not « ka-dija »."
+  },
+  {
+   "text": "Dija",
+   "hint": "DI-ja (French j as in « jour »)."
+  },
+  {
+   "text": "Fatiha",
+   "hint": "FA-ti-ha, with a light breathy h; three syllables, not « fa-tia »."
+  },
+  {
+   "text": "Naïma",
+   "hint": "na-I-ma, three syllables."
+  },
+  {
+   "text": "Hamid",
+   "hint": "a-MID in French, with a slight breathy h if possible."
+  },
+  {
+   "text": "Amrani",
+   "hint": "am-ra-NI."
+  },
+  {
+   "text": "Bab Boujloud",
+   "hint": "bab bouj-LOUD (j as in « jour », ou as in « loup »)."
+  },
+  {
+   "text": "Bab Ftouh",
+   "hint": "bab f-TOUH; f and t together, final h breathed."
+  },
+  {
+   "text": "musée Batha",
+   "hint": "BAT-ha; t and h are separate, not an English « th »."
+  },
+  {
+   "text": "Tanger",
+   "hint": "French: tan-JÉ."
+  },
+  {
+   "text": "Rabat",
+   "hint": "ra-BAT, final t pronounced."
+  },
+  {
+   "text": "dirhams",
+   "hint": "dir-AM (French usage; h silent, s silent)."
+  },
+  {
+   "text": "djellaba",
+   "hint": "djè-la-BA."
+  },
+  {
+   "text": "kessa",
+   "hint": "KÈS-sa."
+  },
+  {
+   "text": "hammam",
+   "hint": "a-MAM in French (or am-MAM)."
+  },
+  {
+   "text": "henné",
+   "hint": "è-NÉ."
+  },
+  {
+   "text": "Safi",
+   "hint": "SA-fi."
+  },
+  {
+   "text": "lalla / Lalla",
+   "hint": "LAL-la."
+  },
+  {
+   "text": "aafak",
+   "hint": "a-FAK, with a slight throaty catch on the first a (Arabic ʿayn)."
+  },
+  {
+   "text": "Na'am",
+   "hint": "na-AM, two syllables with a small glottal catch between them."
+  },
+  {
+   "text": "Balak",
+   "hint": "BA-lak."
+  },
+  {
+   "text": "Venga",
+   "hint": "Spanish: BÉN-ga (Spanish v is close to b)."
+  },
+  {
+   "text": "Ya está",
+   "hint": "Spanish: ya es-TA, stress on the last syllable."
+  },
+  {
+   "text": "Fiat",
+   "hint": "FI-at, two syllables."
+  },
+  {
+   "text": "11 h 20",
+   "hint": "onze heures vingt."
+  },
+  {
+   "text": "11 h 24",
+   "hint": "onze heures vingt-quatre."
+  },
+  {
+   "text": "2014 / Vigilance 2014",
+   "hint": "deux mille quatorze."
+  },
+  {
+   "text": "2 dirhams (notebook entry)",
+   "hint": "deux dirhams."
+  },
+  {
+   "text": "scratch",
+   "hint": "French: skratch."
+  }
+ ]
+}

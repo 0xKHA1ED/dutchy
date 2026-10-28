@@ -1,0 +1,213 @@
+# Vocabulary report (script)
+Words checked: 3737. Outside the 5000 most frequent forms: 399 (10.7%), 207 distinct.
+
+## Above core, within the top 10000 forms
+- accroché: 1x, chapters 1, rank 5027
+- refaits: 1x, chapters 1, rank 5164
+- horloge: 2x, chapters 1, 3, rank 5167
+- sonné: 1x, chapters 4, rank 5331
+- appuyé: 3x, chapters 1, 2, rank 5377
+- appuyer: 1x, chapters 3, rank 5377
+- glissé: 4x, chapters 1, 3, 4, rank 5435
+- glisser: 1x, chapters 3, rank 5435
+- internationale: 1x, chapters 2, rank 5455
+- collé: 2x, chapters 4, rank 5515
+- planches: 1x, chapters 4, rank 5540
+- biscuits: 2x, chapters 1, 4, rank 5555
+- savon (palette): 6x, chapters 1, 2, 3, 4, rank 5604
+- carton: 3x, chapters 1, 2, 4, rank 5711
+- nus: 1x, chapters 1, rank 5723
+- croisés: 1x, chapters 1, rank 5765
+- vitre: 2x, chapters 1, 4, rank 5768
+- ralentir: 1x, chapters 4, rank 5811
+- ralenti: 1x, chapters 4, rank 5811
+- bancs: 2x, chapters 1, rank 5821
+- banc: 3x, chapters 1, rank 5821
+- carnet: 3x, chapters 1, rank 5851
+- pendaient: 2x, chapters 1, 2, rank 5906
+- sèche: 1x, chapters 3, rank 5928
+- ri: 5x, chapters 2, 3, rank 6016
+- onze: 1x, chapters 1, rank 6109
+- pâle: 1x, chapters 3, rank 6114
+- pharmacie: 1x, chapters 1, rank 6150
+- gant (palette): 12x, chapters 1, 2, 3, rank 6183
+- talons: 2x, chapters 1, 4, rank 6230
+- amende: 1x, chapters 1, rank 6354
+- rideau: 1x, chapters 4, rank 6453
+- repoussé: 1x, chapters 3, rank 6457
+- graines: 3x, chapters 1, 4, rank 6515
+- mouillées: 1x, chapters 1, rank 6634
+- mouillée: 2x, chapters 2, 4, rank 6634
+- mouillés: 1x, chapters 2, rank 6634
+- mouillé: 1x, chapters 2, rank 6634
+- commençait: 1x, chapters 1, rank 6678
+- marron: 1x, chapters 1, rank 6909
+- gilet: 2x, chapters 4, rank 6981
+- comptoir: 3x, chapters 1, 3, 4, rank 7092
+- vapeur (palette): 5x, chapters 3, rank 7242
+- mèches: 1x, chapters 2, rank 7398
+- reconnaît: 1x, chapters 1, rank 7564
+- seaux: 3x, chapters 1, 2, 4, rank 7570
+- seau (palette): 19x, chapters 1, 2, 3, rank 7570
+- étiquette: 1x, chapters 1, rank 7595
+- soulevé: 1x, chapters 4, rank 7653
+- mou: 1x, chapters 4, rank 7800
+- coude: 4x, chapters 1, 2, 3, rank 7843
+- gaie: 1x, chapters 4, rank 7953
+- clou: 1x, chapters 1, rank 8004
+- ruelle: 4x, chapters 4, rank 8029
+- enfoncée: 1x, chapters 4, rank 8157
+- cognaient: 1x, chapters 4, rank 8176
+- pâte: 1x, chapters 4, rank 8256
+- touchant: 1x, chapters 3, rank 8275
+- capsule: 1x, chapters 4, rank 8315
+- buvait: 1x, chapters 4, rank 8369
+- brun: 1x, chapters 2, rank 8497
+- nœud: 2x, chapters 2, 3, rank 8537
+- mule: 3x, chapters 4, rank 8668
+- menthe: 1x, chapters 4, rank 8675
+- trempée: 1x, chapters 3, rank 8750
+- presser: 2x, chapters 1, rank 8791
+- envoler: 1x, chapters 1, rank 8806
+- évier: 1x, chapters 1, rank 8930
+- plié: 4x, chapters 1, 4, rank 8959
+- pliait: 2x, chapters 2, 4, rank 8959
+- briquet: 2x, chapters 1, rank 9049
+- mangeait: 1x, chapters 3, rank 9300
+- voleuses: 1x, chapters 1, rank 9350
+- voleuse: 3x, chapters 1, 2, rank 9350
+- dôme: 2x, chapters 1, 3, rank 9358
+- contournées: 1x, chapters 4, rank 9427
+- septième: 1x, chapters 1, rank 9510
+- creux: 2x, chapters 3, rank 9569
+- réclamé: 1x, chapters 1, rank 9702
+- caoutchouc: 1x, chapters 1, rank 9772
+- frotte: 2x, chapters 2, 3, rank 9804
+- frotter: 1x, chapters 2, rank 9804
+- frottait: 1x, chapters 3, rank 9804
+- frotté: 1x, chapters 4, rank 9804
+- gratté: 1x, chapters 4, rank 9830
+- écrivait: 1x, chapters 1, rank 9969
+- hanche: 7x, chapters 2, 3, 4, rank 9980
+
+## Rare or unknown (not in the top 10000; may be inflections, names or cognates)
+- dirhams (palette): 13x, chapters 1, 2, 3, 4, not in top 10000
+- carrelage (palette): 10x, chapters 1, 2, 3, not in top 10000
+- foulard: 7x, chapters 1, 2, 3, 4, not in top 10000
+- murmuré: 7x, chapters 1, 2, 3, 4, not in top 10000
+- quelqu'un: 6x, chapters 1, 2, 3, not in top 10000
+- claquette: 6x, chapters 1, 3, not in top 10000
+- tiède: 5x, chapters 1, 2, 3, 4, not in top 10000
+- robinet: 5x, chapters 2, 3, not in top 10000
+- marbre: 5x, chapters 3, not in top 10000
+- gommage (palette): 4x, chapters 1, 2, 3, not in top 10000
+- lalla (palette): 4x, chapters 1, 2, not in top 10000
+- parcmètre (palette): 3x, chapters 1, 4, not in top 10000
+- tournesol: 3x, chapters 1, 4, not in top 10000
+- noué: 3x, chapters 1, 4, not in top 10000
+- djellaba: 3x, chapters 1, 4, not in top 10000
+- pli: 3x, chapters 1, 4, not in top 10000
+- ongle: 3x, chapters 1, 4, not in top 10000
+- scratch: 3x, chapters 1, 4, not in top 10000
+- trente-neuf: 3x, chapters 1, 2, 4, not in top 10000
+- ballerines: 3x, chapters 1, 2, 4, not in top 10000
+- henné: 3x, chapters 1, 2, not in top 10000
+- penchée: 3x, chapters 2, 3, 4, not in top 10000
+- paume: 2x, chapters 1, 2, not in top 10000
+- clac: 2x, chapters 1, not in top 10000
+- vingt-sept: 2x, chapters 1, 2, not in top 10000
+- sandales: 2x, chapters 1, 4, not in top 10000
+- chaussette: 2x, chapters 1, 2, not in top 10000
+- dénoué: 2x, chapters 1, 4, not in top 10000
+- tabouret: 2x, chapters 1, 4, not in top 10000
+- aigu: 2x, chapters 2, 3, not in top 10000
+- dynamique: 2x, chapters 2, not in top 10000
+- trente-huit: 2x, chapters 2, 4, not in top 10000
+- quatre-vingt-dix: 2x, chapters 2, 4, not in top 10000
+- centimètre: 2x, chapters 2, 3, not in top 10000
+- está: 2x, chapters 3, not in top 10000
+- pavés: 2x, chapters 4, not in top 10000
+- essuie-glace: 2x, chapters 4, not in top 10000
+- autocollant: 1x, chapters 1, not in top 10000
+- claquer: 1x, chapters 1, not in top 10000
+- prix-là: 1x, chapters 1, not in top 10000
+- porte-gobelet: 1x, chapters 1, not in top 10000
+- penchés: 1x, chapters 1, not in top 10000
+- capots: 1x, chapters 1, not in top 10000
+- cornets: 1x, chapters 1, not in top 10000
+- cahier: 1x, chapters 1, not in top 10000
+- poteau: 1x, chapters 1, not in top 10000
+- affiché: 1x, chapters 1, not in top 10000
+- retombée: 1x, chapters 1, not in top 10000
+- safi: 1x, chapters 1, not in top 10000
+- dh: 1x, chapters 1, not in top 10000
+- descendant: 1x, chapters 1, not in top 10000
+- hammam (palette): 1x, chapters 1, not in top 10000
+- soupiré: 1x, chapters 1, not in top 10000
+- noués: 1x, chapters 1, not in top 10000
+- aplati: 1x, chapters 1, not in top 10000
+- claquettes (palette): 1x, chapters 1, not in top 10000
+- pointure: 1x, chapters 1, not in top 10000
+- dorée (palette): 1x, chapters 1, not in top 10000
+- crêpes: 1x, chapters 1, not in top 10000
+- trente-sept: 1x, chapters 1, not in top 10000
+- ficelle: 1x, chapters 1, not in top 10000
+- porte-monnaie: 1x, chapters 1, not in top 10000
+- déshabillée: 1x, chapters 1, not in top 10000
+- foulards: 1x, chapters 1, not in top 10000
+- soixante-trois: 1x, chapters 1, not in top 10000
+- raclaient: 1x, chapters 1, not in top 10000
+- boitait: 1x, chapters 1, not in top 10000
+- bougeait: 1x, chapters 1, not in top 10000
+- emballage: 1x, chapters 1, not in top 10000
+- humidité: 1x, chapters 1, not in top 10000
+- assois: 1x, chapters 1, not in top 10000
+- kessa: 1x, chapters 1, not in top 10000
+- yaourts: 1x, chapters 1, not in top 10000
+- encadré: 1x, chapters 1, not in top 10000
+- fissure: 1x, chapters 1, not in top 10000
+- quarante-trois: 1x, chapters 1, not in top 10000
+- filtrer: 1x, chapters 2, not in top 10000
+- remplissait: 1x, chapters 2, not in top 10000
+- raclait: 1x, chapters 2, not in top 10000
+- argile: 1x, chapters 2, not in top 10000
+- étagère: 1x, chapters 2, not in top 10000
+- raie: 1x, chapters 2, not in top 10000
+- étroit: 1x, chapters 2, not in top 10000
+- ressemelées: 1x, chapters 2, not in top 10000
+- penché: 1x, chapters 2, not in top 10000
+- échauffe: 1x, chapters 2, not in top 10000
+- venga: 1x, chapters 2, not in top 10000
+- riait: 1x, chapters 2, not in top 10000
+- racler: 1x, chapters 2, not in top 10000
+- aafak: 1x, chapters 2, not in top 10000
+- redescendue: 1x, chapters 2, not in top 10000
+- rabat: 1x, chapters 2, not in top 10000
+- quatorze: 1x, chapters 2, not in top 10000
+- vingt-neuf: 1x, chapters 2, not in top 10000
+- pesait: 1x, chapters 2, not in top 10000
+- vingt-quatre: 1x, chapters 2, not in top 10000
+- sifflait: 1x, chapters 3, not in top 10000
+- boulangerie: 1x, chapters 3, not in top 10000
+- usé: 1x, chapters 3, not in top 10000
+- carreau: 1x, chapters 3, not in top 10000
+- carreaux: 1x, chapters 3, not in top 10000
+- vingt-six: 1x, chapters 3, not in top 10000
+- tapant: 1x, chapters 3, not in top 10000
+- couplet: 1x, chapters 3, not in top 10000
+- treize: 1x, chapters 3, not in top 10000
+- fatiha: 1x, chapters 3, not in top 10000
+- nette: 1x, chapters 3, not in top 10000
+- semelle: 1x, chapters 4, not in top 10000
+- mi-chemin: 1x, chapters 4, not in top 10000
+- gouttaient: 1x, chapters 4, not in top 10000
+- quatre-vingts: 1x, chapters 4, not in top 10000
+- velours: 1x, chapters 4, not in top 10000
+- prenaient: 1x, chapters 4, not in top 10000
+- lisses: 1x, chapters 4, not in top 10000
+- balak: 1x, chapters 4, not in top 10000
+- sabots: 1x, chapters 4, not in top 10000
+- recompté: 1x, chapters 4, not in top 10000
+- cornet: 1x, chapters 4, not in top 10000
+- stationnement: 1x, chapters 4, not in top 10000
+- lue: 1x, chapters 4, not in top 10000
