@@ -45,13 +45,14 @@ class LLM:
             max_tokens=max_tokens,
             system=system,
             messages=messages,
-            thinking={"type": "adaptive"},
+            thinking={"type": "adaptive", "display": "summarized"},
             output_config={"effort": effort},
             cache_control={"type": "ephemeral"},
             betas=["server-side-fallback-2026-07-01"],
             fallbacks="default",
         ) as stream:
             msg = stream.get_final_message()
+        self._record(label, system, messages, msg)
         if msg.stop_reason == "refusal":
             raise Refused(f"{label}: {msg.stop_details}")
         if msg.stop_reason == "max_tokens":
@@ -60,6 +61,22 @@ class LLM:
         text = "".join(b.text for b in msg.content if b.type == "text")
         self._log(label, effort, msg.usage, time.time() - start, msg.model)
         return text, msg.content
+
+    def _record(self, label, system, messages, msg):
+        """Keep the full request and the model's (summarised) thinking next to
+        the call log, so any call can be inspected after a real run."""
+        work = self.log_path.parent
+        self._save_request(label, system, messages)
+        thinking = "\n\n".join(b.thinking for b in msg.content if b.type == "thinking" and b.thinking)
+        dump = work / "thinking" / f"{label}.md"
+        dump.parent.mkdir(exist_ok=True)
+        dump.write_text(f"# {label} ({msg.stop_reason})\n\n{thinking}\n", encoding="utf-8")
+
+    def _save_request(self, label, system, messages):
+        dump = self.log_path.parent / "requests" / f"{label}.md"
+        dump.parent.mkdir(exist_ok=True)
+        turns = "\n\n".join(f"# {m['role'].upper()}\n\n{as_text(m['content'])}" for m in messages)
+        dump.write_text(f"# SYSTEM\n\n{system}\n\n{turns}\n", encoding="utf-8")
 
     def _log(self, label, effort, usage, seconds, served_by):
         cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
@@ -81,9 +98,15 @@ class LLM:
         size = len(system) + sum(len(json.dumps(m["content"], default=str)) for m in messages)
         with self.lock, self.log_path.open("a", encoding="utf-8") as f:
             f.write(json.dumps({"call": label, "approx_input_tokens": size // 4}) + "\n")
-        dump = self.log_path.parent / "requests" / f"{label}.md"
-        dump.parent.mkdir(exist_ok=True)
-        last = messages[-1]["content"]
-        dump.write_text(f"# SYSTEM\n\n{system}\n\n# USER (last turn)\n\n{last}\n", encoding="utf-8")
+        self._save_request(label, system, messages)
         text = stub(label)
         return text, [{"type": "text", "text": text}]
+
+
+def as_text(content):
+    """A message's content as text: a string as is, content blocks by their text
+    (an earlier turn's thinking is in that turn's own thinking file)."""
+    if isinstance(content, str):
+        return content
+    return "".join(getattr(b, "text", None) or (b.get("text", "") if isinstance(b, dict) else "")
+                   for b in content)

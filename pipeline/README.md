@@ -13,13 +13,13 @@ python -m pipeline.run
 A story takes about 55 model calls and a while to finish. Everything lands in `library/<id>/`:
 
 - `story.md`, `report-card.md`, `image-prompt.md`, `translation.json`, `translation-en.md` (the English translation as a page to read), `tts-script.json`
-- `work/`: every stage's output, the vocabulary reports, and `calls.jsonl` (tokens and cost of each call)
+- `work/`: every stage's output, the vocabulary reports, `calls.jsonl` (tokens and cost of each call), `requests/` (the full request each call sent) and `thinking/` (the model's summarised thinking for each call)
 
 The finished story is added as one row to `library/ledger.jsonl`. A discarded story also gets a row, with `status: discarded`. The ledger feeds the cooldowns and the director's view of what the library already holds.
 
 If a run stops (network, rate limit), `python -m pipeline.run --resume <id>` continues it. Stages whose output already exists are skipped.
 
-`python -m pipeline.run --dry-run` makes no API calls. It returns stub outputs and saves every request it would send to `work/requests/`, so you can check how prompts are assembled and how big they are. Dry runs go to `library/<id>-dry/`, which git ignores.
+`python -m pipeline.run --dry-run` makes no API calls. It returns stub outputs and saves every request it would send to `work/requests/`, as real runs do, so you can check how prompts are assembled and how big they are. Dry runs go to `library/<id>-dry/`, which git ignores.
 
 ## Files
 
