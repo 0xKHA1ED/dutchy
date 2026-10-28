@@ -354,7 +354,7 @@
     ctx.restore();
   }
   // Little old Fiat from the side.
-  function car(ctx, x, y, s = 1, color = '#c9b48a', t = 0) {
+  function car(ctx, x, y, s = 1, color = '#e6e2d8', t = 0) {
     ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
     cut(ctx, color, c => { c.beginPath(); c.moveTo(-160, -20); c.lineTo(-150, -70); c.lineTo(-90, -78); c.lineTo(-60, -125); c.lineTo(70, -125); c.lineTo(105, -78); c.lineTo(160, -70); c.lineTo(165, -20); c.closePath(); });
     ctx.fillStyle = 'rgba(30,40,55,0.85)'; ctx.beginPath(); ctx.moveTo(-50, -80); ctx.lineTo(-30, -115); ctx.lineTo(60, -115); ctx.lineTo(90, -80); ctx.closePath(); ctx.fill();
@@ -497,6 +497,7 @@
       ctx.moveTo(-60, 150); ctx.bezierCurveTo(-150, 40, -140, -170, -10, -186);
       ctx.bezierCurveTo(70, -192, 110, -140, 104, -86); ctx.quadraticCurveTo(70, -110, 52, -60);
       ctx.quadraticCurveTo(40, 20, 30, 80); ctx.quadraticCurveTo(10, 140, -60, 150); ctx.fill();
+      ctx.fillStyle = 'rgba(10,8,14,0.45)'; ctx.fill(); // keep the scarf darker than the light, so it reads as cloth
       ctx.strokeStyle = withAlpha(rim, 0.35); ctx.lineWidth = 3; ctx.stroke();
     }
     if (o.earring) { ctx.fillStyle = C.gold; ctx.beginPath(); ctx.arc(o.scarf === null ? 10 : 36, o.scarf === null ? 46 : 60, 6, 0, 7); ctx.fill(); glow(ctx, o.scarf === null ? 10 : 36, o.scarf === null ? 46 : 60, 28, C.gold, 0.7); }

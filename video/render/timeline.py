@@ -90,6 +90,33 @@ def ass_time(t):
     return f"{int(h)}:{int(m):02d}:{s:05.2f}"
 
 
+def snap_cues(cues, sil):
+    """Move each cue start onto the end of a nearby pause: sentences usually
+    start right after one, and this corrects the even-spread estimate."""
+    ends = sorted(b for a, b in sil)
+    import bisect
+    for c in cues:
+        k = bisect.bisect_left(ends, c[0] - 1.2)
+        near = [e for e in ends[k:k + 6] if abs(e - c[0]) <= 1.2]
+        if near:
+            c[0] = min(near, key=lambda e: abs(e - c[0])) - 0.08
+    for i in range(len(cues) - 1):
+        a, b = cues[i], cues[i + 1]
+        if b[0] <= a[0] + 0.5:
+            b[0] = a[0] + 0.5
+        a[1] = min(max(a[1], a[0] + 1.2), b[0] - 0.04)
+        if 0 < b[0] - a[1] < 0.6:
+            a[1] = b[0] - 0.04
+    # Cues too short to read join the next line from the same voice type.
+    out = []
+    for c in cues:
+        if out and out[-1][1] - out[-1][0] < 1.0 and out[-1][3] == c[3]:
+            out[-1] = [out[-1][0], c[1], out[-1][2] + " " + c[2], c[3]]
+        else:
+            out.append(list(c))
+    return out
+
+
 def sentence_cues(ordered, sentences):
     """Time each translated sentence by where its French text falls in the
     narration: characters are spread evenly over their segment's span."""
@@ -131,13 +158,14 @@ def main():
     ordered = [segs[i] for i in sorted(segs)]
     attach_english(ordered, trans["sentences"])
     chunks = json.load(open(os.path.join(build, "audio", "chunks.json")))
-    t, real, files = 0.0, [], []
+    t, real, files, allsil = 0.0, [], [], []
     for i, ids in enumerate(chunks, 1):
         wav = os.path.join(build, "audio", f"chunk{i:02d}.wav")
         spans, dur, ok = align_chunk([segs[x] for x in ids], wav)
         real.append(ok)
         if ok:
             files.append(wav)
+            allsil += [(t + a, t + b) for a, b in silences(wav)[0]]
         for x, (a, b) in zip(ids, spans):
             segs[x]["start"], segs[x]["end"], segs[x]["chunk"] = t + a, t + b, i
         t += dur
@@ -180,7 +208,7 @@ Style: Speaker,DejaVu Sans,30,&H00A8D8F0,&H00FFFFFF,&H00101010,&H90000000,0,1,0,
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     lines = []
-    for a, b, x, dialogue in sentence_cues(ordered, trans["sentences"]):
+    for a, b, x, dialogue in snap_cues(sentence_cues(ordered, trans["sentences"]), allsil):
         style = "Speaker" if dialogue else "Sub"
         lines.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},{style},,0,0,0,,{x}")
     open(os.path.join(build, "subs.ass"), "w").write(head + "\n".join(lines) + "\n")

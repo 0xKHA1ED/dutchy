@@ -12,7 +12,7 @@ KEY = os.environ.get("DUTCHY_GEMINI_KEY") or os.environ["GEMINI_API_KEY"]
 # the narrator performs the minor characters, audiobook style.
 VOICES = {"Narratrice": "Sulafat", "Khadija": "Gacrux"}
 MINOR = {"souad", "dija", "fatiha", "voisine", "passant"}
-TARGET_CHARS = 1900
+TARGET_CHARS = int(os.environ.get("DUTCHY_TTS_CHUNK_CHARS", 2500))
 
 
 def chunk(segments):
