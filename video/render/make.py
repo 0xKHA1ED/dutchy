@@ -1,6 +1,7 @@
 """Assemble the story video: timeline, scene clips, narration, burnt-in subtitles.
 
 python video/render/make.py <story id> [--jobs 4] [--only s03,s04]
+Run video/tts/align.sh first so subtitles and scene beats use real word timings.
 Output: video/build/<id>/<id>.mp4. Chunks with no audio yet become silence,
 so a full preview can be cut before the narration is finished.
 """
