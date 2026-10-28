@@ -314,6 +314,10 @@ class Story:
                 self.save(f"../{name}", json.dumps(bare_json(text), ensure_ascii=False, indent=1))
             except ValueError:
                 print(f"warning: {name} is not valid JSON; the raw output is in work/")
+        try:
+            self.save("../translation-en.md", translation_markdown(bare_json(translation)))
+        except ValueError:
+            pass
         row = bare_json(entry)
         row.update({"id": self.id, "date": today(), "status": "published", "roll": roll_used,
                     "scores": r["final_json"].get("scores", row.get("scores"))})
@@ -322,6 +326,16 @@ class Story:
 
 
 # -- helpers ----------------------------------------------------------------
+
+def translation_markdown(t):
+    """The literary translation as a readable page, for editors who don't read the original."""
+    title = t.get("title", {})
+    out = [f"# {title.get('english', '')}", "", f"*English translation of* {title.get('original', '')}", "",
+           t.get("literary_translation", "").strip()]
+    if t.get("translator_notes"):
+        out += ["", "## Translator notes", ""] + [f"- {n}" for n in t["translator_notes"]]
+    return "\n".join(out) + "\n"
+
 
 def today():
     return datetime.date.today().isoformat()

@@ -12,7 +12,7 @@ python -m pipeline.run
 
 A story takes about 55 model calls and a while to finish. Everything lands in `library/<id>/`:
 
-- `story.md`, `report-card.md`, `image-prompt.md`, `translation.json`, `tts-script.json`
+- `story.md`, `report-card.md`, `image-prompt.md`, `translation.json`, `translation-en.md` (the English translation as a page to read), `tts-script.json`
 - `work/`: every stage's output, the vocabulary reports, and `calls.jsonl` (tokens and cost of each call)
 
 The finished story is added as one row to `library/ledger.jsonl`. A discarded story also gets a row, with `status: discarded`. The ledger feeds the cooldowns and the director's view of what the library already holds.
