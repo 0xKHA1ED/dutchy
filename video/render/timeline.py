@@ -1,0 +1,193 @@
+"""Build timing for scenes and subtitles from the TTS chunks.
+
+python video/render/timeline.py library/<id> video/build/<id>
+Writes build/<id>/segments.json (every segment with start/end and its English
+sentences), scenes.json, timing/sNN.json per scene and subs.ass. Chunks
+without audio yet get estimated times, so scenes can be drafted early.
+"""
+import json, os, re, subprocess, sys, unicodedata
+
+CPS = 14.4          # measured on chunk 1
+GAP = 0.6           # seconds of silence assumed between segments when estimating
+SCENE_CHARS = 1300  # about 90 seconds of narration per scene
+
+
+def norm(s):
+    s = unicodedata.normalize("NFKD", s.lower())
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
+def attach_english(segments, sentences):
+    """Give each segment the translated sentences that start inside it."""
+    owner = []
+    for s in segments:
+        s["en"] = []
+        if s["id"] == 1 or s["text"].strip().isdigit():
+            continue
+        owner += [s] * len(norm(s["text"]))
+    pos = 0
+    for x in sentences:
+        owner[min(pos, len(owner) - 1)]["en"].append(x["english"].lstrip("— ").strip())
+        pos += len(norm(x["original"]))
+
+
+def silences(wav):
+    out = subprocess.run(["ffmpeg", "-hide_banner", "-i", wav, "-af", "silencedetect=n=-38dB:d=0.25", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
+    st = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", out)]
+    en = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", out)]
+    dur = float(re.search(r"Duration: (\d+):(\d+):([\d.]+)", out).expand(r"\1")) * 3600 + \
+          float(re.search(r"Duration: (\d+):(\d+):([\d.]+)", out).group(2)) * 60 + \
+          float(re.search(r"Duration: (\d+):(\d+):([\d.]+)", out).group(3))
+    return list(zip(st, en)), dur
+
+
+def weight(s):
+    return len(s["text"]) / CPS + GAP + s.get("pause_after", 0)
+
+
+def align_chunk(segs, wav):
+    """Segment boundaries = expected positions snapped to real silences."""
+    if not wav or not os.path.exists(wav):
+        t, out = 0.0, []
+        for s in segs:
+            d = weight(s); out.append((t, t + d - GAP - s.get("pause_after", 0))); t += d
+        return out, t, False
+    sil, dur = silences(wav)
+    sil = [x for x in sil if x[1] - x[0] >= 0.25]
+    lead = sil[0][1] if sil and sil[0][0] < 0.05 else 0.0
+    tail = sil[-1][0] if sil and abs(sil[-1][1] - dur) < 0.05 else dur
+    ws = [weight(s) for s in segs]
+    scale = (tail - lead) / sum(ws)
+    bounds, acc, used = [(lead, lead)], lead, -1
+    for i, w in enumerate(ws[:-1]):
+        acc += w * scale
+        # nearest unused silence after the previous boundary, within 4 s
+        best = None
+        for k in range(used + 1, len(sil)):
+            mid = (sil[k][0] + sil[k][1]) / 2
+            if mid <= bounds[-1][1] + 0.3:
+                continue
+            if abs(mid - acc) < 4 and (best is None or abs(mid - acc) < abs(best[1] - acc)):
+                best = (k, mid)
+            if mid > acc + 4:
+                break
+        if best:
+            used = best[0]; b = sil[best[0]]
+            bounds.append(b); acc = b[1]
+        else:
+            bounds.append((acc, acc))
+    out = []
+    for i in range(len(segs)):
+        start = bounds[i][1]
+        end = bounds[i + 1][0] if i + 1 < len(bounds) else tail
+        out.append((start, max(end, start + 0.3)))
+    return out, dur, True
+
+
+def ass_time(t):
+    h, t = divmod(t, 3600); m, s = divmod(t, 60)
+    return f"{int(h)}:{int(m):02d}:{s:05.2f}"
+
+
+def sentence_cues(ordered, sentences):
+    """Time each translated sentence by where its French text falls in the
+    narration: characters are spread evenly over their segment's span."""
+    stream = []  # (segment, char index within segment, segment length)
+    for s in ordered:
+        if s["id"] == 1 or s["text"].strip().isdigit():
+            continue
+        n = len(norm(s["text"]))
+        stream += [(s, i, n) for i in range(n)]
+
+    def at(pos, end=False):
+        s, i, n = stream[min(pos, len(stream) - 1)]
+        k = (i + (1 if end else 0)) / n
+        return s["start"] + (s["end"] - s["start"]) * k
+
+    cues, pos = [], 0
+    for x in sentences:
+        n = len(norm(x["original"]))
+        a, b = at(pos), at(pos + n - 1, end=True)
+        en = x["english"].strip()
+        dialogue = stream[min(pos, len(stream) - 1)][0]["voice"] != "narrator"
+        en = en.lstrip("— ").strip()
+        cues.append([a, b, en, dialogue])
+        pos += n
+    # Keep each cue on screen at least 1.2 s and close small gaps, without overlaps.
+    for i, c in enumerate(cues):
+        nxt = cues[i + 1][0] if i + 1 < len(cues) else c[1] + 2
+        c[1] = min(max(c[1], c[0] + 1.2), nxt - 0.04) if nxt - c[1] > 0.04 else c[1]
+        if 0 < nxt - c[1] < 0.6:
+            c[1] = nxt - 0.04
+    return cues
+
+
+def main():
+    lib, build = sys.argv[1], sys.argv[2]
+    script = json.load(open(os.path.join(lib, "tts-script.json")))
+    trans = json.load(open(os.path.join(lib, "translation.json")))
+    segs = {s["id"]: dict(s) for s in script["segments"]}
+    ordered = [segs[i] for i in sorted(segs)]
+    attach_english(ordered, trans["sentences"])
+    chunks = json.load(open(os.path.join(build, "audio", "chunks.json")))
+    t, real, files = 0.0, [], []
+    for i, ids in enumerate(chunks, 1):
+        wav = os.path.join(build, "audio", f"chunk{i:02d}.wav")
+        spans, dur, ok = align_chunk([segs[x] for x in ids], wav)
+        real.append(ok)
+        if ok:
+            files.append(wav)
+        for x, (a, b) in zip(ids, spans):
+            segs[x]["start"], segs[x]["end"], segs[x]["chunk"] = t + a, t + b, i
+        t += dur
+    total = t
+    json.dump(ordered, open(os.path.join(build, "segments.json"), "w"), ensure_ascii=False, indent=1)
+
+    # Scenes: about SCENE_CHARS each, cut only before narrator lines, always at chapters.
+    scenes, cur, n = [], [], 0
+    for s in ordered:
+        new_ch = cur and s["chapter"] != cur[-1]["chapter"] and cur[-1]["chapter"] > 0
+        if cur and s["voice"] == "narrator" and (new_ch or n > SCENE_CHARS):
+            scenes.append(cur); cur, n = [], 0
+        cur.append(s); n += len(s["text"])
+    scenes.append(cur)
+    out = []
+    os.makedirs(os.path.join(build, "timing"), exist_ok=True)
+    for k, sc in enumerate(scenes, 1):
+        start = 0.0 if k == 1 else sc[0]["start"]
+        end = scenes[k][0]["start"] if k < len(scenes) else total
+        tm = {"dur": round(end - start, 3),
+              "starts": {s["id"]: round(s["start"] - start, 3) for s in sc},
+              "ends": {s["id"]: round(s["end"] - start, 3) for s in sc}}
+        json.dump(tm, open(os.path.join(build, "timing", f"s{k:02d}.json"), "w"))
+        out.append({"scene": k, "start": round(start, 3), "end": round(end, 3), "dur": tm["dur"],
+                    "chapter": sc[0]["chapter"], "segments": [s["id"] for s in sc]})
+    json.dump(out, open(os.path.join(build, "scenes.json"), "w"), indent=1)
+
+    head = """[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,DejaVu Sans,30,&H00F2F2F2,&H00FFFFFF,&H00101010,&H90000000,0,0,0,0,100,100,0,0,1,2.2,0.8,2,140,140,46,1
+Style: Speaker,DejaVu Sans,30,&H00A8D8F0,&H00FFFFFF,&H00101010,&H90000000,0,1,0,0,100,100,0,0,1,2.2,0.8,2,140,140,46,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    lines = []
+    for a, b, x, dialogue in sentence_cues(ordered, trans["sentences"]):
+        style = "Speaker" if dialogue else "Sub"
+        lines.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},{style},,0,0,0,,{x}")
+    open(os.path.join(build, "subs.ass"), "w").write(head + "\n".join(lines) + "\n")
+    print(f"{len(scenes)} scenes, total {total/60:.1f} min, chunks with audio: {sum(real)}/{len(real)}")
+    for o in out:
+        print(f"  s{o['scene']:02d} ch{o['chapter']} {o['dur']:6.1f}s segs {o['segments'][0]}-{o['segments'][-1]}")
+
+
+if __name__ == "__main__":
+    main()
